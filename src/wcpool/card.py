@@ -137,6 +137,11 @@ def pick_hook(standings: dict) -> str:
         key=lambda pair: pair[0]["points"] - pair[1]["points"],
     )
     gap = best_pair[0]["points"] - best_pair[1]["points"]
+    if gap == 0:
+        tied = [p["name"] for p in players if p["points"] == best_pair[0]["points"]]
+        if best_pair[0]["points"] == leader_points:
+            return f"{' and '.join(tied)} tied at the top"
+        return f"{' and '.join(tied)} level on {best_pair[0]['points']}"
     return f"{best_pair[1]['name']} trails by {gap}"
 
 
