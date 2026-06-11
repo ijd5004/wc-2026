@@ -197,3 +197,26 @@ def test_hook_degenerate_pools():
     assert pick_hook({"players": [_player("Solo", 3, 9, 1)], "timeline": []}) == (
         "Solo leads the pool"
     )
+
+def test_hook_tied_leaders():
+    standings = {
+        "players": [
+            _player("Ann", 20, 40, 1),
+            _player("Ben", 20, 40, 1),
+            _player("Cal", 10, 40, 3),
+        ],
+        "timeline": [],
+    }
+    assert pick_hook(standings) == "Ann and Ben tied at the top"
+
+
+def test_hook_mid_table_tie_not_called_top():
+    standings = {
+        "players": [
+            _player("Ann", 20, 40, 1),
+            _player("Ben", 10, 40, 2),
+            _player("Cal", 10, 40, 2),
+        ],
+        "timeline": [],
+    }
+    assert pick_hook(standings) == "Ben and Cal level on 10"
