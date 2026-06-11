@@ -1,0 +1,17 @@
+{
+  "pool_name": "Site Test Pool",
+  "placeholder": false,
+  "third_place_final": false,
+  "scoring": {
+    "group_win": 3,
+    "group_draw": 1,
+    "advance": 3,
+    "stage_win_points": {"R32": 4, "R16": 6, "QF": 8, "SF": 10, "FINAL": 14},
+    "third_place_win": 4
+  },
+  "players": [
+    {"name": "Ann", "teams": ["FRA", "MEX"]},
+    {"name": "Bob", "teams": ["ARG", "GER"]},
+    {"name": "Cal", "teams": ["BRA", "XXX"]}
+  ]
+}
