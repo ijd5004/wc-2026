@@ -1,5 +1,342 @@
 {
-  "CAN": {"name": "Canada", "flag": "🇨🇦"},
-  "MEX": {"name": "Mexico", "flag": "🇲🇽"},
-  "USA": {"name": "United States", "flag": "🇺🇸"}
+  "ALB": {
+    "name": "Albania",
+    "flag": "🇦🇱"
+  },
+  "ALG": {
+    "name": "Algeria",
+    "flag": "🇩🇿"
+  },
+  "ARG": {
+    "name": "Argentina",
+    "flag": "🇦🇷"
+  },
+  "AUS": {
+    "name": "Australia",
+    "flag": "🇦🇺"
+  },
+  "AUT": {
+    "name": "Austria",
+    "flag": "🇦🇹"
+  },
+  "BEL": {
+    "name": "Belgium",
+    "flag": "🇧🇪"
+  },
+  "BFA": {
+    "name": "Burkina Faso",
+    "flag": "🇧🇫"
+  },
+  "BHR": {
+    "name": "Bahrain",
+    "flag": "🇧🇭"
+  },
+  "BOL": {
+    "name": "Bolivia",
+    "flag": "🇧🇴"
+  },
+  "BRA": {
+    "name": "Brazil",
+    "flag": "🇧🇷"
+  },
+  "CAN": {
+    "name": "Canada",
+    "flag": "🇨🇦"
+  },
+  "CHI": {
+    "name": "Chile",
+    "flag": "🇨🇱"
+  },
+  "CHN": {
+    "name": "China",
+    "flag": "🇨🇳"
+  },
+  "CIV": {
+    "name": "Ivory Coast",
+    "flag": "🇨🇮"
+  },
+  "CMR": {
+    "name": "Cameroon",
+    "flag": "🇨🇲"
+  },
+  "COD": {
+    "name": "DR Congo",
+    "flag": "🇨🇩"
+  },
+  "COL": {
+    "name": "Colombia",
+    "flag": "🇨🇴"
+  },
+  "CPV": {
+    "name": "Cape Verde",
+    "flag": "🇨🇻"
+  },
+  "CRC": {
+    "name": "Costa Rica",
+    "flag": "🇨🇷"
+  },
+  "CRO": {
+    "name": "Croatia",
+    "flag": "🇭🇷"
+  },
+  "CUW": {
+    "name": "Curaçao",
+    "flag": "🇨🇼"
+  },
+  "CZE": {
+    "name": "Czechia",
+    "flag": "🇨🇿"
+  },
+  "DEN": {
+    "name": "Denmark",
+    "flag": "🇩🇰"
+  },
+  "ECU": {
+    "name": "Ecuador",
+    "flag": "🇪🇨"
+  },
+  "EGY": {
+    "name": "Egypt",
+    "flag": "🇪🇬"
+  },
+  "ENG": {
+    "name": "England",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+  },
+  "ESP": {
+    "name": "Spain",
+    "flag": "🇪🇸"
+  },
+  "FRA": {
+    "name": "France",
+    "flag": "🇫🇷"
+  },
+  "GAB": {
+    "name": "Gabon",
+    "flag": "🇬🇦"
+  },
+  "GEO": {
+    "name": "Georgia",
+    "flag": "🇬🇪"
+  },
+  "GER": {
+    "name": "Germany",
+    "flag": "🇩🇪"
+  },
+  "GHA": {
+    "name": "Ghana",
+    "flag": "🇬🇭"
+  },
+  "GRE": {
+    "name": "Greece",
+    "flag": "🇬🇷"
+  },
+  "GUA": {
+    "name": "Guatemala",
+    "flag": "🇬🇹"
+  },
+  "HAI": {
+    "name": "Haiti",
+    "flag": "🇭🇹"
+  },
+  "HON": {
+    "name": "Honduras",
+    "flag": "🇭🇳"
+  },
+  "HUN": {
+    "name": "Hungary",
+    "flag": "🇭🇺"
+  },
+  "IDN": {
+    "name": "Indonesia",
+    "flag": "🇮🇩"
+  },
+  "IRL": {
+    "name": "Ireland",
+    "flag": "🇮🇪"
+  },
+  "IRN": {
+    "name": "Iran",
+    "flag": "🇮🇷"
+  },
+  "IRQ": {
+    "name": "Iraq",
+    "flag": "🇮🇶"
+  },
+  "ISL": {
+    "name": "Iceland",
+    "flag": "🇮🇸"
+  },
+  "ITA": {
+    "name": "Italy",
+    "flag": "🇮🇹"
+  },
+  "JAM": {
+    "name": "Jamaica",
+    "flag": "🇯🇲"
+  },
+  "JOR": {
+    "name": "Jordan",
+    "flag": "🇯🇴"
+  },
+  "JPN": {
+    "name": "Japan",
+    "flag": "🇯🇵"
+  },
+  "KOR": {
+    "name": "South Korea",
+    "flag": "🇰🇷"
+  },
+  "KSA": {
+    "name": "Saudi Arabia",
+    "flag": "🇸🇦"
+  },
+  "KUW": {
+    "name": "Kuwait",
+    "flag": "🇰🇼"
+  },
+  "MAR": {
+    "name": "Morocco",
+    "flag": "🇲🇦"
+  },
+  "MEX": {
+    "name": "Mexico",
+    "flag": "🇲🇽"
+  },
+  "MLI": {
+    "name": "Mali",
+    "flag": "🇲🇱"
+  },
+  "NED": {
+    "name": "Netherlands",
+    "flag": "🇳🇱"
+  },
+  "NGA": {
+    "name": "Nigeria",
+    "flag": "🇳🇬"
+  },
+  "NOR": {
+    "name": "Norway",
+    "flag": "🇳🇴"
+  },
+  "NZL": {
+    "name": "New Zealand",
+    "flag": "🇳🇿"
+  },
+  "OMA": {
+    "name": "Oman",
+    "flag": "🇴🇲"
+  },
+  "PAN": {
+    "name": "Panama",
+    "flag": "🇵🇦"
+  },
+  "PAR": {
+    "name": "Paraguay",
+    "flag": "🇵🇾"
+  },
+  "PER": {
+    "name": "Peru",
+    "flag": "🇵🇪"
+  },
+  "POL": {
+    "name": "Poland",
+    "flag": "🇵🇱"
+  },
+  "POR": {
+    "name": "Portugal",
+    "flag": "🇵🇹"
+  },
+  "QAT": {
+    "name": "Qatar",
+    "flag": "🇶🇦"
+  },
+  "ROU": {
+    "name": "Romania",
+    "flag": "🇷🇴"
+  },
+  "RSA": {
+    "name": "South Africa",
+    "flag": "🇿🇦"
+  },
+  "SCO": {
+    "name": "Scotland",
+    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+  },
+  "SEN": {
+    "name": "Senegal",
+    "flag": "🇸🇳"
+  },
+  "SLV": {
+    "name": "El Salvador",
+    "flag": "🇸🇻"
+  },
+  "SRB": {
+    "name": "Serbia",
+    "flag": "🇷🇸"
+  },
+  "SUI": {
+    "name": "Switzerland",
+    "flag": "🇨🇭"
+  },
+  "SUR": {
+    "name": "Suriname",
+    "flag": "🇸🇷"
+  },
+  "SVK": {
+    "name": "Slovakia",
+    "flag": "🇸🇰"
+  },
+  "SVN": {
+    "name": "Slovenia",
+    "flag": "🇸🇮"
+  },
+  "SWE": {
+    "name": "Sweden",
+    "flag": "🇸🇪"
+  },
+  "TRI": {
+    "name": "Trinidad and Tobago",
+    "flag": "🇹🇹"
+  },
+  "TUN": {
+    "name": "Tunisia",
+    "flag": "🇹🇳"
+  },
+  "TUR": {
+    "name": "Türkiye",
+    "flag": "🇹🇷"
+  },
+  "UAE": {
+    "name": "United Arab Emirates",
+    "flag": "🇦🇪"
+  },
+  "UKR": {
+    "name": "Ukraine",
+    "flag": "🇺🇦"
+  },
+  "URU": {
+    "name": "Uruguay",
+    "flag": "🇺🇾"
+  },
+  "USA": {
+    "name": "United States",
+    "flag": "🇺🇸"
+  },
+  "UZB": {
+    "name": "Uzbekistan",
+    "flag": "🇺🇿"
+  },
+  "VEN": {
+    "name": "Venezuela",
+    "flag": "🇻🇪"
+  },
+  "WAL": {
+    "name": "Wales",
+    "flag": "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
+  },
+  "ZAM": {
+    "name": "Zambia",
+    "flag": "🇿🇲"
+  }
 }
