@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-06-11T06:36:47Z",
+  "players": [
+    {
+      "name": "Bob",
+      "points": 0,
+      "best_possible": 360,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "ARG",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "NED",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SEN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "JPN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "ECU",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "POL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SCO",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CIV",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
+      "name": "Greg",
+      "points": 0,
+      "best_possible": 360,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "ENG",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "GER",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "COL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "MAR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "AUT",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "EGY",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "QAT",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "NZL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
+      "name": "Harry",
+      "points": 0,
+      "best_possible": 360,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "FRA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CRO",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "USA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "KOR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "TUN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "PAR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "NOR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "RSA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
+      "name": "Ian",
+      "points": 0,
+      "best_possible": 360,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "ESP",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "POR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "MEX",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "AUS",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SUI",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "ALG",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "PAN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "JOR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
+      "name": "Ryan",
+      "points": 0,
+      "best_possible": 360,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "BRA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "BEL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "URU",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CAN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "DEN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "GHA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "KSA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "UZB",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    }
+  ],
+  "timeline": []
+}
