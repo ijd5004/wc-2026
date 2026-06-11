@@ -1,0 +1,20 @@
+{
+  "pool_name": "D Dogs",
+  "placeholder": true,
+  "_comment": "PLACEHOLDER picks until the 2026 draft happens — replace players[].teams and set placeholder to false. Scoring agreed 2026-06-10; third_place_final pending group decision (default off).",
+  "third_place_final": false,
+  "scoring": {
+    "group_win": 3,
+    "group_draw": 1,
+    "advance": 3,
+    "stage_win_points": {"R32": 4, "R16": 6, "QF": 8, "SF": 10, "FINAL": 14},
+    "third_place_win": 4
+  },
+  "players": [
+    {"name": "Bob", "teams": ["ARG", "NED", "SEN", "JPN", "ECU", "POL", "SCO", "CIV"]},
+    {"name": "Harry", "teams": ["FRA", "CRO", "USA", "KOR", "TUN", "PAR", "NOR", "RSA"]},
+    {"name": "Ian", "teams": ["ESP", "POR", "MEX", "AUS", "SUI", "ALG", "PAN", "JOR"]},
+    {"name": "Greg", "teams": ["ENG", "GER", "COL", "MAR", "AUT", "EGY", "QAT", "NZL"]},
+    {"name": "Ryan", "teams": ["BRA", "BEL", "URU", "CAN", "DEN", "GHA", "KSA", "UZB"]}
+  ]
+}
