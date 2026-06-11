@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-06-12T04:31:00Z",
+  "players": [
+    {
+      "name": "Ian",
+      "points": 73,
+      "best_possible": 85,
+      "rank": 1,
+      "teams": [
+        {"code": "FRA", "points": 44, "alive": true, "eliminated_at": null},
+        {"code": "MAR", "points": 29, "alive": true, "eliminated_at": null}
+      ]
+    },
+    {
+      "name": "Bob",
+      "points": 71,
+      "best_possible": 90,
+      "rank": 2,
+      "teams": [
+        {"code": "ARG", "points": 50, "alive": true, "eliminated_at": null},
+        {"code": "GER", "points": 21, "alive": false, "eliminated_at": "GROUP"}
+      ]
+    },
+    {
+      "name": "Carol",
+      "points": 40,
+      "best_possible": 60,
+      "rank": 3,
+      "teams": [
+        {"code": "BRA", "points": 30, "alive": true, "eliminated_at": null},
+        {"code": "ENG", "points": 10, "alive": false, "eliminated_at": "R32"}
+      ]
+    }
+  ],
+  "timeline": [
+    {"date": "2026-06-11", "totals": {"Ian": 3, "Bob": 4, "Carol": 2}},
+    {"date": "2026-06-12", "totals": {"Ian": 73, "Bob": 71, "Carol": 40}}
+  ]
+}

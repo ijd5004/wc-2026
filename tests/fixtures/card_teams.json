@@ -1,0 +1,8 @@
+{
+  "FRA": {"name": "France", "flag": "🇫🇷"},
+  "MAR": {"name": "Morocco", "flag": "🇲🇦"},
+  "ARG": {"name": "Argentina", "flag": "🇦🇷"},
+  "GER": {"name": "Germany", "flag": "🇩🇪"},
+  "BRA": {"name": "Brazil", "flag": "🇧🇷"},
+  "ENG": {"name": "England", "flag": "🏴"}
+}
