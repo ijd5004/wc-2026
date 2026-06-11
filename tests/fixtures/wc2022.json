@@ -1,0 +1,372 @@
+{
+  "pool_name": "D Dogs 2022",
+  "scoring": {
+    "group_win": 3,
+    "group_draw": 1,
+    "advance": 3,
+    "stage_win_points": {
+      "R16": 4,
+      "QF": 6,
+      "SF": 10,
+      "FINAL": 12
+    },
+    "third_place_win": 4
+  },
+  "third_place_final": false,
+  "expected_totals": {
+    "Bob": 20,
+    "Harry": 54,
+    "Ian": 73,
+    "Greg": 31,
+    "Ryan": 54
+  },
+  "players": [
+    {
+      "name": "Bob",
+      "teams": [
+        {
+          "team": "Belgium",
+          "group_results": [
+            "W",
+            "L",
+            "D"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Denmark",
+          "group_results": [
+            "D",
+            "L",
+            "L"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Uruguay",
+          "group_results": [
+            "D",
+            "L",
+            "W"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "South Korea",
+          "group_results": [
+            "D",
+            "L",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        },
+        {
+          "team": "Cameroon",
+          "group_results": [
+            "L",
+            "D",
+            "W"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "Harry",
+      "teams": [
+        {
+          "team": "Brazil",
+          "group_results": [
+            "W",
+            "W",
+            "L"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16"
+          ],
+          "alive": false,
+          "eliminated_at": "QF"
+        },
+        {
+          "team": "Spain",
+          "group_results": [
+            "W",
+            "D",
+            "L"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        },
+        {
+          "team": "Croatia",
+          "group_results": [
+            "D",
+            "W",
+            "D"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16",
+            "QF"
+          ],
+          "alive": false,
+          "eliminated_at": "SF"
+        },
+        {
+          "team": "Switzerland",
+          "group_results": [
+            "W",
+            "L",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        },
+        {
+          "team": "Poland",
+          "group_results": [
+            "D",
+            "W",
+            "L"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        }
+      ]
+    },
+    {
+      "name": "Ian",
+      "teams": [
+        {
+          "team": "France",
+          "group_results": [
+            "W",
+            "W",
+            "L"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16",
+            "QF",
+            "SF"
+          ],
+          "alive": false,
+          "eliminated_at": "FINAL"
+        },
+        {
+          "team": "Netherlands",
+          "group_results": [
+            "W",
+            "D",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16"
+          ],
+          "alive": false,
+          "eliminated_at": "QF"
+        },
+        {
+          "team": "Serbia",
+          "group_results": [
+            "L",
+            "D",
+            "L"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Senegal",
+          "group_results": [
+            "L",
+            "W",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        },
+        {
+          "team": "Morocco",
+          "group_results": [
+            "D",
+            "W",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16",
+            "QF"
+          ],
+          "alive": false,
+          "eliminated_at": "SF"
+        }
+      ]
+    },
+    {
+      "name": "Greg",
+      "teams": [
+        {
+          "team": "England",
+          "group_results": [
+            "W",
+            "D",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16"
+          ],
+          "alive": false,
+          "eliminated_at": "QF"
+        },
+        {
+          "team": "Germany",
+          "group_results": [
+            "L",
+            "D",
+            "W"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "USA",
+          "group_results": [
+            "D",
+            "D",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        },
+        {
+          "team": "Wales",
+          "group_results": [
+            "D",
+            "L",
+            "L"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Mexico",
+          "group_results": [
+            "D",
+            "L",
+            "W"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "Ryan",
+      "teams": [
+        {
+          "team": "Argentina",
+          "group_results": [
+            "L",
+            "W",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16",
+            "QF",
+            "SF"
+          ],
+          "alive": false,
+          "eliminated_at": "FINAL"
+        },
+        {
+          "team": "Portugal",
+          "group_results": [
+            "W",
+            "W",
+            "L"
+          ],
+          "advanced": true,
+          "ko_wins": [
+            "R16"
+          ],
+          "alive": false,
+          "eliminated_at": "QF"
+        },
+        {
+          "team": "Saudi Arabia",
+          "group_results": [
+            "W",
+            "L",
+            "L"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Canada",
+          "group_results": [
+            "L",
+            "L",
+            "L"
+          ],
+          "advanced": false,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "GROUP"
+        },
+        {
+          "team": "Austrailia",
+          "group_results": [
+            "L",
+            "W",
+            "W"
+          ],
+          "advanced": true,
+          "ko_wins": [],
+          "alive": false,
+          "eliminated_at": "R16"
+        }
+      ]
+    }
+  ]
+}
