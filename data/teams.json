@@ -1,0 +1,5 @@
+{
+  "CAN": {"name": "Canada", "flag": "🇨🇦"},
+  "MEX": {"name": "Mexico", "flag": "🇲🇽"},
+  "USA": {"name": "United States", "flag": "🇺🇸"}
+}
