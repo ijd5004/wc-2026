@@ -90,3 +90,11 @@ def test_repo_placeholder_pool_is_structurally_valid():
     assert pool["placeholder"] is True
     assert pool["third_place_final"] is False
     assert pool["scoring"]["stage_win_points"]["FINAL"] == 14
+
+def test_repo_pool_codes_resolve_in_repo_teams_json():
+    """Every drafted code must exist in data/teams.json (catches draft typos in CI)."""
+    teams = json.loads((REPO_POOL.parent / "teams.json").read_text())
+    pool = load_pool(REPO_POOL, teams)
+    for player in pool["players"]:
+        for code in player["teams"]:
+            assert teams[code]["flag"] != "🏳️", f"{code} has fallback flag"
