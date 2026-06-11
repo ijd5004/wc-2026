@@ -1,0 +1,317 @@
+"""Tests for the scoring engine (issue #1).
+
+Includes the binding 2022 regression (replay tests/fixtures/wc2022.json through
+score_team with the fixture's own scoring config) plus synthetic 2026 cases
+covering the adapter, best_possible, timeline, and ranking.
+"""
+
+import json
+from pathlib import Path
+
+import pytest
+
+from wcpool.scoring import (
+    achievements_from_matches,
+    compute_standings,
+    main,
+    score_team,
+)
+
+FIXTURE = Path(__file__).parent / "fixtures" / "wc2022.json"
+
+SCORING_2026 = {
+    "group_win": 3,
+    "group_draw": 1,
+    "advance": 3,
+    "stage_win_points": {"R32": 4, "R16": 6, "QF": 8, "SF": 10, "FINAL": 14},
+    "third_place_win": 4,
+}
+
+ALL_STAGE_POINTS = sum(SCORING_2026["stage_win_points"].values())  # 42
+
+
+def pool(players, third_place_final=False):
+    return {
+        "pool_name": "Test Pool",
+        "third_place_final": third_place_final,
+        "scoring": SCORING_2026,
+        "players": players,
+    }
+
+
+_ids = iter(range(1, 10_000))
+
+
+def match(stage, utc_date, home, away, winner="HOME", *, status="FINISHED",
+          group=None, decided_by="REGULAR"):
+    """Synthetic normalized match. winner: 'HOME', a code, or None (draw/unplayed)."""
+    if status != "FINISHED":
+        winner = None
+    elif winner == "HOME":
+        winner = home
+    return {
+        "id": next(_ids),
+        "stage": stage,
+        "group": group if stage == "GROUP" else None,
+        "utc_date": f"{utc_date}T18:00:00Z",
+        "status": status,
+        "home": home,
+        "away": away,
+        "score": None,
+        "winner": winner,
+        "decided_by": decided_by,
+    }
+
+
+# ---------------------------------------------------------------- 2022 regression
+
+
+def _fixture():
+    return json.loads(FIXTURE.read_text())
+
+
+@pytest.mark.parametrize("name", ["Ian", "Harry", "Ryan", "Greg", "Bob"])
+def test_regression_wc2022_player_totals(name):
+    """Replaying the 2022 outcome grid through score_team reproduces the sheet.
+
+    The fixture's config has no R32 — the engine must take stages purely from
+    config (Ian 73, Harry 54, Ryan 54, Greg 31, Bob 20).
+    """
+    fx = _fixture()
+    player = next(p for p in fx["players"] if p["name"] == name)
+    total = sum(
+        score_team(team, fx["scoring"], fx["third_place_final"]) for team in player["teams"]
+    )
+    assert total == fx["expected_totals"][name]
+
+
+def test_first_knockout_stage_comes_from_config():
+    """With a 2022-style config (no R32), appearing in R16 means advanced."""
+    fx = _fixture()
+    matches = [
+        match("GROUP", "2022-11-22", "ARG", "KSA", "KSA", group="C"),
+        match("R16", "2022-12-03", "ARG", "AUS", status="SCHEDULED"),
+    ]
+    ach = achievements_from_matches(matches, fx["scoring"])
+    assert ach["ARG"]["advanced"] is True
+    assert ach["KSA"]["advanced"] is False
+
+
+# ---------------------------------------------------------------- adapter (2026)
+
+
+def test_third_place_group_qualifier_gets_flat_advance_bonus():
+    """A third-place qualifier advances by appearing in an R32 fixture: flat +3."""
+    matches = [
+        match("GROUP", "2026-06-11", "TPQ", "AAA", "AAA", group="A"),
+        match("GROUP", "2026-06-15", "TPQ", "BBB", None, group="A"),
+        match("GROUP", "2026-06-19", "TPQ", "CCC", "TPQ", group="A"),
+        match("R32", "2026-06-28", "XXX", "TPQ", status="SCHEDULED"),
+    ]
+    ach = achievements_from_matches(matches, SCORING_2026)["TPQ"]
+    assert ach["group_results"] == ["L", "D", "W"]
+    assert ach["advanced"] is True
+    assert score_team(ach, SCORING_2026, False) == 1 + 3 + 3  # D + W + advance
+
+
+def test_penalty_shootout_knockout_win_counts_as_win():
+    matches = [
+        match("R32", "2026-06-28", "PEN", "OPP", "PEN", decided_by="PENALTIES"),
+    ]
+    ach = achievements_from_matches(matches, SCORING_2026)
+    assert ach["PEN"]["ko_wins"] == ["R32"]
+    assert score_team(ach["PEN"], SCORING_2026, False) == (
+        SCORING_2026["advance"] + SCORING_2026["stage_win_points"]["R32"]
+    )
+    assert ach["OPP"]["eliminated_at"] == "R32"
+    assert ach["OPP"]["alive"] is False
+
+
+def test_group_draw_scores_group_draw_points():
+    matches = [match("GROUP", "2026-06-11", "AAA", "BBB", None, group="B")]
+    ach = achievements_from_matches(matches, SCORING_2026)
+    assert ach["AAA"]["group_results"] == ["D"]
+    assert score_team(ach["AAA"], SCORING_2026, False) == SCORING_2026["group_draw"]
+    assert score_team(ach["BBB"], SCORING_2026, False) == SCORING_2026["group_draw"]
+
+
+def test_eliminated_at_group_only_once_first_ko_fixtures_exist():
+    group_done = [
+        match("GROUP", "2026-06-11", "OUT", "AAA", "AAA", group="A"),
+        match("GROUP", "2026-06-15", "OUT", "BBB", "BBB", group="A"),
+        match("GROUP", "2026-06-19", "OUT", "CCC", "CCC", group="A"),
+    ]
+    ach = achievements_from_matches(group_done, SCORING_2026)["OUT"]
+    assert ach["eliminated_at"] is None  # undetermined: no R32 fixtures yet
+    assert ach["alive"] is True
+
+    with_r32 = group_done + [match("R32", "2026-06-28", "AAA", "BBB", status="SCHEDULED")]
+    ach = achievements_from_matches(with_r32, SCORING_2026)["OUT"]
+    assert ach["eliminated_at"] == "GROUP"
+    assert ach["alive"] is False
+
+
+def test_sf_loser_stays_alive_while_bronze_match_pending():
+    matches = [
+        match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
+        match("THIRD_PLACE", "2026-07-18", "SFL", "OTH", status="SCHEDULED"),
+    ]
+    ach = achievements_from_matches(matches, SCORING_2026)["SFL"]
+    assert ach["alive"] is True
+    assert ach["eliminated_at"] is None
+
+    played = [
+        match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
+        match("THIRD_PLACE", "2026-07-18", "SFL", "OTH", "SFL"),
+    ]
+    ach = achievements_from_matches(played, SCORING_2026)
+    assert ach["SFL"]["eliminated_at"] == "SF"  # bronze winner's bracket exit
+    assert ach["SFL"]["ko_wins"] == ["THIRD_PLACE"]
+    assert ach["OTH"]["eliminated_at"] == "THIRD_PLACE"
+
+
+# ------------------------------------------------------------ third-place toggle
+
+
+def _bronze_matches():
+    return [
+        match("SF", "2026-07-14", "AAA", "BRZ", "AAA"),
+        match("SF", "2026-07-15", "BBB", "OTH", "BBB"),
+        match("THIRD_PLACE", "2026-07-18", "BRZ", "OTH", "BRZ"),
+        match("FINAL", "2026-07-19", "AAA", "BBB", "AAA"),
+    ]
+
+
+def test_third_place_toggle_changes_exactly_the_bronze_points():
+    players = [{"name": "Ian", "teams": ["BRZ"]}, {"name": "Bob", "teams": ["OTH"]}]
+    off = compute_standings(_bronze_matches(), pool(players, third_place_final=False))
+    on = compute_standings(_bronze_matches(), pool(players, third_place_final=True))
+    pts_off = {p["name"]: p["points"] for p in off["players"]}
+    pts_on = {p["name"]: p["points"] for p in on["players"]}
+    assert pts_on["Ian"] - pts_off["Ian"] == SCORING_2026["third_place_win"]
+    assert pts_on["Bob"] == pts_off["Bob"]
+
+
+def test_score_team_third_place_entry_only_scores_when_toggle_on():
+    ach = {"group_results": [], "advanced": False, "ko_wins": ["THIRD_PLACE"]}
+    assert score_team(ach, SCORING_2026, False) == 0
+    assert score_team(ach, SCORING_2026, True) == SCORING_2026["third_place_win"]
+
+
+# ---------------------------------------------------------------- best_possible
+
+
+def test_best_possible_mid_group():
+    matches = [
+        match("GROUP", "2026-06-11", "FRA", "AAA", "FRA", group="D"),
+        match("GROUP", "2026-06-15", "FRA", "BBB", status="SCHEDULED", group="D"),
+        match("GROUP", "2026-06-19", "FRA", "CCC", status="SCHEDULED", group="D"),
+    ]
+    out = compute_standings(matches, pool([{"name": "Ian", "teams": ["FRA"]}]))
+    ian = out["players"][0]
+    assert ian["points"] == 3
+    # 1 win banked + 2 remaining group wins + advance + every knockout stage.
+    assert ian["best_possible"] == 3 + 2 * 3 + 3 + ALL_STAGE_POINTS
+
+
+def test_best_possible_mid_knockout():
+    matches = [
+        match("GROUP", "2026-06-11", "FRA", "AAA", "FRA", group="D"),
+        match("GROUP", "2026-06-15", "FRA", "BBB", "FRA", group="D"),
+        match("GROUP", "2026-06-19", "FRA", "CCC", "FRA", group="D"),
+        match("R32", "2026-06-28", "FRA", "POL", "FRA"),
+        match("R16", "2026-07-02", "FRA", "ENG", status="SCHEDULED"),
+    ]
+    players = [{"name": "Ian", "teams": ["FRA"]}, {"name": "Bob", "teams": ["POL"]}]
+    out = compute_standings(matches, pool(players))
+    by_name = {p["name"]: p for p in out["players"]}
+    ian, bob = by_name["Ian"], by_name["Bob"]
+    assert ian["points"] == 3 * 3 + 3 + 4  # group sweep + advance + R32 win
+    remaining = sum(SCORING_2026["stage_win_points"][s] for s in ("R16", "QF", "SF", "FINAL"))
+    assert ian["best_possible"] == ian["points"] + remaining
+    # POL advanced (R32 fixture) but lost it: dead team adds nothing.
+    assert bob["points"] == SCORING_2026["advance"]
+    assert bob["best_possible"] == bob["points"]
+    assert bob["teams"][0]["alive"] is False
+
+
+def test_best_possible_excludes_pending_third_place_match():
+    matches = [
+        match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
+        match("THIRD_PLACE", "2026-07-18", "SFL", "OTH", status="SCHEDULED"),
+    ]
+    out = compute_standings(matches, pool([{"name": "Ian", "teams": ["SFL"]}]))
+    ian = out["players"][0]
+    # Alive for the bronze match, but third-place wins never count toward
+    # best_possible and the team is out of the title bracket.
+    assert ian["teams"][0]["alive"] is True
+    assert ian["best_possible"] == ian["points"]
+
+
+# -------------------------------------------------------------------- timeline
+
+
+def test_timeline_cumulative_with_advance_on_final_group_match_date():
+    matches = [
+        match("GROUP", "2026-06-11", "FRA", "DEN", "FRA", group="D"),
+        match("GROUP", "2026-06-12", "FRA", "TUN", None, group="D"),
+        match("GROUP", "2026-06-14", "FRA", "AUS", "FRA", group="D"),
+        match("R32", "2026-06-20", "FRA", "POL", "FRA"),
+    ]
+    players = [{"name": "Ian", "teams": ["FRA"]}, {"name": "Bob", "teams": ["DEN"]}]
+    out = compute_standings(matches, pool(players))
+    assert out["timeline"] == [
+        {"date": "2026-06-11", "totals": {"Ian": 3, "Bob": 0}},
+        {"date": "2026-06-12", "totals": {"Ian": 4, "Bob": 0}},
+        # final group match day: W (+3) and the advance bonus (+3) accrue here
+        {"date": "2026-06-14", "totals": {"Ian": 10, "Bob": 0}},
+        {"date": "2026-06-20", "totals": {"Ian": 14, "Bob": 0}},
+    ]
+    ian = next(p for p in out["players"] if p["name"] == "Ian")
+    assert out["timeline"][-1]["totals"]["Ian"] == ian["points"]
+
+
+# ------------------------------------------------------------------------ ranks
+
+
+def test_tied_players_share_rank():
+    matches = [
+        match("GROUP", "2026-06-11", "AAA", "CCC", "AAA", group="A"),
+        match("GROUP", "2026-06-11", "BBB", "DDD", "BBB", group="B"),
+    ]
+    players = [
+        {"name": "P1", "teams": ["AAA"]},
+        {"name": "P2", "teams": ["BBB"]},
+        {"name": "P3", "teams": ["CCC"]},
+    ]
+    out = compute_standings(matches, pool(players))
+    ranks = {p["name"]: p["rank"] for p in out["players"]}
+    assert ranks == {"P1": 1, "P2": 1, "P3": 3}
+    assert [p["name"] for p in out["players"]] == ["P1", "P2", "P3"]
+
+
+# --------------------------------------------------------------------------- CLI
+
+
+def test_cli_writes_standings_json(tmp_path):
+    matches_doc = {
+        "fetched_at": "2026-06-12T04:30:00Z",
+        "competition": "WC",
+        "matches": [match("GROUP", "2026-06-11", "MEX", "RSA", "MEX", group="A")],
+    }
+    pool_doc = pool([{"name": "Ian", "teams": ["MEX"]}, {"name": "Bob", "teams": ["RSA"]}])
+    matches_path = tmp_path / "matches.json"
+    pool_path = tmp_path / "pool.json"
+    out_path = tmp_path / "standings.json"
+    matches_path.write_text(json.dumps(matches_doc))
+    pool_path.write_text(json.dumps(pool_doc))
+
+    main([str(matches_path), str(pool_path), str(out_path)])
+
+    standings = json.loads(out_path.read_text())
+    assert set(standings) == {"generated_at", "players", "timeline"}
+    by_name = {p["name"]: p for p in standings["players"]}
+    assert by_name["Ian"]["points"] == SCORING_2026["group_win"]
+    assert by_name["Ian"]["rank"] == 1
+    assert by_name["Bob"]["rank"] == 2
+    assert standings["timeline"] == [{"date": "2026-06-11", "totals": {"Ian": 3, "Bob": 0}}]
