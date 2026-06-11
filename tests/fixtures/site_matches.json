@@ -1,0 +1,30 @@
+{
+  "fetched_at": "2026-06-13T04:30:00Z",
+  "competition": "WC",
+  "matches": [
+    {
+      "id": 1,
+      "stage": "GROUP",
+      "group": "A",
+      "utc_date": "2026-06-11T20:00:00Z",
+      "status": "FINISHED",
+      "home": "MEX",
+      "away": "FRA",
+      "score": {"home": 0, "away": 2},
+      "winner": "FRA",
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 2,
+      "stage": "GROUP",
+      "group": "B",
+      "utc_date": "2026-06-14T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ARG",
+      "away": "BRA",
+      "score": {"home": null, "away": null},
+      "winner": null,
+      "decided_by": null
+    }
+  ]
+}
