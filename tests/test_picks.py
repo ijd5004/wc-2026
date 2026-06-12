@@ -85,11 +85,13 @@ def test_all_problems_reported_at_once(tmp_path):
     assert len(e.value.problems) >= 3  # dup name, dup team, unequal counts
 
 
-def test_repo_placeholder_pool_is_structurally_valid():
+def test_repo_pool_is_structurally_valid():
     pool = load_pool(REPO_POOL, teams=None)
-    assert pool["placeholder"] is True
+    assert pool["placeholder"] is False
     assert pool["third_place_final"] is False
     assert pool["scoring"]["stage_win_points"]["FINAL"] == 14
+    assert len(pool["players"]) == 5
+    assert all(len(p["teams"]) == 6 for p in pool["players"])
 
 def test_repo_pool_codes_resolve_in_repo_teams_json():
     """Every drafted code must exist in data/teams.json (catches draft typos in CI)."""

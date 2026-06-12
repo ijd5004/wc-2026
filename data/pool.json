@@ -1,7 +1,7 @@
 {
   "pool_name": "D Dogs",
-  "placeholder": true,
-  "_comment": "PLACEHOLDER picks until the 2026 draft happens — replace players[].teams and set placeholder to false. Scoring agreed 2026-06-10; third_place_final pending group decision (default off).",
+  "placeholder": false,
+  "_comment": "2026 draft from reference/2026 World Cup Selections.xlsx ('Ecudaor' read as Ecuador). Scoring agreed 2026-06-10; third_place_final pending group decision (default off).",
   "third_place_final": false,
   "scoring": {
     "group_win": 3,
@@ -11,10 +11,10 @@
     "third_place_win": 4
   },
   "players": [
-    {"name": "Bob", "teams": ["ARG", "NED", "SEN", "JPN", "ECU", "POL", "SCO", "CIV"]},
-    {"name": "Harry", "teams": ["FRA", "CRO", "USA", "KOR", "TUN", "PAR", "NOR", "RSA"]},
-    {"name": "Ian", "teams": ["ESP", "POR", "MEX", "AUS", "SUI", "ALG", "PAN", "JOR"]},
-    {"name": "Greg", "teams": ["ENG", "GER", "COL", "MAR", "AUT", "EGY", "QAT", "NZL"]},
-    {"name": "Ryan", "teams": ["BRA", "BEL", "URU", "CAN", "DEN", "GHA", "KSA", "UZB"]}
+    {"name": "Ryan", "teams": ["ENG", "MAR", "COL", "KOR", "CAN", "SCO"]},
+    {"name": "Bob", "teams": ["ESP", "BEL", "URU", "SEN", "SWE", "AUS"]},
+    {"name": "Greg", "teams": ["FRA", "NED", "USA", "SUI", "TUR", "CIV"]},
+    {"name": "Ian", "teams": ["ARG", "GER", "NOR", "JPN", "ECU", "CZE"]},
+    {"name": "Harry", "teams": ["POR", "BRA", "MEX", "CRO", "AUT", "EGY"]}
   ]
 }
