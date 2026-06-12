@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T00:59:36Z",
+  "generated_at": "2026-06-12T08:45:35Z",
   "players": [
     {
       "name": "Harry",
@@ -46,10 +46,54 @@
       ]
     },
     {
+      "name": "Ryan",
+      "points": 3,
+      "best_possible": 324,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "ENG",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "MAR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "COL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "KOR",
+          "points": 3,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CAN",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SCO",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
       "name": "Bob",
       "points": 0,
       "best_possible": 324,
-      "rank": 2,
+      "rank": 3,
       "teams": [
         {
           "code": "ESP",
@@ -93,7 +137,7 @@
       "name": "Greg",
       "points": 0,
       "best_possible": 324,
-      "rank": 2,
+      "rank": 3,
       "teams": [
         {
           "code": "FRA",
@@ -136,8 +180,8 @@
     {
       "name": "Ian",
       "points": 0,
-      "best_possible": 324,
-      "rank": 2,
+      "best_possible": 321,
+      "rank": 3,
       "teams": [
         {
           "code": "ARG",
@@ -176,50 +220,6 @@
           "eliminated_at": null
         }
       ]
-    },
-    {
-      "name": "Ryan",
-      "points": 0,
-      "best_possible": 324,
-      "rank": 2,
-      "teams": [
-        {
-          "code": "ENG",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "MAR",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "COL",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "KOR",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "CAN",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "SCO",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        }
-      ]
     }
   ],
   "timeline": [
@@ -227,6 +227,16 @@
       "date": "2026-06-11",
       "totals": {
         "Ryan": 0,
+        "Bob": 0,
+        "Greg": 0,
+        "Ian": 0,
+        "Harry": 3
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "totals": {
+        "Ryan": 3,
         "Bob": 0,
         "Greg": 0,
         "Ian": 0,
