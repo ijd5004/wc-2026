@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-06-12T00:53:53Z",
+  "fetched_at": "2026-06-12T00:57:31Z",
   "competition": "WC",
   "matches": [
     {
       "id": 537327,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-11T19:00:00Z",
       "status": "FINISHED",
       "home": "MEX",
@@ -20,7 +20,7 @@
     {
       "id": 537328,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-12T02:00:00Z",
       "status": "SCHEDULED",
       "home": "KOR",
@@ -35,7 +35,7 @@
     {
       "id": 537333,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-12T19:00:00Z",
       "status": "SCHEDULED",
       "home": "CAN",
@@ -50,7 +50,7 @@
     {
       "id": 537345,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-13T01:00:00Z",
       "status": "SCHEDULED",
       "home": "USA",
@@ -65,7 +65,7 @@
     {
       "id": 537334,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-13T19:00:00Z",
       "status": "SCHEDULED",
       "home": "QAT",
@@ -80,7 +80,7 @@
     {
       "id": 537339,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-13T22:00:00Z",
       "status": "SCHEDULED",
       "home": "BRA",
@@ -95,7 +95,7 @@
     {
       "id": 537340,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-14T01:00:00Z",
       "status": "SCHEDULED",
       "home": "HAI",
@@ -110,7 +110,7 @@
     {
       "id": 537346,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-14T04:00:00Z",
       "status": "SCHEDULED",
       "home": "AUS",
@@ -125,11 +125,11 @@
     {
       "id": 537351,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-14T17:00:00Z",
       "status": "SCHEDULED",
       "home": "GER",
-      "away": "CUW",
+      "away": "CUR",
       "score": {
         "home": null,
         "away": null
@@ -140,7 +140,7 @@
     {
       "id": 537357,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-14T20:00:00Z",
       "status": "SCHEDULED",
       "home": "NED",
@@ -155,7 +155,7 @@
     {
       "id": 537352,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-14T23:00:00Z",
       "status": "SCHEDULED",
       "home": "CIV",
@@ -170,7 +170,7 @@
     {
       "id": 537358,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-15T02:00:00Z",
       "status": "SCHEDULED",
       "home": "SWE",
@@ -185,7 +185,7 @@
     {
       "id": 537369,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-15T16:00:00Z",
       "status": "SCHEDULED",
       "home": "ESP",
@@ -200,7 +200,7 @@
     {
       "id": 537363,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-15T19:00:00Z",
       "status": "SCHEDULED",
       "home": "BEL",
@@ -215,11 +215,11 @@
     {
       "id": 537370,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-15T22:00:00Z",
       "status": "SCHEDULED",
       "home": "KSA",
-      "away": "URY",
+      "away": "URU",
       "score": {
         "home": null,
         "away": null
@@ -230,7 +230,7 @@
     {
       "id": 537364,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-16T01:00:00Z",
       "status": "SCHEDULED",
       "home": "IRN",
@@ -245,7 +245,7 @@
     {
       "id": 537391,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-16T19:00:00Z",
       "status": "SCHEDULED",
       "home": "FRA",
@@ -260,7 +260,7 @@
     {
       "id": 537392,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-16T22:00:00Z",
       "status": "SCHEDULED",
       "home": "IRQ",
@@ -275,7 +275,7 @@
     {
       "id": 537397,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-17T01:00:00Z",
       "status": "SCHEDULED",
       "home": "ARG",
@@ -290,7 +290,7 @@
     {
       "id": 537398,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-17T04:00:00Z",
       "status": "SCHEDULED",
       "home": "AUT",
@@ -305,7 +305,7 @@
     {
       "id": 537403,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-17T17:00:00Z",
       "status": "SCHEDULED",
       "home": "POR",
@@ -320,7 +320,7 @@
     {
       "id": 537409,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-17T20:00:00Z",
       "status": "SCHEDULED",
       "home": "ENG",
@@ -335,7 +335,7 @@
     {
       "id": 537410,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-17T23:00:00Z",
       "status": "SCHEDULED",
       "home": "GHA",
@@ -350,7 +350,7 @@
     {
       "id": 537404,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-18T02:00:00Z",
       "status": "SCHEDULED",
       "home": "UZB",
@@ -365,7 +365,7 @@
     {
       "id": 537329,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-18T16:00:00Z",
       "status": "SCHEDULED",
       "home": "CZE",
@@ -380,7 +380,7 @@
     {
       "id": 537335,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-18T19:00:00Z",
       "status": "SCHEDULED",
       "home": "SUI",
@@ -395,7 +395,7 @@
     {
       "id": 537336,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-18T22:00:00Z",
       "status": "SCHEDULED",
       "home": "CAN",
@@ -410,7 +410,7 @@
     {
       "id": 537330,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-19T01:00:00Z",
       "status": "SCHEDULED",
       "home": "MEX",
@@ -425,7 +425,7 @@
     {
       "id": 537348,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-19T19:00:00Z",
       "status": "SCHEDULED",
       "home": "USA",
@@ -440,7 +440,7 @@
     {
       "id": 537342,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-19T22:00:00Z",
       "status": "SCHEDULED",
       "home": "SCO",
@@ -455,7 +455,7 @@
     {
       "id": 537341,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-20T00:30:00Z",
       "status": "SCHEDULED",
       "home": "BRA",
@@ -470,7 +470,7 @@
     {
       "id": 537347,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-20T03:00:00Z",
       "status": "SCHEDULED",
       "home": "TUR",
@@ -485,7 +485,7 @@
     {
       "id": 537359,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-20T17:00:00Z",
       "status": "SCHEDULED",
       "home": "NED",
@@ -500,7 +500,7 @@
     {
       "id": 537353,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-20T20:00:00Z",
       "status": "SCHEDULED",
       "home": "GER",
@@ -515,11 +515,11 @@
     {
       "id": 537354,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-21T00:00:00Z",
       "status": "SCHEDULED",
       "home": "ECU",
-      "away": "CUW",
+      "away": "CUR",
       "score": {
         "home": null,
         "away": null
@@ -530,7 +530,7 @@
     {
       "id": 537360,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-21T04:00:00Z",
       "status": "SCHEDULED",
       "home": "TUN",
@@ -545,7 +545,7 @@
     {
       "id": 537371,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-21T16:00:00Z",
       "status": "SCHEDULED",
       "home": "ESP",
@@ -560,7 +560,7 @@
     {
       "id": 537365,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-21T19:00:00Z",
       "status": "SCHEDULED",
       "home": "BEL",
@@ -575,10 +575,10 @@
     {
       "id": 537372,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-21T22:00:00Z",
       "status": "SCHEDULED",
-      "home": "URY",
+      "home": "URU",
       "away": "CPV",
       "score": {
         "home": null,
@@ -590,7 +590,7 @@
     {
       "id": 537366,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-22T01:00:00Z",
       "status": "SCHEDULED",
       "home": "NZL",
@@ -605,7 +605,7 @@
     {
       "id": 537399,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-22T17:00:00Z",
       "status": "SCHEDULED",
       "home": "ARG",
@@ -620,7 +620,7 @@
     {
       "id": 537393,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-22T21:00:00Z",
       "status": "SCHEDULED",
       "home": "FRA",
@@ -635,7 +635,7 @@
     {
       "id": 537394,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-23T00:00:00Z",
       "status": "SCHEDULED",
       "home": "NOR",
@@ -650,7 +650,7 @@
     {
       "id": 537400,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-23T03:00:00Z",
       "status": "SCHEDULED",
       "home": "JOR",
@@ -665,7 +665,7 @@
     {
       "id": 537405,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-23T17:00:00Z",
       "status": "SCHEDULED",
       "home": "POR",
@@ -680,7 +680,7 @@
     {
       "id": 537411,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-23T20:00:00Z",
       "status": "SCHEDULED",
       "home": "ENG",
@@ -695,7 +695,7 @@
     {
       "id": 537412,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-23T23:00:00Z",
       "status": "SCHEDULED",
       "home": "PAN",
@@ -710,7 +710,7 @@
     {
       "id": 537406,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-24T02:00:00Z",
       "status": "SCHEDULED",
       "home": "COL",
@@ -725,7 +725,7 @@
     {
       "id": 537337,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-24T19:00:00Z",
       "status": "SCHEDULED",
       "home": "SUI",
@@ -740,7 +740,7 @@
     {
       "id": 537338,
       "stage": "GROUP",
-      "group": "GROUP_B",
+      "group": "B",
       "utc_date": "2026-06-24T19:00:00Z",
       "status": "SCHEDULED",
       "home": "BIH",
@@ -755,7 +755,7 @@
     {
       "id": 537344,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-24T22:00:00Z",
       "status": "SCHEDULED",
       "home": "MAR",
@@ -770,7 +770,7 @@
     {
       "id": 537343,
       "stage": "GROUP",
-      "group": "GROUP_C",
+      "group": "C",
       "utc_date": "2026-06-24T22:00:00Z",
       "status": "SCHEDULED",
       "home": "SCO",
@@ -785,7 +785,7 @@
     {
       "id": 537331,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-25T01:00:00Z",
       "status": "SCHEDULED",
       "home": "CZE",
@@ -800,7 +800,7 @@
     {
       "id": 537332,
       "stage": "GROUP",
-      "group": "GROUP_A",
+      "group": "A",
       "utc_date": "2026-06-25T01:00:00Z",
       "status": "SCHEDULED",
       "home": "RSA",
@@ -815,7 +815,7 @@
     {
       "id": 537355,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-25T20:00:00Z",
       "status": "SCHEDULED",
       "home": "ECU",
@@ -830,10 +830,10 @@
     {
       "id": 537356,
       "stage": "GROUP",
-      "group": "GROUP_E",
+      "group": "E",
       "utc_date": "2026-06-25T20:00:00Z",
       "status": "SCHEDULED",
-      "home": "CUW",
+      "home": "CUR",
       "away": "CIV",
       "score": {
         "home": null,
@@ -845,7 +845,7 @@
     {
       "id": 537361,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-25T23:00:00Z",
       "status": "SCHEDULED",
       "home": "TUN",
@@ -860,7 +860,7 @@
     {
       "id": 537362,
       "stage": "GROUP",
-      "group": "GROUP_F",
+      "group": "F",
       "utc_date": "2026-06-25T23:00:00Z",
       "status": "SCHEDULED",
       "home": "JPN",
@@ -875,7 +875,7 @@
     {
       "id": 537349,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-26T02:00:00Z",
       "status": "SCHEDULED",
       "home": "TUR",
@@ -890,7 +890,7 @@
     {
       "id": 537350,
       "stage": "GROUP",
-      "group": "GROUP_D",
+      "group": "D",
       "utc_date": "2026-06-26T02:00:00Z",
       "status": "SCHEDULED",
       "home": "PAR",
@@ -905,7 +905,7 @@
     {
       "id": 537395,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-26T19:00:00Z",
       "status": "SCHEDULED",
       "home": "NOR",
@@ -920,7 +920,7 @@
     {
       "id": 537396,
       "stage": "GROUP",
-      "group": "GROUP_I",
+      "group": "I",
       "utc_date": "2026-06-26T19:00:00Z",
       "status": "SCHEDULED",
       "home": "SEN",
@@ -935,10 +935,10 @@
     {
       "id": 537373,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-27T00:00:00Z",
       "status": "SCHEDULED",
-      "home": "URY",
+      "home": "URU",
       "away": "ESP",
       "score": {
         "home": null,
@@ -950,7 +950,7 @@
     {
       "id": 537374,
       "stage": "GROUP",
-      "group": "GROUP_H",
+      "group": "H",
       "utc_date": "2026-06-27T00:00:00Z",
       "status": "SCHEDULED",
       "home": "CPV",
@@ -965,7 +965,7 @@
     {
       "id": 537367,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-27T03:00:00Z",
       "status": "SCHEDULED",
       "home": "NZL",
@@ -980,7 +980,7 @@
     {
       "id": 537368,
       "stage": "GROUP",
-      "group": "GROUP_G",
+      "group": "G",
       "utc_date": "2026-06-27T03:00:00Z",
       "status": "SCHEDULED",
       "home": "EGY",
@@ -995,7 +995,7 @@
     {
       "id": 537413,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
       "status": "SCHEDULED",
       "home": "PAN",
@@ -1010,7 +1010,7 @@
     {
       "id": 537414,
       "stage": "GROUP",
-      "group": "GROUP_L",
+      "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
       "status": "SCHEDULED",
       "home": "CRO",
@@ -1025,7 +1025,7 @@
     {
       "id": 537407,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-27T23:30:00Z",
       "status": "SCHEDULED",
       "home": "COL",
@@ -1040,7 +1040,7 @@
     {
       "id": 537408,
       "stage": "GROUP",
-      "group": "GROUP_K",
+      "group": "K",
       "utc_date": "2026-06-27T23:30:00Z",
       "status": "SCHEDULED",
       "home": "COD",
@@ -1055,7 +1055,7 @@
     {
       "id": 537401,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-28T02:00:00Z",
       "status": "SCHEDULED",
       "home": "JOR",
@@ -1070,7 +1070,7 @@
     {
       "id": 537402,
       "stage": "GROUP",
-      "group": "GROUP_J",
+      "group": "J",
       "utc_date": "2026-06-28T02:00:00Z",
       "status": "SCHEDULED",
       "home": "ALG",
