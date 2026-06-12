@@ -91,6 +91,7 @@ FALLBACK_FLAG = "🏳️"
 # teams.json, standings — speaks FIFA, so alias API codes here.
 TLA_ALIASES = {
     "URY": "URU",
+    "CUR": "CUW",
 }
 
 
