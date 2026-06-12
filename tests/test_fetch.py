@@ -329,3 +329,31 @@ def test_main_unknown_stage_exits_1_and_preserves_matches(tmp_path, monkeypatch,
     assert rc == 1
     assert "PRELIMINARY_ROUND" in capsys.readouterr().err
     assert (tmp_path / "matches.json").read_text(encoding="utf-8") == sentinel
+
+
+def test_tla_alias_normalizes_uruguay():
+    from wcpool.fetch import canonical_code, normalize_match
+
+    match = {
+        "id": 1,
+        "stage": "GROUP_STAGE",
+        "group": "GROUP_H",
+        "utcDate": "2026-06-15T18:00:00Z",
+        "status": "FINISHED",
+        "homeTeam": {"id": 1, "name": "Uruguay", "tla": "URY"},
+        "awayTeam": {"id": 2, "name": "Spain", "tla": "ESP"},
+        "score": {"winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": {"home": 1, "away": 0}},
+    }
+    normalized = normalize_match(match)
+    assert normalized["home"] == "URU"
+    assert normalized["winner"] == "URU"
+    assert normalized["group"] == "H"
+    assert canonical_code(None) is None
+
+
+def test_extract_group_handles_both_api_formats():
+    from wcpool.fetch import extract_group
+
+    assert extract_group("Group A") == "A"
+    assert extract_group("GROUP_A") == "A"
+    assert extract_group(None) is None

@@ -33,7 +33,7 @@
   },
   "BIH": {
     "name": "Bosnia-Herzegovina",
-    "flag": "🏳️"
+    "flag": "🇧🇦"
   },
   "BOL": {
     "name": "Bolivia",
@@ -322,10 +322,6 @@
   "URU": {
     "name": "Uruguay",
     "flag": "🇺🇾"
-  },
-  "URY": {
-    "name": "Uruguay",
-    "flag": "🏳️"
   },
   "USA": {
     "name": "United States",
