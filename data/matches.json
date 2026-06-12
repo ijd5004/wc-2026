@@ -1,5 +1,1566 @@
 {
-  "fetched_at": "2026-06-10T00:00:00Z",
+  "fetched_at": "2026-06-12T00:53:53Z",
   "competition": "WC",
-  "matches": []
+  "matches": [
+    {
+      "id": 537327,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-11T19:00:00Z",
+      "status": "FINISHED",
+      "home": "MEX",
+      "away": "RSA",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "winner": "MEX",
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537328,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-12T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "KOR",
+      "away": "CZE",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537333,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-12T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CAN",
+      "away": "BIH",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537345,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-13T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "USA",
+      "away": "PAR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537334,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-13T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "QAT",
+      "away": "SUI",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537339,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-13T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "BRA",
+      "away": "MAR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537340,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-14T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "HAI",
+      "away": "SCO",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537346,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-14T04:00:00Z",
+      "status": "SCHEDULED",
+      "home": "AUS",
+      "away": "TUR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537351,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-14T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": "GER",
+      "away": "CUW",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537357,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-14T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NED",
+      "away": "JPN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537352,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-14T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CIV",
+      "away": "ECU",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537358,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-15T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SWE",
+      "away": "TUN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537369,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-15T16:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ESP",
+      "away": "CPV",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537363,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-15T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "BEL",
+      "away": "EGY",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537370,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-15T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "KSA",
+      "away": "URY",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537364,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-16T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "IRN",
+      "away": "NZL",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537391,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-16T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "FRA",
+      "away": "SEN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537392,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-16T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "IRQ",
+      "away": "NOR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537397,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-17T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ARG",
+      "away": "ALG",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537398,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-17T04:00:00Z",
+      "status": "SCHEDULED",
+      "home": "AUT",
+      "away": "JOR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537403,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-17T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": "POR",
+      "away": "COD",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537409,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-17T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ENG",
+      "away": "CRO",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537410,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-17T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": "GHA",
+      "away": "PAN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537404,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-18T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "UZB",
+      "away": "COL",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537329,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-18T16:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CZE",
+      "away": "RSA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537335,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-18T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SUI",
+      "away": "BIH",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537336,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-18T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CAN",
+      "away": "QAT",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537330,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-19T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "MEX",
+      "away": "KOR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537348,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-19T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "USA",
+      "away": "AUS",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537342,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-19T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SCO",
+      "away": "MAR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537341,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-20T00:30:00Z",
+      "status": "SCHEDULED",
+      "home": "BRA",
+      "away": "HAI",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537347,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-20T03:00:00Z",
+      "status": "SCHEDULED",
+      "home": "TUR",
+      "away": "PAR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537359,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-20T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NED",
+      "away": "SWE",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537353,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-20T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "GER",
+      "away": "CIV",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537354,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-21T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ECU",
+      "away": "CUW",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537360,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-21T04:00:00Z",
+      "status": "SCHEDULED",
+      "home": "TUN",
+      "away": "JPN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537371,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-21T16:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ESP",
+      "away": "KSA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537365,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-21T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "BEL",
+      "away": "IRN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537372,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-21T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "URY",
+      "away": "CPV",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537366,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-22T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NZL",
+      "away": "EGY",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537399,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-22T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ARG",
+      "away": "AUT",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537393,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-22T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": "FRA",
+      "away": "IRQ",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537394,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-23T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NOR",
+      "away": "SEN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537400,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-23T03:00:00Z",
+      "status": "SCHEDULED",
+      "home": "JOR",
+      "away": "ALG",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537405,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-23T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": "POR",
+      "away": "UZB",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537411,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-23T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ENG",
+      "away": "GHA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537412,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-23T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": "PAN",
+      "away": "CRO",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537406,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-24T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "COL",
+      "away": "COD",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537337,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-24T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SUI",
+      "away": "CAN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537338,
+      "stage": "GROUP",
+      "group": "GROUP_B",
+      "utc_date": "2026-06-24T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "BIH",
+      "away": "QAT",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537344,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-24T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "MAR",
+      "away": "HAI",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537343,
+      "stage": "GROUP",
+      "group": "GROUP_C",
+      "utc_date": "2026-06-24T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SCO",
+      "away": "BRA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537331,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-25T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CZE",
+      "away": "MEX",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537332,
+      "stage": "GROUP",
+      "group": "GROUP_A",
+      "utc_date": "2026-06-25T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": "RSA",
+      "away": "KOR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537355,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-25T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ECU",
+      "away": "GER",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537356,
+      "stage": "GROUP",
+      "group": "GROUP_E",
+      "utc_date": "2026-06-25T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CUW",
+      "away": "CIV",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537361,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-25T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": "TUN",
+      "away": "NED",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537362,
+      "stage": "GROUP",
+      "group": "GROUP_F",
+      "utc_date": "2026-06-25T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": "JPN",
+      "away": "SWE",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537349,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-26T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "TUR",
+      "away": "USA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537350,
+      "stage": "GROUP",
+      "group": "GROUP_D",
+      "utc_date": "2026-06-26T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "PAR",
+      "away": "AUS",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537395,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-26T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NOR",
+      "away": "FRA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537396,
+      "stage": "GROUP",
+      "group": "GROUP_I",
+      "utc_date": "2026-06-26T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": "SEN",
+      "away": "IRQ",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537373,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-27T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": "URY",
+      "away": "ESP",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537374,
+      "stage": "GROUP",
+      "group": "GROUP_H",
+      "utc_date": "2026-06-27T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CPV",
+      "away": "KSA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537367,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-27T03:00:00Z",
+      "status": "SCHEDULED",
+      "home": "NZL",
+      "away": "BEL",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537368,
+      "stage": "GROUP",
+      "group": "GROUP_G",
+      "utc_date": "2026-06-27T03:00:00Z",
+      "status": "SCHEDULED",
+      "home": "EGY",
+      "away": "IRN",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537413,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-27T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": "PAN",
+      "away": "ENG",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537414,
+      "stage": "GROUP",
+      "group": "GROUP_L",
+      "utc_date": "2026-06-27T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": "CRO",
+      "away": "GHA",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537407,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-27T23:30:00Z",
+      "status": "SCHEDULED",
+      "home": "COL",
+      "away": "POR",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537408,
+      "stage": "GROUP",
+      "group": "GROUP_K",
+      "utc_date": "2026-06-27T23:30:00Z",
+      "status": "SCHEDULED",
+      "home": "COD",
+      "away": "UZB",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537401,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-28T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "JOR",
+      "away": "ARG",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537402,
+      "stage": "GROUP",
+      "group": "GROUP_J",
+      "utc_date": "2026-06-28T02:00:00Z",
+      "status": "SCHEDULED",
+      "home": "ALG",
+      "away": "AUT",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537417,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-28T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537423,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-29T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537415,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-29T20:30:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537418,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-30T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537424,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-30T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537416,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-06-30T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537425,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-01T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537426,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-01T16:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537422,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-01T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537421,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-02T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537420,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-02T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537419,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-02T23:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537429,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-03T03:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537428,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-03T18:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537427,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-03T22:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537430,
+      "stage": "R32",
+      "group": null,
+      "utc_date": "2026-07-04T01:30:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537376,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-04T17:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537375,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-04T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537377,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-05T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537378,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-06T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537379,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-06T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537380,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-07T00:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537381,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-07T16:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537382,
+      "stage": "R16",
+      "group": null,
+      "utc_date": "2026-07-07T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537383,
+      "stage": "QF",
+      "group": null,
+      "utc_date": "2026-07-09T20:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537384,
+      "stage": "QF",
+      "group": null,
+      "utc_date": "2026-07-10T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537385,
+      "stage": "QF",
+      "group": null,
+      "utc_date": "2026-07-11T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537386,
+      "stage": "QF",
+      "group": null,
+      "utc_date": "2026-07-12T01:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537387,
+      "stage": "SF",
+      "group": null,
+      "utc_date": "2026-07-14T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537388,
+      "stage": "SF",
+      "group": null,
+      "utc_date": "2026-07-15T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537389,
+      "stage": "THIRD_PLACE",
+      "group": null,
+      "utc_date": "2026-07-18T21:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    },
+    {
+      "id": 537390,
+      "stage": "FINAL",
+      "group": null,
+      "utc_date": "2026-07-19T19:00:00Z",
+      "status": "SCHEDULED",
+      "home": null,
+      "away": null,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "winner": null,
+      "decided_by": "REGULAR"
+    }
+  ]
 }

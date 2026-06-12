@@ -31,6 +31,10 @@
     "name": "Bahrain",
     "flag": "🇧🇭"
   },
+  "BIH": {
+    "name": "Bosnia-Herzegovina",
+    "flag": "🏳️"
+  },
   "BOL": {
     "name": "Bolivia",
     "flag": "🇧🇴"
@@ -60,7 +64,7 @@
     "flag": "🇨🇲"
   },
   "COD": {
-    "name": "DR Congo",
+    "name": "Congo DR",
     "flag": "🇨🇩"
   },
   "COL": {
@@ -68,7 +72,7 @@
     "flag": "🇨🇴"
   },
   "CPV": {
-    "name": "Cape Verde",
+    "name": "Cape Verde Islands",
     "flag": "🇨🇻"
   },
   "CRC": {
@@ -304,7 +308,7 @@
     "flag": "🇹🇳"
   },
   "TUR": {
-    "name": "Türkiye",
+    "name": "Turkey",
     "flag": "🇹🇷"
   },
   "UAE": {
@@ -318,6 +322,10 @@
   "URU": {
     "name": "Uruguay",
     "flag": "🇺🇾"
+  },
+  "URY": {
+    "name": "Uruguay",
+    "flag": "🏳️"
   },
   "USA": {
     "name": "United States",
