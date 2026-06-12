@@ -81,8 +81,23 @@ FLAGS = {
     "GAB": "🇬🇦",
     # OFC
     "NZL": "🇳🇿",
+    # UEFA additions seen in live 2026 data
+    "BIH": "🇧🇦",
 }
 FALLBACK_FLAG = "🏳️"
+
+# The API's tla is not always the FIFA code (observed in live 2026 data:
+# Uruguay is URY there, FIFA says URU). Everything downstream — pool.json,
+# teams.json, standings — speaks FIFA, so alias API codes here.
+TLA_ALIASES = {
+    "URY": "URU",
+}
+
+
+def canonical_code(tla: str | None) -> str | None:
+    if tla is None:
+        return None
+    return TLA_ALIASES.get(tla, tla)
 
 
 class FetchError(Exception):
@@ -136,10 +151,10 @@ def map_decided_by(duration: str) -> str:
 
 
 def extract_group(group: str | None) -> str | None:
-    """API "Group A" -> "A"; null (knockouts) stays null."""
+    """API "Group A" or "GROUP_A" -> "A"; null (knockouts) stays null."""
     if not group:
         return None
-    return group.split()[-1]
+    return group.replace("_", " ").split()[-1]
 
 
 def resolve_winner(winner: str | None, home: str | None, away: str | None) -> str | None:
@@ -151,8 +166,8 @@ def resolve_winner(winner: str | None, home: str | None, away: str | None) -> st
 
 
 def normalize_match(match: dict[str, Any]) -> dict[str, Any]:
-    home = match["homeTeam"].get("tla")
-    away = match["awayTeam"].get("tla")
+    home = canonical_code(match["homeTeam"].get("tla"))
+    away = canonical_code(match["awayTeam"].get("tla"))
     score = match.get("score") or {}
     full_time = score.get("fullTime") or {}
     return {
@@ -195,7 +210,7 @@ def build_teams(
     for match in raw.get("matches", []):
         for side in ("homeTeam", "awayTeam"):
             entry = match.get(side) or {}
-            code, name = entry.get("tla"), entry.get("name")
+            code, name = canonical_code(entry.get("tla")), entry.get("name")
             if not code or not name:
                 continue  # TBD knockout slot
             flag = FLAGS.get(code)
