@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-12T08:45:34Z",
+  "fetched_at": "2026-06-13T08:00:49Z",
   "competition": "WC",
   "matches": [
     {
@@ -37,12 +37,12 @@
       "stage": "GROUP",
       "group": "B",
       "utc_date": "2026-06-12T19:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "CAN",
       "away": "BIH",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -52,14 +52,14 @@
       "stage": "GROUP",
       "group": "D",
       "utc_date": "2026-06-13T01:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "USA",
       "away": "PAR",
       "score": {
-        "home": null,
-        "away": null
+        "home": 4,
+        "away": 1
       },
-      "winner": null,
+      "winner": "USA",
       "decided_by": "REGULAR"
     },
     {

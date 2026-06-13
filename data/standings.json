@@ -1,11 +1,99 @@
 {
-  "generated_at": "2026-06-12T08:45:35Z",
+  "generated_at": "2026-06-13T08:00:49Z",
   "players": [
+    {
+      "name": "Ryan",
+      "points": 4,
+      "best_possible": 322,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "ENG",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "MAR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "COL",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "KOR",
+          "points": 3,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CAN",
+          "points": 1,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SCO",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
+    {
+      "name": "Greg",
+      "points": 3,
+      "best_possible": 324,
+      "rank": 2,
+      "teams": [
+        {
+          "code": "FRA",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "NED",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "USA",
+          "points": 3,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "SUI",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "TUR",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        },
+        {
+          "code": "CIV",
+          "points": 0,
+          "alive": true,
+          "eliminated_at": null
+        }
+      ]
+    },
     {
       "name": "Harry",
       "points": 3,
       "best_possible": 324,
-      "rank": 1,
+      "rank": 2,
       "teams": [
         {
           "code": "POR",
@@ -46,54 +134,10 @@
       ]
     },
     {
-      "name": "Ryan",
-      "points": 3,
-      "best_possible": 324,
-      "rank": 1,
-      "teams": [
-        {
-          "code": "ENG",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "MAR",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "COL",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "KOR",
-          "points": 3,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "CAN",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "SCO",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        }
-      ]
-    },
-    {
       "name": "Bob",
       "points": 0,
       "best_possible": 324,
-      "rank": 3,
+      "rank": 4,
       "teams": [
         {
           "code": "ESP",
@@ -134,54 +178,10 @@
       ]
     },
     {
-      "name": "Greg",
-      "points": 0,
-      "best_possible": 324,
-      "rank": 3,
-      "teams": [
-        {
-          "code": "FRA",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "NED",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "USA",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "SUI",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "TUR",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        },
-        {
-          "code": "CIV",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null
-        }
-      ]
-    },
-    {
       "name": "Ian",
       "points": 0,
       "best_possible": 321,
-      "rank": 3,
+      "rank": 4,
       "teams": [
         {
           "code": "ARG",
@@ -236,9 +236,19 @@
     {
       "date": "2026-06-12",
       "totals": {
-        "Ryan": 3,
+        "Ryan": 4,
         "Bob": 0,
         "Greg": 0,
+        "Ian": 0,
+        "Harry": 3
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "totals": {
+        "Ryan": 4,
+        "Bob": 0,
+        "Greg": 3,
         "Ian": 0,
         "Harry": 3
       }
