@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T08:00:49Z",
+  "generated_at": "2026-06-14T08:30:46Z",
   "players": [
     {
       "name": "Ryan",
-      "points": 4,
-      "best_possible": 322,
+      "points": 8,
+      "best_possible": 320,
       "rank": 1,
       "teams": [
         {
@@ -15,7 +15,7 @@
         },
         {
           "code": "MAR",
-          "points": 0,
+          "points": 1,
           "alive": true,
           "eliminated_at": null
         },
@@ -39,7 +39,7 @@
         },
         {
           "code": "SCO",
-          "points": 0,
+          "points": 3,
           "alive": true,
           "eliminated_at": null
         }
@@ -47,8 +47,8 @@
     },
     {
       "name": "Greg",
-      "points": 3,
-      "best_possible": 324,
+      "points": 4,
+      "best_possible": 319,
       "rank": 2,
       "teams": [
         {
@@ -71,7 +71,7 @@
         },
         {
           "code": "SUI",
-          "points": 0,
+          "points": 1,
           "alive": true,
           "eliminated_at": null
         },
@@ -91,8 +91,8 @@
     },
     {
       "name": "Harry",
-      "points": 3,
-      "best_possible": 324,
+      "points": 4,
+      "best_possible": 322,
       "rank": 2,
       "teams": [
         {
@@ -103,7 +103,7 @@
         },
         {
           "code": "BRA",
-          "points": 0,
+          "points": 1,
           "alive": true,
           "eliminated_at": null
         },
@@ -135,7 +135,7 @@
     },
     {
       "name": "Bob",
-      "points": 0,
+      "points": 3,
       "best_possible": 324,
       "rank": 4,
       "teams": [
@@ -171,7 +171,7 @@
         },
         {
           "code": "AUS",
-          "points": 0,
+          "points": 3,
           "alive": true,
           "eliminated_at": null
         }
@@ -181,7 +181,7 @@
       "name": "Ian",
       "points": 0,
       "best_possible": 321,
-      "rank": 4,
+      "rank": 5,
       "teams": [
         {
           "code": "ARG",
@@ -246,11 +246,21 @@
     {
       "date": "2026-06-13",
       "totals": {
-        "Ryan": 4,
+        "Ryan": 5,
         "Bob": 0,
-        "Greg": 3,
+        "Greg": 4,
         "Ian": 0,
-        "Harry": 3
+        "Harry": 4
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "totals": {
+        "Ryan": 8,
+        "Bob": 3,
+        "Greg": 4,
+        "Ian": 0,
+        "Harry": 4
       }
     }
   ]

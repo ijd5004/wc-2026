@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-13T08:00:49Z",
+  "fetched_at": "2026-06-14T08:30:45Z",
   "competition": "WC",
   "matches": [
     {
@@ -67,12 +67,12 @@
       "stage": "GROUP",
       "group": "B",
       "utc_date": "2026-06-13T19:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "QAT",
       "away": "SUI",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -82,12 +82,12 @@
       "stage": "GROUP",
       "group": "C",
       "utc_date": "2026-06-13T22:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "BRA",
       "away": "MAR",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -97,14 +97,14 @@
       "stage": "GROUP",
       "group": "C",
       "utc_date": "2026-06-14T01:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "HAI",
       "away": "SCO",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
-      "winner": null,
+      "winner": "SCO",
       "decided_by": "REGULAR"
     },
     {
@@ -112,14 +112,14 @@
       "stage": "GROUP",
       "group": "D",
       "utc_date": "2026-06-14T04:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "AUS",
       "away": "TUR",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 0
       },
-      "winner": null,
+      "winner": "AUS",
       "decided_by": "REGULAR"
     },
     {
