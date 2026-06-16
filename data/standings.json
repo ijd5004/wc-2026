@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T10:42:33Z",
+  "generated_at": "2026-06-16T02:04:41Z",
   "players": [
     {
       "name": "Greg",
@@ -11,37 +11,79 @@
           "code": "FRA",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "NED",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "USA",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "SUI",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "TUR",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "CIV",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         }
       ]
     },
@@ -55,37 +97,79 @@
           "code": "ENG",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "MAR",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "COL",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "KOR",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "CAN",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "SCO",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         }
       ]
     },
@@ -99,37 +183,79 @@
           "code": "ESP",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "BEL",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "URU",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "SEN",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "SWE",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "AUS",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         }
       ]
     },
@@ -143,37 +269,79 @@
           "code": "POR",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "BRA",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "MEX",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "CRO",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "AUT",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "EGY",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         }
       ]
     },
@@ -187,37 +355,79 @@
           "code": "ARG",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "GER",
           "points": 3,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "NOR",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "JPN",
           "points": 1,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "ECU",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
         },
         {
           "code": "CZE",
           "points": 0,
           "alive": true,
-          "eliminated_at": null
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
         }
       ]
     }
