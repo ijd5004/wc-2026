@@ -117,7 +117,15 @@ Written to `data/standings.json` by the scoring step:
       "best_possible": 85,
       "rank": 1,
       "teams": [
-        {"code": "FRA", "points": 29, "alive": true, "eliminated_at": null}
+        {
+          "code": "FRA",
+          "points": 29,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {"w": 2, "d": 1, "l": 0},
+          "advanced": true,
+          "ko_wins": ["R32", "R16"]
+        }
       ]
     }
   ],
@@ -133,6 +141,9 @@ Written to `data/standings.json` by the scoring step:
 - `best_possible` is the **naive upper bound**: current points + every alive team wins all
   remaining matches independently. Bracket collisions between a player's own teams are
   deliberately ignored (documented limitation, same as the 2022 sheet).
+- Per-team `group_record` is the frozen group-stage W/D/L tally; `advanced` and `ko_wins`
+  (mirrored from the achievements layer) let the dashboard show the compact round a team
+  reached. The points column is independent and keeps counting through the knockouts.
 
 ## Environment
 

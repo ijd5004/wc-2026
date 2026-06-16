@@ -40,6 +40,20 @@ STAGE_LABELS = {
     "FINAL": "Final",
 }
 
+# Compact chip labels for the round a team reached, shown on each team row.
+STAGE_SHORT = {
+    "GROUP": "Groups",
+    "R32": "R32",
+    "R16": "R16",
+    "QF": "QF",
+    "SF": "SF",
+    "THIRD_PLACE": "3rd",
+    "FINAL": "Final",
+}
+
+# Knockout progression order (THIRD_PLACE is off to the side, not a step here).
+KO_ORDER = ["R32", "R16", "QF", "SF", "FINAL"]
+
 CSS = """
 :root {
   --bg: #14161a;
@@ -104,15 +118,33 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .no-matches { color: var(--muted); margin: 0.25rem; }
 .squad { margin-bottom: 0.9rem; }
 .squad:last-child { margin-bottom: 0; }
-.squad-head { display: flex; gap: 0.5rem; align-items: baseline; }
-.squad-head .player { font-weight: 600; flex: 1; }
-.squad-head .pts { color: var(--muted); }
-.team { display: flex; gap: 0.5rem; align-items: baseline; padding: 0.2rem 0 0.2rem 0.5rem; }
-.team .tname { flex: 1; }
-.team .tpts { font-variant-numeric: tabular-nums; color: var(--muted); }
+.squad-head {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
+}
+.squad-head .player { font-weight: 700; flex: 1; }
+.squad-head .pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+.team { display: flex; gap: 0.5rem; align-items: baseline; padding: 0.22rem 0 0.22rem 0.5rem; }
+.team .tname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.team .trec { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.85em; }
+.team .tpts { font-variant-numeric: tabular-nums; color: var(--muted); min-width: 3.4rem; text-align: right; }
 .team.out .tname { text-decoration: line-through; color: var(--muted); }
 .team.out .flag { filter: grayscale(1); opacity: 0.6; }
-.out-note { color: var(--muted); font-size: 0.85em; }
+.chip {
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--line);
+  color: var(--muted);
+}
+.chip.live { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); }
+.chip.champ { background: var(--warn); color: #14161a; }
 .bp { display: flex; gap: 0.5rem; align-items: baseline; padding: 0.3rem 0.25rem; }
 .bp .player { font-weight: 600; }
 .bp .bp-pts { color: var(--muted); }
@@ -268,22 +300,43 @@ def _render_chart(standings: dict) -> str:
     )
 
 
+def _progress(team: dict) -> tuple[str, str]:
+    """(css state, compact chip label) for the round a team reached.
+
+    The group record freezes after three matches, so this chip carries the
+    knockout story: which round they're alive in, where they were knocked out,
+    or the trophy. Points are always shown separately and keep counting.
+    """
+    ko_wins = team.get("ko_wins") or []
+    eliminated_at = team.get("eliminated_at")
+    if "FINAL" in ko_wins:
+        return "champ", "🏆 Champion"
+    if eliminated_at is not None:
+        return "out", STAGE_SHORT.get(eliminated_at, eliminated_at)
+    if team.get("advanced"):
+        # Furthest round reached = the round after the last one they won.
+        last = max((KO_ORDER.index(s) for s in ko_wins if s in KO_ORDER), default=-1)
+        nxt = KO_ORDER[min(last + 1, len(KO_ORDER) - 1)]
+        return "live", STAGE_SHORT.get(nxt, nxt)
+    return "group", "Groups"
+
+
 def _render_team(team: dict, teams: dict) -> str:
     code = team["code"]
     info = teams.get(code) or {}
     flag = info.get("flag", "\U0001f3f3️")  # white flag for unknown codes
     name = info.get("name", code)
-    eliminated_at = team.get("eliminated_at")
-    out = not team.get("alive", False) and eliminated_at is not None
-    classes = "team out" if out else "team"
-    note = ""
-    if out:
-        stage = STAGE_LABELS.get(eliminated_at, eliminated_at)
-        note = f' <span class="out-note">out — {_esc(stage)}</span>'
+    rec = team.get("group_record") or {}
+    record = f'{rec.get("w", 0)}-{rec.get("d", 0)}-{rec.get("l", 0)}'
+    state, label = _progress(team)
+    classes = "team out" if team.get("eliminated_at") is not None else "team"
+    chip_class = "chip" if state in ("out", "group") else f"chip {state}"
     return (
         f'<li class="{classes}" data-team="{_esc(code)}">'
         f'<span class="flag">{flag}</span>'
-        f'<span class="tname">{_esc(name)}{note}</span>'
+        f'<span class="tname">{_esc(name)}</span>'
+        f'<span class="trec" title="group W-D-L">{record}</span>'
+        f'<span class="{chip_class}">{_esc(label)}</span>'
         f'<span class="tpts">{team["points"]} pts</span>'
         "</li>"
     )

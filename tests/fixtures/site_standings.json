@@ -7,8 +7,10 @@
       "best_possible": 40,
       "rank": 1,
       "teams": [
-        {"code": "FRA", "points": 6, "alive": true, "eliminated_at": null},
-        {"code": "MEX", "points": 3, "alive": false, "eliminated_at": "R16"}
+        {"code": "FRA", "points": 6, "alive": true, "eliminated_at": null,
+         "group_record": {"w": 2, "d": 0, "l": 1}, "advanced": true, "ko_wins": ["R32"]},
+        {"code": "MEX", "points": 3, "alive": false, "eliminated_at": "R16",
+         "group_record": {"w": 1, "d": 0, "l": 2}, "advanced": true, "ko_wins": []}
       ]
     },
     {
@@ -17,8 +19,10 @@
       "best_possible": 38,
       "rank": 2,
       "teams": [
-        {"code": "ARG", "points": 4, "alive": true, "eliminated_at": null},
-        {"code": "GER", "points": 3, "alive": true, "eliminated_at": null}
+        {"code": "ARG", "points": 4, "alive": true, "eliminated_at": null,
+         "group_record": {"w": 1, "d": 1, "l": 0}, "advanced": false, "ko_wins": []},
+        {"code": "GER", "points": 3, "alive": true, "eliminated_at": null,
+         "group_record": {"w": 1, "d": 0, "l": 0}, "advanced": false, "ko_wins": []}
       ]
     },
     {
@@ -27,8 +31,10 @@
       "best_possible": 8,
       "rank": 3,
       "teams": [
-        {"code": "BRA", "points": 4, "alive": false, "eliminated_at": "GROUP"},
-        {"code": "XXX", "points": 0, "alive": true, "eliminated_at": null}
+        {"code": "BRA", "points": 4, "alive": false, "eliminated_at": "GROUP",
+         "group_record": {"w": 1, "d": 1, "l": 1}, "advanced": false, "ko_wins": []},
+        {"code": "XXX", "points": 0, "alive": true, "eliminated_at": null,
+         "group_record": {"w": 0, "d": 0, "l": 0}, "advanced": false, "ko_wins": []}
       ]
     }
   ],

@@ -71,18 +71,42 @@ def test_movement_dash_with_single_timeline_day(tmp_path):
     assert "▲" not in html and "▼" not in html
 
 
-def test_eliminated_team_muted_with_stage(tmp_path):
+def test_eliminated_team_muted_with_round_chip(tmp_path):
     html = _build(tmp_path)
     mex = _line_with(html, 'data-team="MEX"')
     assert 'class="team out"' in mex
-    assert "out — R16" in mex
+    assert ">R16<" in mex  # round it was knocked out in, as a chip
     bra = _line_with(html, 'data-team="BRA"')
     assert 'class="team out"' in bra
-    assert "out — Groups" in bra
+    assert ">Groups<" in bra
     # Alive teams are not muted.
     assert 'class="team"' in _line_with(html, 'data-team="FRA"')
     # The muting is visible: strikethrough + grey styling exists for .team.out.
     assert "line-through" in html
+
+
+def test_eliminated_team_still_shows_points(tmp_path):
+    """An out team keeps its points column — those points still count."""
+    mex = _line_with(_build(tmp_path), 'data-team="MEX"')
+    assert ">3 pts<" in mex
+
+
+def test_group_record_and_live_round_chip(tmp_path):
+    html = _build(tmp_path)
+    fra = _line_with(html, 'data-team="FRA"')
+    assert ">2-0-1<" in fra  # frozen group W-D-L
+    assert "chip live" in fra  # alive in the knockouts
+    assert ">R16<" in fra  # won R32, so currently reached R16
+    # A team still in the group stage gets a neutral Groups chip, not "out".
+    arg = _line_with(html, 'data-team="ARG"')
+    assert ">1-1-0<" in arg
+    assert 'class="team"' in arg and ">Groups<" in arg
+
+
+def test_subtotal_header_is_underlined_and_bold(tmp_path):
+    html = _build(tmp_path)
+    assert ".squad-head" in html and "border-bottom" in html
+    assert ".squad-head .pts { font-weight: 700" in html
 
 
 def test_unknown_team_code_degrades_gracefully(tmp_path):
