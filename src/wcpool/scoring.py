@@ -64,6 +64,15 @@ def _ko_stages(scoring_cfg: dict) -> list[str]:
     return list(scoring_cfg["stage_win_points"])
 
 
+def _group_record(group_results: list[str]) -> dict[str, int]:
+    """W/D/L counts from a team's finished group results (frozen after groups)."""
+    return {
+        "w": group_results.count("W"),
+        "d": group_results.count("D"),
+        "l": group_results.count("L"),
+    }
+
+
 def _is_finished_final(match: dict) -> bool:
     return match["stage"] == FINAL and match["status"] == FINISHED
 
@@ -284,6 +293,9 @@ def compute_standings(matches, pool_cfg: dict, *, generated_at: str | None = Non
                     "points": points,
                     "alive": ach["alive"],
                     "eliminated_at": ach["eliminated_at"],
+                    "group_record": _group_record(ach["group_results"]),
+                    "advanced": ach["advanced"],
+                    "ko_wins": list(ach["ko_wins"]),
                 }
             )
         players.append(
