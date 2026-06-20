@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-19T09:18:38Z",
+  "generated_at": "2026-06-20T08:02:10Z",
   "players": [
     {
       "name": "Ryan",
-      "points": 17,
-      "best_possible": 317,
+      "points": 20,
+      "best_possible": 314,
       "rank": 1,
       "teams": [
         {
@@ -22,11 +22,11 @@
         },
         {
           "code": "MAR",
-          "points": 1,
+          "points": 4,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 0,
+            "w": 1,
             "d": 1,
             "l": 0
           },
@@ -80,7 +80,7 @@
           "group_record": {
             "w": 1,
             "d": 0,
-            "l": 0
+            "l": 1
           },
           "advanced": false,
           "ko_wins": []
@@ -89,8 +89,8 @@
     },
     {
       "name": "Greg",
-      "points": 14,
-      "best_possible": 317,
+      "points": 17,
+      "best_possible": 314,
       "rank": 2,
       "teams": [
         {
@@ -121,11 +121,11 @@
         },
         {
           "code": "USA",
-          "points": 3,
+          "points": 6,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 1,
+            "w": 2,
             "d": 0,
             "l": 0
           },
@@ -153,7 +153,7 @@
           "group_record": {
             "w": 0,
             "d": 0,
-            "l": 1
+            "l": 2
           },
           "advanced": false,
           "ko_wins": []
@@ -175,7 +175,7 @@
     },
     {
       "name": "Harry",
-      "points": 12,
+      "points": 15,
       "best_possible": 315,
       "rank": 3,
       "teams": [
@@ -194,11 +194,11 @@
         },
         {
           "code": "BRA",
-          "points": 1,
+          "points": 4,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 0,
+            "w": 1,
             "d": 1,
             "l": 0
           },
@@ -348,7 +348,7 @@
     {
       "name": "Bob",
       "points": 9,
-      "best_possible": 315,
+      "best_possible": 312,
       "rank": 5,
       "teams": [
         {
@@ -424,7 +424,7 @@
           "group_record": {
             "w": 1,
             "d": 0,
-            "l": 0
+            "l": 1
           },
           "advanced": false,
           "ko_wins": []
@@ -516,11 +516,21 @@
     {
       "date": "2026-06-19",
       "totals": {
-        "Ryan": 17,
+        "Ryan": 20,
         "Bob": 9,
-        "Greg": 14,
+        "Greg": 17,
         "Ian": 11,
         "Harry": 12
+      }
+    },
+    {
+      "date": "2026-06-20",
+      "totals": {
+        "Ryan": 20,
+        "Bob": 9,
+        "Greg": 17,
+        "Ian": 11,
+        "Harry": 15
       }
     }
   ]
