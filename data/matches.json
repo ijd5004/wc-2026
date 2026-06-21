@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-20T08:02:09Z",
+  "fetched_at": "2026-06-21T08:44:47Z",
   "competition": "WC",
   "matches": [
     {
@@ -487,14 +487,14 @@
       "stage": "GROUP",
       "group": "F",
       "utc_date": "2026-06-20T17:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "NED",
       "away": "SWE",
       "score": {
-        "home": null,
-        "away": null
+        "home": 5,
+        "away": 1
       },
-      "winner": null,
+      "winner": "NED",
       "decided_by": "REGULAR"
     },
     {
@@ -502,14 +502,14 @@
       "stage": "GROUP",
       "group": "E",
       "utc_date": "2026-06-20T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "GER",
       "away": "CIV",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
-      "winner": null,
+      "winner": "GER",
       "decided_by": "REGULAR"
     },
     {
@@ -517,12 +517,12 @@
       "stage": "GROUP",
       "group": "E",
       "utc_date": "2026-06-21T00:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "ECU",
       "away": "CUW",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -532,14 +532,14 @@
       "stage": "GROUP",
       "group": "F",
       "utc_date": "2026-06-21T04:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "TUN",
       "away": "JPN",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 4
       },
-      "winner": null,
+      "winner": "JPN",
       "decided_by": "REGULAR"
     },
     {
