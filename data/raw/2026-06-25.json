@@ -2749,7 +2749,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-23T15:20:15Z",
+      "lastUpdated": "2026-06-25T13:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -3263,7 +3263,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-25T03:25:00Z",
+      "lastUpdated": "2026-06-25T13:25:00Z",
       "homeTeam": {
         "id": 1060,
         "name": "Bosnia-Herzegovina",
@@ -3329,7 +3329,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-25T03:25:01Z",
+      "lastUpdated": "2026-06-25T13:25:00Z",
       "homeTeam": {
         "id": 815,
         "name": "Morocco",
@@ -3623,7 +3623,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 212450,
+          "name": "Tori Penso",
+          "type": "REFEREE",
+          "nationality": "USA"
+        }
+      ]
     },
     {
       "area": {
@@ -3682,7 +3689,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 30960,
+          "name": "Glenn Nyberg",
+          "type": "REFEREE",
+          "nationality": "Sweden"
+        }
+      ]
     },
     {
       "area": {

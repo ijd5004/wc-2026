@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-25T07:58:47Z",
+  "generated_at": "2026-06-25T18:54:13Z",
   "players": [
     {
       "name": "Harry",
       "points": 33,
-      "best_possible": 267,
+      "best_possible": 312,
       "rank": 1,
       "teams": [
         {
@@ -23,8 +23,8 @@
         {
           "code": "BRA",
           "points": 7,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 2,
             "d": 1,
@@ -90,7 +90,7 @@
     {
       "name": "Ian",
       "points": 30,
-      "best_possible": 264,
+      "best_possible": 309,
       "rank": 2,
       "teams": [
         {
@@ -161,8 +161,8 @@
         {
           "code": "CZE",
           "points": 1,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 0,
             "d": 1,
@@ -176,7 +176,7 @@
     {
       "name": "Greg",
       "points": 29,
-      "best_possible": 266,
+      "best_possible": 311,
       "rank": 3,
       "teams": [
         {
@@ -221,8 +221,8 @@
         {
           "code": "SUI",
           "points": 7,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 2,
             "d": 1,
@@ -262,7 +262,7 @@
     {
       "name": "Ryan",
       "points": 27,
-      "best_possible": 123,
+      "best_possible": 303,
       "rank": 4,
       "teams": [
         {
@@ -281,8 +281,8 @@
         {
           "code": "MAR",
           "points": 7,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 2,
             "d": 1,
@@ -307,8 +307,8 @@
         {
           "code": "KOR",
           "points": 3,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 1,
             "d": 0,
@@ -320,8 +320,8 @@
         {
           "code": "CAN",
           "points": 4,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 1,
             "d": 1,
@@ -333,8 +333,8 @@
         {
           "code": "SCO",
           "points": 3,
-          "alive": false,
-          "eliminated_at": "GROUP",
+          "alive": true,
+          "eliminated_at": null,
           "group_record": {
             "w": 1,
             "d": 0,
