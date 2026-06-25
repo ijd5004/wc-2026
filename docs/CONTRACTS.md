@@ -97,8 +97,13 @@ layer directly, since we only have the 2022 outcome grid, not per-match data.
 }
 ```
 
-- `advanced` derivation from matches: the team appears in a first-knockout-round fixture
-  (covers both group winners/runners-up and third-place qualifiers — flat bonus either way).
+- `advanced` derivation from matches: the team appears in a first-knockout-round fixture,
+  **once the bracket is fully populated** (every first-round slot has both teams assigned).
+  The API fills knockout slots unevenly as groups clinch, so advancement is withheld until
+  the whole bracket is set — otherwise an arbitrary subset of qualifiers (the ones the API
+  happened to place first) would light up while identically-placed teams wait. All qualifiers
+  then reveal together, on the same gate as `"GROUP"` elimination. (Covers group
+  winners/runners-up and third-place qualifiers alike — flat bonus either way.)
 - `alive`: not yet eliminated and tournament unfinished. While fixtures are unknown
   (group stage in progress), every undefeated-in-the-bracket team is alive.
 - `eliminated_at`: stage of the knockout loss, `"GROUP"` for group-stage exits, `null` if alive.

@@ -141,10 +141,21 @@ def achievements_from_matches(matches, scoring_cfg: dict) -> dict[str, dict]:
             else:
                 group_results.append("L")
 
-        # Contract rule: appears in a first-knockout-round fixture. Appearing in
-        # any later knockout fixture implies the same, which keeps the adapter
-        # correct on partial data (e.g. only the bracket tail loaded).
-        advanced = first_ko is not None and any(m["stage"] != GROUP for m in team_matches)
+        # Contract rule: appears in a knockout fixture. A team in any round beyond
+        # the first (R16/QF/…) is unambiguously through. For the *first* round,
+        # though, only credit advancement once the bracket is fully populated: the
+        # API fills R32 slots unevenly as groups clinch, so crediting on partial
+        # data would light up an arbitrary subset of qualifiers (the ones the API
+        # happened to place) while identically-placed teams wait. Gating the R32
+        # case on first_ko_bracket_set makes all qualifiers reveal together,
+        # symmetric with "GROUP" elimination below. (In real data a later-round
+        # slot is never filled before R32 is set, so this only keeps the adapter
+        # correct on synthetic/bracket-tail data.)
+        in_first_ko = any(m["stage"] == first_ko for m in team_matches)
+        in_later_ko = any(m["stage"] not in (GROUP, first_ko) for m in team_matches)
+        advanced = first_ko is not None and (
+            in_later_ko or (in_first_ko and first_ko_bracket_set)
+        )
 
         ko_finished = [
             m for m in team_matches if m["stage"] != GROUP and m["status"] == FINISHED

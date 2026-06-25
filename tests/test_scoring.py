@@ -178,6 +178,32 @@ def test_partially_populated_bracket_does_not_eliminate_yet():
     assert ach["alive"] is True
 
 
+def test_advancement_waits_for_full_bracket():
+    """A clinched team the API has already slotted into the R32 is NOT shown
+    advanced (no chip, no +3 bonus) until every R32 slot has both teams — so all
+    qualifiers reveal together instead of trickling in as the API fills the
+    bracket. Symmetric with group elimination."""
+    won_group = [
+        match("GROUP", "2026-06-11", "WIN", "AAA", "WIN", group="A"),
+        match("GROUP", "2026-06-15", "WIN", "BBB", "WIN", group="A"),
+        match("GROUP", "2026-06-19", "WIN", "CCC", "WIN", group="A"),
+    ]
+    partial = won_group + [
+        match("R32", "2026-06-28", "WIN", None, status="SCHEDULED"),  # placed, opp TBD
+        match("R32", "2026-06-29", None, None, status="SCHEDULED"),  # other slot empty
+    ]
+    ach = achievements_from_matches(partial, SCORING_2026)["WIN"]
+    assert ach["advanced"] is False  # withheld until the bracket is fully set
+    assert ach["eliminated_at"] is None and ach["alive"] is True
+    assert score_team(ach, SCORING_2026, False) == 9  # 3 group wins, no advance yet
+
+    # Fill the rest of the bracket: now the qualifier is credited.
+    full = won_group + [match("R32", "2026-06-28", "WIN", "OPP", status="SCHEDULED")]
+    ach = achievements_from_matches(full, SCORING_2026)["WIN"]
+    assert ach["advanced"] is True
+    assert score_team(ach, SCORING_2026, False) == 9 + 3  # group wins + advance
+
+
 def test_sf_loser_stays_alive_while_bronze_match_pending():
     matches = [
         match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
