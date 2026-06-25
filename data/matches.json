@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-25T18:54:12Z",
+  "fetched_at": "2026-06-25T19:12:21Z",
   "competition": "WC",
   "matches": [
     {
@@ -1118,7 +1118,7 @@
       "group": null,
       "utc_date": "2026-06-29T20:30:00Z",
       "status": "SCHEDULED",
-      "home": "GER",
+      "home": null,
       "away": null,
       "score": {
         "home": null,
@@ -1178,7 +1178,7 @@
       "group": null,
       "utc_date": "2026-07-01T01:00:00Z",
       "status": "SCHEDULED",
-      "home": "MEX",
+      "home": null,
       "away": null,
       "score": {
         "home": null,
@@ -1223,7 +1223,7 @@
       "group": null,
       "utc_date": "2026-07-02T00:00:00Z",
       "status": "SCHEDULED",
-      "home": "USA",
+      "home": null,
       "away": null,
       "score": {
         "home": null,
@@ -1298,7 +1298,7 @@
       "group": null,
       "utc_date": "2026-07-03T22:00:00Z",
       "status": "SCHEDULED",
-      "home": "ARG",
+      "home": null,
       "away": null,
       "score": {
         "home": null,
