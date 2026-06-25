@@ -169,10 +169,33 @@ def test_status_mapping(api_status, expected):
         ("REGULAR", "REGULAR"),
         ("EXTRA_TIME", "ET"),
         ("PENALTY_SHOOTOUT", "PENALTIES"),
+        (None, "REGULAR"),  # missing/null duration (e.g. scheduled): must not abort
+        ("SOMETHING_NEW", "REGULAR"),  # unknown future enum degrades, never aborts
     ],
 )
 def test_decided_by_mapping(duration, expected):
     assert map_decided_by(duration) == expected
+
+
+def test_unknown_duration_does_not_abort_normalization():
+    """A knockout match with an unrecognized score.duration still normalizes
+    (winner drives scoring; decided_by must never freeze the whole fetch)."""
+    from wcpool.fetch import normalize_match
+
+    match = {
+        "id": 1,
+        "stage": "FINAL",
+        "group": None,
+        "utcDate": "2026-07-19T19:00:00Z",
+        "status": "FINISHED",
+        "homeTeam": {"tla": "ARG"},
+        "awayTeam": {"tla": "FRA"},
+        "score": {"winner": "HOME_TEAM", "duration": "GOLDEN_GOAL",
+                  "fullTime": {"home": 1, "away": 0}},
+    }
+    normalized = normalize_match(match)
+    assert normalized["winner"] == "ARG"
+    assert normalized["decided_by"] == "REGULAR"
 
 
 @pytest.mark.parametrize(
