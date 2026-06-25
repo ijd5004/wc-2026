@@ -113,7 +113,15 @@ def achievements_from_matches(matches, scoring_cfg: dict) -> dict[str, dict]:
     third_place_finished = any(
         m["stage"] == THIRD_PLACE and m["status"] == FINISHED for m in matches
     )
-    first_ko_fixtures_exist = any(m["stage"] == first_ko for m in matches)
+    # The API publishes the whole fixture list upfront with TBD (null) knockout
+    # slots, so "an R32 fixture exists" is NOT evidence a team failed to advance.
+    # Only treat the bracket as decisive once every first-round slot has both
+    # teams assigned; until then a group-completed team is undetermined (stays
+    # alive), never prematurely eliminated. See test_eliminated_at_group_*.
+    first_ko_fixtures = [m for m in matches if m["stage"] == first_ko]
+    first_ko_bracket_set = bool(first_ko_fixtures) and all(
+        m.get("home") and m.get("away") for m in first_ko_fixtures
+    )
 
     out: dict[str, dict] = {}
     for team in sorted(teams):
@@ -156,7 +164,7 @@ def achievements_from_matches(matches, scoring_cfg: dict) -> dict[str, dict]:
         elif (
             group_matches
             and all(m["status"] == FINISHED for m in group_matches)
-            and first_ko_fixtures_exist
+            and first_ko_bracket_set
             and not advanced
         ):
             eliminated_at = GROUP

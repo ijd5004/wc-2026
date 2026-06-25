@@ -135,7 +135,7 @@ def test_group_draw_scores_group_draw_points():
     assert score_team(ach["BBB"], SCORING_2026, False) == SCORING_2026["group_draw"]
 
 
-def test_eliminated_at_group_only_once_first_ko_fixtures_exist():
+def test_eliminated_at_group_only_once_bracket_is_populated():
     group_done = [
         match("GROUP", "2026-06-11", "OUT", "AAA", "AAA", group="A"),
         match("GROUP", "2026-06-15", "OUT", "BBB", "BBB", group="A"),
@@ -145,10 +145,37 @@ def test_eliminated_at_group_only_once_first_ko_fixtures_exist():
     assert ach["eliminated_at"] is None  # undetermined: no R32 fixtures yet
     assert ach["alive"] is True
 
+    # The API publishes the bracket upfront as TBD placeholders (null teams).
+    # That must NOT eliminate a team that finished its group games — the bracket
+    # is not yet decided. (Regression: this used to cross out every group-
+    # completed team the moment the placeholder R32 fixtures appeared.)
+    placeholder_r32 = group_done + [
+        match("R32", "2026-06-28", None, None, status="SCHEDULED") for _ in range(16)
+    ]
+    ach = achievements_from_matches(placeholder_r32, SCORING_2026)["OUT"]
+    assert ach["eliminated_at"] is None
+    assert ach["alive"] is True
+
+    # Once the bracket has real teams and OUT is not among them, it is out.
     with_r32 = group_done + [match("R32", "2026-06-28", "AAA", "BBB", status="SCHEDULED")]
     ach = achievements_from_matches(with_r32, SCORING_2026)["OUT"]
     assert ach["eliminated_at"] == "GROUP"
     assert ach["alive"] is False
+
+
+def test_partially_populated_bracket_does_not_eliminate_yet():
+    """A team is undetermined until every first-round slot is filled (no false
+    positives while the API assigns the bracket incrementally)."""
+    matches = [
+        match("GROUP", "2026-06-11", "OUT", "AAA", "AAA", group="A"),
+        match("GROUP", "2026-06-15", "OUT", "BBB", "BBB", group="A"),
+        match("GROUP", "2026-06-19", "OUT", "CCC", "CCC", group="A"),
+        match("R32", "2026-06-28", "AAA", "BBB", status="SCHEDULED"),  # one slot set
+        match("R32", "2026-06-29", None, None, status="SCHEDULED"),  # still TBD
+    ]
+    ach = achievements_from_matches(matches, SCORING_2026)["OUT"]
+    assert ach["eliminated_at"] is None
+    assert ach["alive"] is True
 
 
 def test_sf_loser_stays_alive_while_bronze_match_pending():

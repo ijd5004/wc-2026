@@ -102,6 +102,11 @@ layer directly, since we only have the 2022 outcome grid, not per-match data.
 - `alive`: not yet eliminated and tournament unfinished. While fixtures are unknown
   (group stage in progress), every undefeated-in-the-bracket team is alive.
 - `eliminated_at`: stage of the knockout loss, `"GROUP"` for group-stage exits, `null` if alive.
+- **`"GROUP"` elimination only triggers once the first-round bracket is populated** —
+  i.e. every first-knockout-round fixture has both teams assigned. The API ships the full
+  schedule upfront with TBD (`null`) knockout slots, so a placeholder R32 fixture is **not**
+  evidence a group-completed team failed to advance. Until the bracket is set, such teams are
+  `alive` / undetermined.
 
 ## Standings output — engine → dashboard/card (owner: issue #1)
 
