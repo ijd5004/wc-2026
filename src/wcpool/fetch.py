@@ -144,11 +144,21 @@ def map_status(status: str) -> str:
     return "SCHEDULED"
 
 
-def map_decided_by(duration: str) -> str:
-    try:
+def map_decided_by(duration: str | None) -> str:
+    """Map ``score.duration`` to ``REGULAR | ET | PENALTIES``.
+
+    This field is informational — the ``winner`` field drives all scoring — so an
+    unexpected or missing value must **not** abort the whole fetch (which would
+    silently freeze the dashboard mid-tournament, exactly when ET/penalty matches
+    first appear). A missing/null duration and any unrecognized value degrade to
+    ``REGULAR``; unknown non-null values also emit a stderr warning.
+    """
+    if duration is None:
+        return "REGULAR"
+    if duration in DURATION_MAP:
         return DURATION_MAP[duration]
-    except KeyError:
-        raise NormalizationError(f"unknown score.duration from API: {duration!r}") from None
+    print(f"warning: unknown score.duration {duration!r}; treating as REGULAR", file=sys.stderr)
+    return "REGULAR"
 
 
 def extract_group(group: str | None) -> str | None:
@@ -181,7 +191,7 @@ def normalize_match(match: dict[str, Any]) -> dict[str, Any]:
         "away": away,
         "score": {"home": full_time.get("home"), "away": full_time.get("away")},
         "winner": resolve_winner(score.get("winner"), home, away),
-        "decided_by": map_decided_by(score.get("duration", "REGULAR")),
+        "decided_by": map_decided_by(score.get("duration")),
     }
 
 
