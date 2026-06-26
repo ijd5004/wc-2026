@@ -1,11 +1,97 @@
 {
-  "generated_at": "2026-06-25T19:12:22Z",
+  "generated_at": "2026-06-26T08:06:16Z",
   "players": [
+    {
+      "name": "Greg",
+      "points": 35,
+      "best_possible": 308,
+      "rank": 1,
+      "teams": [
+        {
+          "code": "FRA",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "NED",
+          "points": 7,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "USA",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "SUI",
+          "points": 7,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "TUR",
+          "points": 3,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "CIV",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
+        }
+      ]
+    },
     {
       "name": "Harry",
       "points": 30,
       "best_possible": 312,
-      "rank": 1,
+      "rank": 2,
       "teams": [
         {
           "code": "POR",
@@ -88,10 +174,96 @@
       ]
     },
     {
+      "name": "Ian",
+      "points": 28,
+      "best_possible": 304,
+      "rank": 3,
+      "teams": [
+        {
+          "code": "ARG",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "GER",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "NOR",
+          "points": 6,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "JPN",
+          "points": 5,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 2,
+            "l": 0
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "ECU",
+          "points": 4,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 1,
+            "l": 1
+          },
+          "advanced": false,
+          "ko_wins": []
+        },
+        {
+          "code": "CZE",
+          "points": 1,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 0,
+            "d": 1,
+            "l": 2
+          },
+          "advanced": false,
+          "ko_wins": []
+        }
+      ]
+    },
+    {
       "name": "Ryan",
       "points": 27,
       "best_possible": 303,
-      "rank": 2,
+      "rank": 4,
       "teams": [
         {
           "code": "ENG",
@@ -174,181 +346,9 @@
       ]
     },
     {
-      "name": "Greg",
-      "points": 26,
-      "best_possible": 311,
-      "rank": 3,
-      "teams": [
-        {
-          "code": "FRA",
-          "points": 6,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "NED",
-          "points": 4,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 1,
-            "d": 1,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "USA",
-          "points": 6,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "SUI",
-          "points": 7,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 1,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "TUR",
-          "points": 0,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 0,
-            "d": 0,
-            "l": 2
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "CIV",
-          "points": 3,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 1,
-            "d": 0,
-            "l": 1
-          },
-          "advanced": false,
-          "ko_wins": []
-        }
-      ]
-    },
-    {
-      "name": "Ian",
-      "points": 24,
-      "best_possible": 309,
-      "rank": 4,
-      "teams": [
-        {
-          "code": "ARG",
-          "points": 6,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "GER",
-          "points": 6,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "NOR",
-          "points": 6,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "JPN",
-          "points": 4,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 1,
-            "d": 1,
-            "l": 0
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "ECU",
-          "points": 1,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 0,
-            "d": 1,
-            "l": 1
-          },
-          "advanced": false,
-          "ko_wins": []
-        },
-        {
-          "code": "CZE",
-          "points": 1,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 0,
-            "d": 1,
-            "l": 2
-          },
-          "advanced": false,
-          "ko_wins": []
-        }
-      ]
-    },
-    {
       "name": "Bob",
-      "points": 14,
-      "best_possible": 302,
+      "points": 16,
+      "best_possible": 298,
       "rank": 5,
       "teams": [
         {
@@ -405,12 +405,12 @@
         },
         {
           "code": "SWE",
-          "points": 3,
+          "points": 4,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 1,
-            "d": 0,
+            "d": 1,
             "l": 1
           },
           "advanced": false,
@@ -418,12 +418,12 @@
         },
         {
           "code": "AUS",
-          "points": 3,
+          "points": 4,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 1,
-            "d": 0,
+            "d": 1,
             "l": 1
           },
           "advanced": false,
@@ -577,9 +577,19 @@
       "date": "2026-06-25",
       "totals": {
         "Ryan": 27,
-        "Bob": 14,
-        "Greg": 26,
-        "Ian": 24,
+        "Bob": 15,
+        "Greg": 32,
+        "Ian": 28,
+        "Harry": 30
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "totals": {
+        "Ryan": 27,
+        "Bob": 16,
+        "Greg": 35,
+        "Ian": 28,
         "Harry": 30
       }
     }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-25T19:12:21Z",
+  "fetched_at": "2026-06-26T08:06:15Z",
   "competition": "WC",
   "matches": [
     {
@@ -817,14 +817,14 @@
       "stage": "GROUP",
       "group": "E",
       "utc_date": "2026-06-25T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "ECU",
       "away": "GER",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
-      "winner": null,
+      "winner": "ECU",
       "decided_by": "REGULAR"
     },
     {
@@ -832,14 +832,14 @@
       "stage": "GROUP",
       "group": "E",
       "utc_date": "2026-06-25T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "CUW",
       "away": "CIV",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 2
       },
-      "winner": null,
+      "winner": "CIV",
       "decided_by": "REGULAR"
     },
     {
@@ -847,14 +847,14 @@
       "stage": "GROUP",
       "group": "F",
       "utc_date": "2026-06-25T23:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "TUN",
       "away": "NED",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 3
       },
-      "winner": null,
+      "winner": "NED",
       "decided_by": "REGULAR"
     },
     {
@@ -862,12 +862,12 @@
       "stage": "GROUP",
       "group": "F",
       "utc_date": "2026-06-25T23:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "JPN",
       "away": "SWE",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -877,14 +877,14 @@
       "stage": "GROUP",
       "group": "D",
       "utc_date": "2026-06-26T02:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "TUR",
       "away": "USA",
       "score": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 2
       },
-      "winner": null,
+      "winner": "TUR",
       "decided_by": "REGULAR"
     },
     {
@@ -892,12 +892,12 @@
       "stage": "GROUP",
       "group": "D",
       "utc_date": "2026-06-26T02:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "PAR",
       "away": "AUS",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -1088,8 +1088,8 @@
       "group": null,
       "utc_date": "2026-06-28T19:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "RSA",
+      "away": "CAN",
       "score": {
         "home": null,
         "away": null
@@ -1103,8 +1103,8 @@
       "group": null,
       "utc_date": "2026-06-29T17:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "BRA",
+      "away": "JPN",
       "score": {
         "home": null,
         "away": null
@@ -1118,7 +1118,7 @@
       "group": null,
       "utc_date": "2026-06-29T20:30:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "GER",
       "away": null,
       "score": {
         "home": null,
@@ -1133,8 +1133,8 @@
       "group": null,
       "utc_date": "2026-06-30T01:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "NED",
+      "away": "MAR",
       "score": {
         "home": null,
         "away": null
@@ -1178,7 +1178,7 @@
       "group": null,
       "utc_date": "2026-07-01T01:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "MEX",
       "away": null,
       "score": {
         "home": null,
@@ -1223,8 +1223,8 @@
       "group": null,
       "utc_date": "2026-07-02T00:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "USA",
+      "away": "BIH",
       "score": {
         "home": null,
         "away": null
@@ -1268,7 +1268,7 @@
       "group": null,
       "utc_date": "2026-07-03T03:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "SUI",
       "away": null,
       "score": {
         "home": null,
@@ -1283,7 +1283,7 @@
       "group": null,
       "utc_date": "2026-07-03T18:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "AUS",
       "away": null,
       "score": {
         "home": null,
@@ -1298,7 +1298,7 @@
       "group": null,
       "utc_date": "2026-07-03T22:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "ARG",
       "away": null,
       "score": {
         "home": null,
