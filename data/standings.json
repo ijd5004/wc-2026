@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-27T07:32:36Z",
+  "generated_at": "2026-06-27T15:30:15Z",
   "players": [
     {
       "name": "Greg",
-      "points": 35,
+      "points": 38,
       "best_possible": 308,
       "rank": 1,
       "teams": [
         {
           "code": "FRA",
-          "points": 6,
+          "points": 9,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 2,
+            "w": 3,
             "d": 0,
             "l": 0
           },
@@ -89,8 +89,8 @@
     },
     {
       "name": "Harry",
-      "points": 30,
-      "best_possible": 309,
+      "points": 31,
+      "best_possible": 310,
       "rank": 2,
       "teams": [
         {
@@ -160,13 +160,13 @@
         },
         {
           "code": "EGY",
-          "points": 4,
+          "points": 5,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 1,
-            "d": 1,
-            "l": 1
+            "d": 2,
+            "l": 0
           },
           "advanced": false,
           "ko_wins": []
@@ -176,7 +176,7 @@
     {
       "name": "Ian",
       "points": 28,
-      "best_possible": 304,
+      "best_possible": 301,
       "rank": 3,
       "teams": [
         {
@@ -213,7 +213,7 @@
           "group_record": {
             "w": 2,
             "d": 0,
-            "l": 0
+            "l": 1
           },
           "advanced": false,
           "ko_wins": []
@@ -347,7 +347,7 @@
     },
     {
       "name": "Bob",
-      "points": 22,
+      "points": 25,
       "best_possible": 295,
       "rank": 5,
       "teams": [
@@ -392,11 +392,11 @@
         },
         {
           "code": "SEN",
-          "points": 0,
+          "points": 3,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 0,
+            "w": 1,
             "d": 0,
             "l": 2
           },
@@ -587,8 +587,8 @@
       "date": "2026-06-26",
       "totals": {
         "Ryan": 27,
-        "Bob": 16,
-        "Greg": 35,
+        "Bob": 19,
+        "Greg": 38,
         "Ian": 28,
         "Harry": 30
       }
@@ -597,10 +597,10 @@
       "date": "2026-06-27",
       "totals": {
         "Ryan": 27,
-        "Bob": 22,
-        "Greg": 35,
+        "Bob": 25,
+        "Greg": 38,
         "Ian": 28,
-        "Harry": 30
+        "Harry": 31
       }
     }
   ]
