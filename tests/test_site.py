@@ -165,6 +165,21 @@ def test_third_place_scoring_line_only_when_enabled(tmp_path):
     assert "Third-place final win: 4 pts" in html
 
 
+def test_updated_line_at_top(tmp_path):
+    html = _build(tmp_path)
+    # Fixture generated_at is 2026-06-13T04:31:00Z -> friendly UTC line near the top.
+    assert '<p class="updated">Updated 13 Jun 2026 · 04:31 UTC</p>' in html
+    assert html.index('class="updated"') < html.index("<h2>Standings</h2>")
+
+
+def test_updated_line_passes_through_unparseable_timestamp(tmp_path):
+    def odd_ts(standings):
+        standings["generated_at"] = "unknown"
+
+    html = _build(tmp_path, standings=odd_ts)
+    assert '<p class="updated">Updated unknown</p>' in html
+
+
 def test_footer_generated_at_and_scoring_summary(tmp_path):
     html = _build(tmp_path)
     assert "2026-06-13T04:31:00Z" in html

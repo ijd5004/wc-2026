@@ -2,8 +2,11 @@ name: Update pool
 
 on:
   schedule:
-    # Daily after the last 2026 match window (matches end by ~late evening ET)
-    - cron: "30 4 * * *"
+    # Every 3 hours. football-data.org's free tier posts some results late and
+    # out of order, so a single daily fetch can miss the prior evening's matches
+    # until the next day; polling 8x/day bounds that staleness to a few hours and
+    # survives GitHub's best-effort scheduler delaying or dropping any one run.
+    - cron: "20 */3 * * *"
   workflow_dispatch:
     inputs:
       skip_fetch:

@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+from datetime import datetime
 from pathlib import Path
 
 # Distinguishable on a dark background; cycles if there are more players than colors.
@@ -86,7 +87,8 @@ body {
   color: var(--text);
   font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-h1 { font-size: 1.35rem; margin: 0.25rem 0 0.75rem; }
+h1 { font-size: 1.35rem; margin: 0.25rem 0 0.15rem; }
+.updated { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.75rem; }
 h2 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; color: var(--muted);
      text-transform: uppercase; letter-spacing: 0.06em; }
 section { background: var(--card); border-radius: 12px; padding: 0.75rem; margin: 0.75rem 0; }
@@ -164,6 +166,19 @@ footer ul li { padding: 0.1rem 0; }
 
 def _esc(value: object) -> str:
     return html.escape(str(value), quote=True)
+
+
+def _format_updated(generated_at: str) -> str:
+    """ISO ``2026-06-27T15:30:15Z`` -> ``27 Jun 2026 · 15:30 UTC`` for display.
+
+    Static page (no JS), so the time is shown in UTC; an unparseable value is
+    passed through verbatim rather than dropped.
+    """
+    try:
+        dt = datetime.strptime(generated_at, "%Y-%m-%dT%H:%M:%SZ")
+    except (ValueError, TypeError):
+        return str(generated_at)
+    return f"{dt.day} {dt.strftime('%b %Y')} · {dt.strftime('%H:%M')} UTC"
 
 
 def _load_json(path: Path) -> dict:
@@ -431,6 +446,7 @@ def render_page(standings: dict, pool: dict, teams: dict, matches: dict | None) 
         "</head>\n<body>\n"
         f"{banner}"
         f"<h1>{_esc(pool_name)}</h1>\n"
+        f'<p class="updated">Updated {_esc(_format_updated(standings.get("generated_at", "unknown")))}</p>\n'
         f"{_render_standings(standings)}\n"
         f"{_render_chart(standings)}\n"
         f"{_render_squads(standings, teams)}\n"
