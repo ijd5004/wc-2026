@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T08:06:16Z",
+  "generated_at": "2026-06-27T07:32:36Z",
   "players": [
     {
       "name": "Greg",
@@ -90,7 +90,7 @@
     {
       "name": "Harry",
       "points": 30,
-      "best_possible": 312,
+      "best_possible": 309,
       "rank": 2,
       "teams": [
         {
@@ -166,7 +166,7 @@
           "group_record": {
             "w": 1,
             "d": 1,
-            "l": 0
+            "l": 1
           },
           "advanced": false,
           "ko_wins": []
@@ -347,17 +347,17 @@
     },
     {
       "name": "Bob",
-      "points": 16,
-      "best_possible": 298,
+      "points": 22,
+      "best_possible": 295,
       "rank": 5,
       "teams": [
         {
           "code": "ESP",
-          "points": 4,
+          "points": 7,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 1,
+            "w": 2,
             "d": 1,
             "l": 0
           },
@@ -366,11 +366,11 @@
         },
         {
           "code": "BEL",
-          "points": 2,
+          "points": 5,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 0,
+            "w": 1,
             "d": 2,
             "l": 0
           },
@@ -385,7 +385,7 @@
           "group_record": {
             "w": 0,
             "d": 2,
-            "l": 0
+            "l": 1
           },
           "advanced": false,
           "ko_wins": []
@@ -588,6 +588,16 @@
       "totals": {
         "Ryan": 27,
         "Bob": 16,
+        "Greg": 35,
+        "Ian": 28,
+        "Harry": 30
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "totals": {
+        "Ryan": 27,
+        "Bob": 22,
         "Greg": 35,
         "Ian": 28,
         "Harry": 30
