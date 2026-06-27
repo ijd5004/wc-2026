@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-27T19:47:49Z",
+  "fetched_at": "2026-06-27T22:19:01Z",
   "competition": "WC",
   "matches": [
     {
@@ -997,12 +997,12 @@
       "stage": "GROUP",
       "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "PAN",
       "away": "ENG",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -1012,14 +1012,14 @@
       "stage": "GROUP",
       "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "CRO",
       "away": "GHA",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
-      "winner": null,
+      "winner": "CRO",
       "decided_by": "REGULAR"
     },
     {
