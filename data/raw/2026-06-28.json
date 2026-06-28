@@ -4777,11 +4777,11 @@
       },
       "id": 537417,
       "utcDate": "2026-06-28T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-28T06:02:40Z",
+      "lastUpdated": "2026-06-28T19:48:42Z",
       "homeTeam": {
         "id": 774,
         "name": "South Africa",
@@ -4797,11 +4797,11 @@
         "crest": "https://crests.football-data.org/canada.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -4811,7 +4811,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 38806,
+          "name": "João Pinheiro",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ]
     },
     {
       "area": {
