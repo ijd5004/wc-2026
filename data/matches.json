@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-27T22:19:01Z",
+  "fetched_at": "2026-06-28T04:55:55Z",
   "competition": "WC",
   "matches": [
     {
@@ -997,14 +997,14 @@
       "stage": "GROUP",
       "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "PAN",
       "away": "ENG",
       "score": {
         "home": 0,
-        "away": 0
+        "away": 2
       },
-      "winner": null,
+      "winner": "ENG",
       "decided_by": "REGULAR"
     },
     {
@@ -1012,12 +1012,12 @@
       "stage": "GROUP",
       "group": "L",
       "utc_date": "2026-06-27T21:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "CRO",
       "away": "GHA",
       "score": {
-        "home": 1,
-        "away": 0
+        "home": 2,
+        "away": 1
       },
       "winner": "CRO",
       "decided_by": "REGULAR"
@@ -1027,12 +1027,12 @@
       "stage": "GROUP",
       "group": "K",
       "utc_date": "2026-06-27T23:30:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "COL",
       "away": "POR",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
@@ -1042,14 +1042,14 @@
       "stage": "GROUP",
       "group": "K",
       "utc_date": "2026-06-27T23:30:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "COD",
       "away": "UZB",
       "score": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 1
       },
-      "winner": null,
+      "winner": "COD",
       "decided_by": "REGULAR"
     },
     {
@@ -1057,14 +1057,14 @@
       "stage": "GROUP",
       "group": "J",
       "utc_date": "2026-06-28T02:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "JOR",
       "away": "ARG",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 3
       },
-      "winner": null,
+      "winner": "ARG",
       "decided_by": "REGULAR"
     },
     {
@@ -1072,12 +1072,12 @@
       "stage": "GROUP",
       "group": "J",
       "utc_date": "2026-06-28T02:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "ALG",
       "away": "AUT",
       "score": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 3
       },
       "winner": null,
       "decided_by": "REGULAR"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T22:19:02Z",
+  "generated_at": "2026-06-28T04:55:56Z",
   "players": [
     {
       "name": "Greg",
@@ -89,18 +89,18 @@
     },
     {
       "name": "Harry",
-      "points": 31,
-      "best_possible": 310,
+      "points": 36,
+      "best_possible": 306,
       "rank": 2,
       "teams": [
         {
           "code": "POR",
-          "points": 4,
+          "points": 5,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 1,
-            "d": 1,
+            "d": 2,
             "l": 0
           },
           "advanced": false,
@@ -134,11 +134,11 @@
         },
         {
           "code": "CRO",
-          "points": 3,
+          "points": 6,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 1,
+            "w": 2,
             "d": 0,
             "l": 1
           },
@@ -147,12 +147,12 @@
         },
         {
           "code": "AUT",
-          "points": 3,
+          "points": 4,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 1,
-            "d": 0,
+            "d": 1,
             "l": 1
           },
           "advanced": false,
@@ -175,17 +175,17 @@
     },
     {
       "name": "Ian",
-      "points": 28,
+      "points": 31,
       "best_possible": 301,
       "rank": 3,
       "teams": [
         {
           "code": "ARG",
-          "points": 6,
+          "points": 9,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 2,
+            "w": 3,
             "d": 0,
             "l": 0
           },
@@ -261,17 +261,17 @@
     },
     {
       "name": "Ryan",
-      "points": 27,
-      "best_possible": 303,
-      "rank": 4,
+      "points": 31,
+      "best_possible": 301,
+      "rank": 3,
       "teams": [
         {
           "code": "ENG",
-          "points": 4,
+          "points": 7,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
-            "w": 1,
+            "w": 2,
             "d": 1,
             "l": 0
           },
@@ -293,12 +293,12 @@
         },
         {
           "code": "COL",
-          "points": 6,
+          "points": 7,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
             "w": 2,
-            "d": 0,
+            "d": 1,
             "l": 0
           },
           "advanced": false,
@@ -596,11 +596,21 @@
     {
       "date": "2026-06-27",
       "totals": {
-        "Ryan": 27,
+        "Ryan": 31,
         "Bob": 25,
         "Greg": 38,
         "Ian": 28,
-        "Harry": 31
+        "Harry": 35
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "totals": {
+        "Ryan": 31,
+        "Bob": 25,
+        "Greg": 38,
+        "Ian": 31,
+        "Harry": 36
       }
     }
   ]
