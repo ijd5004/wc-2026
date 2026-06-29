@@ -4909,11 +4909,11 @@
       },
       "id": 537415,
       "utcDate": "2026-06-29T20:30:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T05:20:12Z",
+      "lastUpdated": "2026-06-29T22:33:11Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -4929,15 +4929,15 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
