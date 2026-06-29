@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-29T16:13:36Z",
+  "fetched_at": "2026-06-29T20:17:37Z",
   "competition": "WC",
   "matches": [
     {
@@ -1102,14 +1102,14 @@
       "stage": "R32",
       "group": null,
       "utc_date": "2026-06-29T17:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "BRA",
       "away": "JPN",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
-      "winner": null,
+      "winner": "BRA",
       "decided_by": "REGULAR"
     },
     {
