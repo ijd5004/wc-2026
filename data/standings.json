@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T22:33:22Z",
+  "generated_at": "2026-06-30T04:36:46Z",
   "players": [
     {
       "name": "Harry",
@@ -619,6 +619,16 @@
     },
     {
       "date": "2026-06-29",
+      "totals": {
+        "Ryan": 47,
+        "Bob": 40,
+        "Greg": 53,
+        "Ian": 46,
+        "Harry": 58
+      }
+    },
+    {
+      "date": "2026-06-30",
       "totals": {
         "Ryan": 47,
         "Bob": 40,
