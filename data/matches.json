@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-30T04:36:45Z",
+  "fetched_at": "2026-06-30T10:03:42Z",
   "competition": "WC",
   "matches": [
     {
@@ -1124,7 +1124,7 @@
         "home": 4,
         "away": 5
       },
-      "winner": null,
+      "winner": "PAR",
       "decided_by": "PENALTIES"
     },
     {
@@ -1136,10 +1136,10 @@
       "home": "NED",
       "away": "MAR",
       "score": {
-        "home": 4,
+        "home": 3,
         "away": 4
       },
-      "winner": null,
+      "winner": "MAR",
       "decided_by": "PENALTIES"
     },
     {
@@ -1329,7 +1329,7 @@
       "utc_date": "2026-07-04T17:00:00Z",
       "status": "SCHEDULED",
       "home": "CAN",
-      "away": null,
+      "away": "MAR",
       "score": {
         "home": null,
         "away": null
@@ -1343,7 +1343,7 @@
       "group": null,
       "utc_date": "2026-07-04T21:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "PAR",
       "away": null,
       "score": {
         "home": null,
@@ -1358,7 +1358,7 @@
       "group": null,
       "utc_date": "2026-07-05T20:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
+      "home": "BRA",
       "away": null,
       "score": {
         "home": null,

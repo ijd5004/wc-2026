@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T04:36:46Z",
+  "generated_at": "2026-06-30T10:03:43Z",
   "players": [
     {
       "name": "Harry",
@@ -92,7 +92,7 @@
     {
       "name": "Greg",
       "points": 53,
-      "best_possible": 263,
+      "best_possible": 221,
       "rank": 2,
       "teams": [
         {
@@ -111,8 +111,8 @@
         {
           "code": "NED",
           "points": 10,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 2,
             "d": 1,
@@ -177,7 +177,7 @@
     },
     {
       "name": "Ryan",
-      "points": 47,
+      "points": 51,
       "best_possible": 211,
       "rank": 3,
       "teams": [
@@ -196,7 +196,7 @@
         },
         {
           "code": "MAR",
-          "points": 10,
+          "points": 14,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -205,7 +205,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "COL",
@@ -266,7 +268,7 @@
     {
       "name": "Ian",
       "points": 46,
-      "best_possible": 214,
+      "best_possible": 172,
       "rank": 4,
       "teams": [
         {
@@ -285,8 +287,8 @@
         {
           "code": "GER",
           "points": 9,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 2,
             "d": 0,
@@ -630,7 +632,7 @@
     {
       "date": "2026-06-30",
       "totals": {
-        "Ryan": 47,
+        "Ryan": 51,
         "Bob": 40,
         "Greg": 53,
         "Ian": 46,
