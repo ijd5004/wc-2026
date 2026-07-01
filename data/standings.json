@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T22:43:14Z",
+  "generated_at": "2026-07-01T04:56:32Z",
   "players": [
     {
       "name": "Harry",
-      "points": 58,
+      "points": 62,
       "best_possible": 306,
       "rank": 1,
       "teams": [
@@ -37,7 +37,7 @@
         },
         {
           "code": "MEX",
-          "points": 12,
+          "points": 16,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -46,7 +46,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "CRO",
@@ -91,13 +93,13 @@
     },
     {
       "name": "Greg",
-      "points": 53,
+      "points": 57,
       "best_possible": 179,
       "rank": 2,
       "teams": [
         {
           "code": "FRA",
-          "points": 12,
+          "points": 16,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -106,7 +108,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "NED",
@@ -268,7 +272,7 @@
     {
       "name": "Ian",
       "points": 50,
-      "best_possible": 172,
+      "best_possible": 130,
       "rank": 4,
       "teams": [
         {
@@ -328,8 +332,8 @@
         {
           "code": "ECU",
           "points": 7,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 1,
             "d": 1,
@@ -356,7 +360,7 @@
     {
       "name": "Bob",
       "points": 40,
-      "best_possible": 250,
+      "best_possible": 208,
       "rank": 5,
       "teams": [
         {
@@ -414,8 +418,8 @@
         {
           "code": "SWE",
           "points": 7,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 1,
             "d": 1,
@@ -636,9 +640,19 @@
       "totals": {
         "Ryan": 51,
         "Bob": 40,
-        "Greg": 53,
+        "Greg": 57,
         "Ian": 50,
         "Harry": 58
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "totals": {
+        "Ryan": 51,
+        "Bob": 40,
+        "Greg": 57,
+        "Ian": 50,
+        "Harry": 62
       }
     }
   ]
