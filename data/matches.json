@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-01T20:17:10Z",
+  "fetched_at": "2026-07-01T22:42:45Z",
   "competition": "WC",
   "matches": [
     {
@@ -1211,11 +1211,11 @@
       "home": "BEL",
       "away": "SEN",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 2,
+        "away": 2
       },
       "winner": null,
-      "decided_by": "REGULAR"
+      "decided_by": "ET"
     },
     {
       "id": 537421,

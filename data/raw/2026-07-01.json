@@ -5329,11 +5329,11 @@
       },
       "id": 537422,
       "utcDate": "2026-07-01T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T20:16:57Z",
+      "lastUpdated": "2026-07-01T22:42:21Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -5350,14 +5350,22 @@
       },
       "score": {
         "winner": "DRAW",
-        "duration": "REGULAR",
+        "duration": "EXTRA_TIME",
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": 2,
+          "away": 2
         },
         "halfTime": {
+          "home": 0,
+          "away": 1
+        },
+        "regularTime": {
           "home": null,
           "away": null
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -5429,7 +5437,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 11260,
+          "name": "Raphael Claus",
+          "type": "REFEREE",
+          "nationality": "Brazil"
+        }
+      ]
     },
     {
       "area": {
