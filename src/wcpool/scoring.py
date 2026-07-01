@@ -22,12 +22,18 @@ Documented decisions (see also docs/CONTRACTS.md):
   ``THIRD_PLACE`` and the winner at ``SF`` (its bracket exit). The champion
   ends with ``eliminated_at`` null and ``alive`` false once the FINAL is
   finished.
-- ``best_possible`` is the naive independent upper bound: bracket collisions
-  between one player's teams are ignored. Remaining group matches are counted
-  from fixtures present in the data (a team with no scheduled fixtures loaded
-  contributes none). Teams that already lost a knockout match add no further
-  stage-win points (a pending bronze match is excluded — third-place wins
-  never count toward ``best_possible``).
+- ``best_possible`` is a per-player upper bound. Group wins and the advance
+  bonus are counted independently per team, but knockout stage wins are capped
+  by how many of the player's own teams could win each stage: only one champion
+  (FINAL), two finalists (SF), four semifinalists (QF), and so on — halving each
+  round back from the final. Already-banked stage wins consume those slots too.
+  Bracket collisions *between* one player's teams (two of them meeting before
+  the final) are still ignored, so this remains an over-estimate, just a much
+  tighter one than the old naive n*stage sum. Remaining group matches are
+  counted from fixtures present in the data (a team with no scheduled fixtures
+  loaded contributes none). Teams that already lost a knockout match add no
+  further stage-win points (a pending bronze match is excluded — third-place
+  wins never count toward ``best_possible``).
 - Timeline: group W/D points and knockout stage wins accrue on the match's
   UTC calendar date; the advance bonus accrues on the team's last finished
   group match date.
@@ -211,27 +217,56 @@ def _ko_losers(matches: list[dict]) -> set[str]:
     return losers
 
 
-def _best_possible_extra(code: str, ach: dict, matches: list[dict], scoring_cfg: dict,
-                         ko_losers: set[str]) -> int:
-    """Naive upper-bound points still attainable by one team (0 if not alive)."""
-    if not ach["alive"]:
-        return 0
+def _stage_caps(scoring_cfg: dict) -> dict[str, int]:
+    """Max number of teams that can win each knockout stage: 1 FINAL winner,
+    2 SF winners, 4 QF winners, ... halving each round back from the final.
+
+    Derived from the config stage order (not hardcoded) so it stays correct for
+    the 2022 replay, which has no R32 (R16 cap is then 8, not 16).
+    """
+    stages = _ko_stages(scoring_cfg)
+    n = len(stages)
+    return {stage: 2 ** (n - 1 - i) for i, stage in enumerate(stages)}
+
+
+def _best_possible_extra(player_teams: list[str], achievements: dict[str, dict],
+                         matches: list[dict], scoring_cfg: dict, ko_losers: set[str],
+                         tournament_finished: bool) -> int:
+    """Per-player upper-bound points still attainable across all their teams.
+
+    Group wins and the advance bonus are independent per team. Knockout stage
+    wins are capped: at most ``_stage_caps`` of the player's teams can win each
+    stage (one champion, two finalists, ...), counting already-banked wins
+    against those slots. Bracket collisions within the squad are ignored.
+    """
+    caps = _stage_caps(scoring_cfg)
     extra = 0
-    remaining_group = sum(
-        1
-        for m in matches
-        if m["stage"] == GROUP and m["status"] != FINISHED and code in (m["home"], m["away"])
-    )
-    extra += remaining_group * scoring_cfg["group_win"]
-    if not ach["advanced"]:
-        extra += scoring_cfg["advance"]
-    if code not in ko_losers:
+    already: dict[str, int] = defaultdict(int)   # stage -> player's teams that already won it
+    eligible: dict[str, int] = defaultdict(int)  # stage -> player's teams that could still win it
+    for code in player_teams:
+        ach = achievements.get(code) or _empty_achievement(code, tournament_finished)
+        for stage in ach["ko_wins"]:
+            if stage in caps:
+                already[stage] += 1
+        if not ach["alive"]:
+            continue
+        remaining_group = sum(
+            1
+            for m in matches
+            if m["stage"] == GROUP and m["status"] != FINISHED and code in (m["home"], m["away"])
+        )
+        extra += remaining_group * scoring_cfg["group_win"]
+        if not ach["advanced"]:
+            extra += scoring_cfg["advance"]
         # Third-place win is never part of best_possible (it is not in
         # stage_win_points); a team already beaten in the bracket adds nothing.
-        extra += sum(
-            pts for stage, pts in scoring_cfg["stage_win_points"].items()
-            if stage not in ach["ko_wins"]
-        )
+        if code not in ko_losers:
+            for stage in caps:
+                if stage not in ach["ko_wins"]:
+                    eligible[stage] += 1
+    for stage, pts in scoring_cfg["stage_win_points"].items():
+        credited = min(eligible[stage], max(0, caps[stage] - already[stage]))
+        extra += credited * pts
     return extra
 
 
@@ -299,13 +334,11 @@ def compute_standings(matches, pool_cfg: dict, *, generated_at: str | None = Non
     players = []
     for player in pool_cfg["players"]:
         total = 0
-        extra = 0
         teams = []
         for code in player["teams"]:
             ach = achievements.get(code) or _empty_achievement(code, tournament_finished)
             points = score_team(ach, scoring, third_place_final)
             total += points
-            extra += _best_possible_extra(code, ach, matches, scoring, ko_losers)
             teams.append(
                 {
                     "code": code,
@@ -317,6 +350,9 @@ def compute_standings(matches, pool_cfg: dict, *, generated_at: str | None = Non
                     "ko_wins": list(ach["ko_wins"]),
                 }
             )
+        extra = _best_possible_extra(
+            player["teams"], achievements, matches, scoring, ko_losers, tournament_finished
+        )
         players.append(
             {
                 "name": player["name"],

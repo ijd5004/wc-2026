@@ -288,6 +288,57 @@ def test_best_possible_mid_knockout():
     assert bob["teams"][0]["alive"] is False
 
 
+def test_best_possible_caps_stage_wins_across_a_players_teams():
+    """Only one of a player's teams can win the FINAL and two the SF.
+
+    Three of Ian's teams have swept R32+R16 and sit in the QF. The old naive
+    sum credited all three with every remaining stage (3*(8+10+14)); the capped
+    bound credits QF three times (cap 4), SF only twice, FINAL only once.
+    """
+    matches = []
+    for team, others in (("FRA", "AAA"), ("BRA", "BBB"), ("ESP", "CCC")):
+        matches += [
+            match("R32", "2026-06-28", team, others + "1", team),
+            match("R16", "2026-07-02", team, others + "2", team),
+            match("QF", "2026-07-06", team, others + "3", status="SCHEDULED"),
+        ]
+    out = compute_standings(
+        matches, pool([{"name": "Ian", "teams": ["FRA", "BRA", "ESP"]}])
+    )
+    ian = out["players"][0]
+    sp = SCORING_2026["stage_win_points"]
+    capped = 3 * sp["QF"] + 2 * sp["SF"] + 1 * sp["FINAL"]
+    assert ian["best_possible"] == ian["points"] + capped
+
+
+def test_best_possible_cap_counts_already_banked_sf_slot():
+    """A banked SF win (a finalist) consumes one of the two SF slots, so only
+    one more of the player's teams can be credited an SF win."""
+    matches = [
+        # WIN is already in the final (swept through SF).
+        match("R32", "2026-06-28", "WIN", "A1", "WIN"),
+        match("R16", "2026-07-02", "WIN", "A2", "WIN"),
+        match("QF", "2026-07-06", "WIN", "A3", "WIN"),
+        match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
+        # PSG and LYN swept to the QF and are still alive there.
+        match("R32", "2026-06-29", "PSG", "B1", "PSG"),
+        match("R16", "2026-07-03", "PSG", "B2", "PSG"),
+        match("QF", "2026-07-07", "PSG", "B3", status="SCHEDULED"),
+        match("R32", "2026-06-30", "LYN", "C1", "LYN"),
+        match("R16", "2026-07-04", "LYN", "C2", "LYN"),
+        match("QF", "2026-07-08", "LYN", "C3", status="SCHEDULED"),
+    ]
+    out = compute_standings(
+        matches, pool([{"name": "Ian", "teams": ["WIN", "PSG", "LYN"]}])
+    )
+    ian = out["players"][0]
+    sp = SCORING_2026["stage_win_points"]
+    # PSG/LYN: QF each (cap 4 -> 2). SF: cap 2 minus WIN's banked slot -> 1 more.
+    # FINAL: cap 1, shared across all three -> 1.
+    capped = 2 * sp["QF"] + 1 * sp["SF"] + 1 * sp["FINAL"]
+    assert ian["best_possible"] == ian["points"] + capped
+
+
 def test_best_possible_excludes_pending_third_place_match():
     matches = [
         match("SF", "2026-07-14", "WIN", "SFL", "WIN"),
