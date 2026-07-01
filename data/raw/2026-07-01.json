@@ -6,7 +6,7 @@
     "count": 104,
     "first": "2026-06-11",
     "last": "2026-07-19",
-    "played": 79
+    "played": 80
   },
   "competition": {
     "id": 2000,
@@ -5263,11 +5263,11 @@
       },
       "id": 537426,
       "utcDate": "2026-07-01T16:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T17:24:16Z",
+      "lastUpdated": "2026-07-01T18:06:21Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -5283,10 +5283,10 @@
         "crest": "https://crests.football-data.org/congo_dr.svg"
       },
       "score": {
-        "winner": "AWAY_TEAM",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
+          "home": 2,
           "away": 1
         },
         "halfTime": {
@@ -5329,11 +5329,11 @@
       },
       "id": 537422,
       "utcDate": "2026-07-01T20:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-30T15:20:13Z",
+      "lastUpdated": "2026-07-01T20:16:57Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -5349,11 +5349,11 @@
         "crest": "https://crests.football-data.org/senegal.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -5363,7 +5363,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 190002,
+          "name": "Said Martinez",
+          "type": "REFEREE",
+          "nationality": "Honduras"
+        }
+      ]
     },
     {
       "area": {

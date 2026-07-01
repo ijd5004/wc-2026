@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-01T17:24:45Z",
+  "fetched_at": "2026-07-01T20:17:10Z",
   "competition": "WC",
   "matches": [
     {
@@ -1192,14 +1192,14 @@
       "stage": "R32",
       "group": null,
       "utc_date": "2026-07-01T16:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "ENG",
       "away": "COD",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 1
       },
-      "winner": "COD",
+      "winner": "ENG",
       "decided_by": "REGULAR"
     },
     {
@@ -1207,12 +1207,12 @@
       "stage": "R32",
       "group": null,
       "utc_date": "2026-07-01T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "BEL",
       "away": "SEN",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
