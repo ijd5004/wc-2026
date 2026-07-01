@@ -148,9 +148,12 @@ Written to `data/standings.json` by the scoring step:
 - `timeline`: cumulative totals per player after each calendar day with a finished match
   (drives the race chart). Achievement bonuses (advance, stage wins) accrue on the date of
   the match that earned them.
-- `best_possible` is the **naive upper bound**: current points + every alive team wins all
-  remaining matches independently. Bracket collisions between a player's own teams are
-  deliberately ignored (documented limitation, same as the 2022 sheet).
+- `best_possible` is a **per-player upper bound**: current points + all remaining group wins
+  and advance bonuses per team, plus knockout stage wins capped by how many of the player's
+  own teams can win each stage (one champion, two finalists, four semifinalists, …, halving
+  each round back from the final; already-banked wins consume those slots). Bracket
+  collisions between a player's own teams (two meeting before the final) are still ignored,
+  so it remains an over-estimate — just a tighter one than a flat n×stage sum.
 - Per-team `group_record` is the frozen group-stage W/D/L tally; `advanced` and `ko_wins`
   (mirrored from the achievements layer) let the dashboard show the compact round a team
   reached. The points column is independent and keeps counting through the knockouts.
