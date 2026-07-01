@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-01T04:56:32Z",
+  "generated_at": "2026-07-01T05:27:38Z",
   "players": [
     {
       "name": "Harry",
       "points": 62,
-      "best_possible": 306,
+      "best_possible": 180,
       "rank": 1,
       "teams": [
         {
@@ -94,7 +94,7 @@
     {
       "name": "Greg",
       "points": 57,
-      "best_possible": 179,
+      "best_possible": 141,
       "rank": 2,
       "teams": [
         {
@@ -182,7 +182,7 @@
     {
       "name": "Ryan",
       "points": 51,
-      "best_possible": 211,
+      "best_possible": 149,
       "rank": 3,
       "teams": [
         {
@@ -272,7 +272,7 @@
     {
       "name": "Ian",
       "points": 50,
-      "best_possible": 130,
+      "best_possible": 116,
       "rank": 4,
       "teams": [
         {
@@ -360,7 +360,7 @@
     {
       "name": "Bob",
       "points": 40,
-      "best_possible": 208,
+      "best_possible": 146,
       "rank": 5,
       "teams": [
         {
