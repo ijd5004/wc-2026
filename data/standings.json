@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T22:42:45Z",
+  "generated_at": "2026-07-02T04:33:20Z",
   "players": [
     {
       "name": "Harry",
@@ -93,7 +93,7 @@
     },
     {
       "name": "Greg",
-      "points": 57,
+      "points": 61,
       "best_possible": 141,
       "rank": 2,
       "teams": [
@@ -127,7 +127,7 @@
         },
         {
           "code": "USA",
-          "points": 9,
+          "points": 13,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -136,7 +136,9 @@
             "l": 1
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "SUI",
@@ -361,8 +363,8 @@
     },
     {
       "name": "Bob",
-      "points": 40,
-      "best_possible": 146,
+      "points": 44,
+      "best_possible": 128,
       "rank": 5,
       "teams": [
         {
@@ -380,7 +382,7 @@
         },
         {
           "code": "BEL",
-          "points": 8,
+          "points": 12,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -389,7 +391,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "URU",
@@ -407,8 +411,8 @@
         {
           "code": "SEN",
           "points": 6,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 1,
             "d": 0,
@@ -651,8 +655,18 @@
       "date": "2026-07-01",
       "totals": {
         "Ryan": 55,
-        "Bob": 40,
+        "Bob": 44,
         "Greg": 57,
+        "Ian": 50,
+        "Harry": 62
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "totals": {
+        "Ryan": 55,
+        "Bob": 44,
+        "Greg": 61,
         "Ian": 50,
         "Harry": 62
       }
