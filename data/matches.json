@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-02T17:02:50Z",
+  "fetched_at": "2026-07-02T19:55:34Z",
   "competition": "WC",
   "matches": [
     {
@@ -1237,14 +1237,14 @@
       "stage": "R32",
       "group": null,
       "utc_date": "2026-07-02T19:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "ESP",
       "away": "AUT",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
-      "winner": null,
+      "winner": "ESP",
       "decided_by": "REGULAR"
     },
     {
