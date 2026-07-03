@@ -27,13 +27,16 @@ Documented decisions (see also docs/CONTRACTS.md):
   by how many of the player's own teams could win each stage: only one champion
   (FINAL), two finalists (SF), four semifinalists (QF), and so on — halving each
   round back from the final. Already-banked stage wins consume those slots too.
-  Bracket collisions *between* one player's teams (two of them meeting before
-  the final) are still ignored, so this remains an over-estimate, just a much
-  tighter one than the old naive n*stage sum. Remaining group matches are
-  counted from fixtures present in the data (a team with no scheduled fixtures
-  loaded contributes none). Teams that already lost a knockout match add no
-  further stage-win points (a pending bronze match is excluded — third-place
-  wins never count toward ``best_possible``).
+  When a ``bracket`` is supplied (see ``_bracket_leaves``) the cap becomes fully
+  bracket-aware: two of a player's teams sitting in the same knockout sub-tree
+  can win a given stage at most once *between them* (they would have to meet),
+  so each stage counts distinct occupied sub-trees rather than raw team counts.
+  Without a bracket (e.g. the 2022 replay) it falls back to the global per-stage
+  caps, an over-estimate that ignores intra-squad collisions. Remaining group
+  matches are counted from fixtures present in the data (a team with no
+  scheduled fixtures loaded contributes none). Teams that already lost a
+  knockout match add no further stage-win points (a pending bronze match is
+  excluded — third-place wins never count toward ``best_possible``).
 - Timeline: group W/D points and knockout stage wins accrue on the match's
   UTC calendar date; the advance bonus accrues on the team's last finished
   group match date.
@@ -229,18 +232,115 @@ def _stage_caps(scoring_cfg: dict) -> dict[str, int]:
     return {stage: 2 ** (n - 1 - i) for i, stage in enumerate(stages)}
 
 
+def _bracket_leaves(matches: list[dict], scoring_cfg: dict,
+                    bracket_cfg: dict | None) -> dict[str, int] | None:
+    """Map each knockout team to a leaf index encoding its bracket position.
+
+    ``bracket_cfg["r16_pods"]`` lists the second-round pods in *tree order* —
+    each pod is the set of first-round (R32) participants that funnel into one
+    match at the next stage, and adjacent pods meet a round later. Pod ``p`` is
+    assigned leaf indices ``2p`` and ``2p+1`` (its two first-round fixtures), so
+    for a team on leaf ``L`` the sub-tree it occupies at knockout stage index
+    ``i`` (0 = first round) is simply ``L >> i``: two teams collide exactly when
+    their leaves agree in the high bits, i.e. share a sub-tree.
+
+    Returns ``None`` (caller falls back to the global caps) unless the bracket
+    is present *and* consistent with the data: every first-round fixture has
+    both teams set, and each pod contains exactly two of those fixtures. Any
+    mismatch (wrong codes, half-populated bracket, 2022 replay with no config)
+    yields ``None`` rather than a wrong answer.
+    """
+    if not bracket_cfg:
+        return None
+    pods = bracket_cfg.get("r16_pods")
+    stages = _ko_stages(scoring_cfg)
+    if not pods or not stages:
+        return None
+    first = stages[0]
+    first_fixtures = [m for m in matches if m["stage"] == first]
+    pairs = [
+        frozenset((m["home"], m["away"]))
+        for m in first_fixtures
+        if m.get("home") and m.get("away")
+    ]
+    if len(pairs) != len(first_fixtures) or len(pairs) != 2 * len(pods):
+        return None
+
+    leaves: dict[str, int] = {}
+    matched: set[frozenset] = set()
+    for p, pod in enumerate(pods):
+        pod_set = set(pod)
+        pod_pairs = sorted(
+            (pr for pr in pairs if pr <= pod_set), key=lambda s: sorted(s)
+        )
+        if len(pod_pairs) != 2:
+            return None
+        for k, pr in enumerate(pod_pairs):
+            matched.add(pr)
+            for team in pr:
+                if team in leaves:
+                    return None
+                leaves[team] = 2 * p + k
+    if len(matched) != len(pairs) or len(leaves) != 2 * len(pairs):
+        return None
+    return leaves
+
+
+def _remaining_group_pts(code: str, matches: list[dict], scoring_cfg: dict) -> int:
+    """Points from a team's not-yet-played group fixtures, assuming it wins them."""
+    remaining = sum(
+        1
+        for m in matches
+        if m["stage"] == GROUP and m["status"] != FINISHED and code in (m["home"], m["away"])
+    )
+    return remaining * scoring_cfg["group_win"]
+
+
 def _best_possible_extra(player_teams: list[str], achievements: dict[str, dict],
                          matches: list[dict], scoring_cfg: dict, ko_losers: set[str],
-                         tournament_finished: bool) -> int:
+                         tournament_finished: bool,
+                         bracket_leaves: dict[str, int] | None = None) -> int:
     """Per-player upper-bound points still attainable across all their teams.
 
     Group wins and the advance bonus are independent per team. Knockout stage
     wins are capped: at most ``_stage_caps`` of the player's teams can win each
     stage (one champion, two finalists, ...), counting already-banked wins
-    against those slots. Bracket collisions within the squad are ignored.
+    against those slots.
+
+    With ``bracket_leaves`` the knockout cap is exact rather than global: each
+    stage credits the number of distinct bracket sub-trees the player's still-
+    live teams occupy (minus sub-trees where a win is already banked), so two
+    teams destined to meet contribute only one win from their meeting round on.
+    Without it, the global caps apply and intra-squad collisions are ignored.
     """
-    caps = _stage_caps(scoring_cfg)
+    stages = _ko_stages(scoring_cfg)
     extra = 0
+
+    if bracket_leaves is not None:
+        winnable: dict[str, set[int]] = defaultdict(set)  # stage -> occupied sub-trees
+        banked: dict[str, set[int]] = defaultdict(set)    # stage -> sub-trees already won
+        for code in player_teams:
+            ach = achievements.get(code) or _empty_achievement(code, tournament_finished)
+            leaf = bracket_leaves.get(code)
+            if leaf is not None:
+                for i, stage in enumerate(stages):
+                    if stage in ach["ko_wins"]:
+                        banked[stage].add(leaf >> i)
+            if not ach["alive"]:
+                continue
+            extra += _remaining_group_pts(code, matches, scoring_cfg)
+            if not ach["advanced"]:
+                extra += scoring_cfg["advance"]
+            # A team beaten in the bracket can win no further stage; a pending
+            # bronze match (third place) is never part of best_possible.
+            if code not in ko_losers and leaf is not None:
+                for i, stage in enumerate(stages):
+                    winnable[stage].add(leaf >> i)
+        for stage, pts in scoring_cfg["stage_win_points"].items():
+            extra += len(winnable[stage] - banked[stage]) * pts
+        return extra
+
+    caps = _stage_caps(scoring_cfg)
     already: dict[str, int] = defaultdict(int)   # stage -> player's teams that already won it
     eligible: dict[str, int] = defaultdict(int)  # stage -> player's teams that could still win it
     for code in player_teams:
@@ -250,12 +350,7 @@ def _best_possible_extra(player_teams: list[str], achievements: dict[str, dict],
                 already[stage] += 1
         if not ach["alive"]:
             continue
-        remaining_group = sum(
-            1
-            for m in matches
-            if m["stage"] == GROUP and m["status"] != FINISHED and code in (m["home"], m["away"])
-        )
-        extra += remaining_group * scoring_cfg["group_win"]
+        extra += _remaining_group_pts(code, matches, scoring_cfg)
         if not ach["advanced"]:
             extra += scoring_cfg["advance"]
         # Third-place win is never part of best_possible (it is not in
@@ -330,6 +425,7 @@ def compute_standings(matches, pool_cfg: dict, *, generated_at: str | None = Non
     achievements = achievements_from_matches(matches, scoring)
     tournament_finished = any(_is_finished_final(m) for m in matches)
     ko_losers = _ko_losers(matches)
+    bracket_leaves = _bracket_leaves(matches, scoring, pool_cfg.get("bracket"))
 
     players = []
     for player in pool_cfg["players"]:
@@ -351,7 +447,8 @@ def compute_standings(matches, pool_cfg: dict, *, generated_at: str | None = Non
                 }
             )
         extra = _best_possible_extra(
-            player["teams"], achievements, matches, scoring, ko_losers, tournament_finished
+            player["teams"], achievements, matches, scoring, ko_losers,
+            tournament_finished, bracket_leaves,
         )
         players.append(
             {

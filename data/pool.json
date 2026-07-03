@@ -16,5 +16,18 @@
     {"name": "Greg", "teams": ["FRA", "NED", "USA", "SUI", "TUR", "CIV"]},
     {"name": "Ian", "teams": ["ARG", "GER", "NOR", "JPN", "ECU", "CZE"]},
     {"name": "Harry", "teams": ["POR", "BRA", "MEX", "CRO", "AUT", "EGY"]}
-  ]
+  ],
+  "bracket": {
+    "_comment": "R16 pods in bracket (tree) order for a fully bracket-aware best_possible. Each pod lists the four R32 participants that funnel into one Round-of-16 match; pods 0&1 meet in a QF, pods 0-3 share a SF half, pods 4-7 the other. Source: ESPN 2026 bracket, cross-checked against data/matches.json R32 fixtures on 2026-07-02. Self-validates at scoring time (see _bracket_leaves); ignored if it stops matching the fixtures.",
+    "r16_pods": [
+      ["GER", "PAR", "FRA", "SWE"],
+      ["RSA", "CAN", "NED", "MAR"],
+      ["POR", "CRO", "ESP", "AUT"],
+      ["USA", "BIH", "BEL", "SEN"],
+      ["BRA", "JPN", "CIV", "NOR"],
+      ["MEX", "ECU", "ENG", "COD"],
+      ["ARG", "CPV", "AUS", "EGY"],
+      ["SUI", "ALG", "COL", "GHA"]
+    ]
+  }
 }

@@ -151,9 +151,18 @@ Written to `data/standings.json` by the scoring step:
 - `best_possible` is a **per-player upper bound**: current points + all remaining group wins
   and advance bonuses per team, plus knockout stage wins capped by how many of the player's
   own teams can win each stage (one champion, two finalists, four semifinalists, …, halving
-  each round back from the final; already-banked wins consume those slots). Bracket
-  collisions between a player's own teams (two meeting before the final) are still ignored,
-  so it remains an over-estimate — just a tighter one than a flat n×stage sum.
+  each round back from the final; already-banked wins consume those slots). When `pool.json`
+  supplies a `bracket` (see below) the knockout cap is **fully bracket-aware**: each stage
+  counts the distinct bracket sub-trees the player's live teams occupy, so two teams that
+  would meet before the final contribute only one win from their meeting round on. Without a
+  valid bracket (e.g. the 2022 replay, or before the first knockout round is fully drawn) it
+  falls back to the global per-stage caps, which ignore intra-squad collisions.
+- `bracket` (optional, in `pool.json`) makes the above exact. `r16_pods` lists the eight
+  second-round pods in bracket (tree) order — each pod is the four first-round participants
+  that funnel into one next-round match; pods 0&1 meet in a QF, pods 0–3 share a semifinal
+  half. It is validated against the actual first-round fixtures at scoring time (every slot
+  filled, each pod holding exactly two fixtures) and silently ignored if it no longer matches,
+  so a stale or malformed bracket can only relax the bound to the global caps, never corrupt it.
 - Per-team `group_record` is the frozen group-stage W/D/L tally; `advanced` and `ko_wins`
   (mirrored from the achievements layer) let the dashboard show the compact round a team
   reached. The points column is independent and keeps counting through the knockouts.
