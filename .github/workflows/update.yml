@@ -2,11 +2,14 @@ name: Update pool
 
 on:
   schedule:
-    # Every 3 hours. football-data.org's free tier posts some results late and
-    # out of order, so a single daily fetch can miss the prior evening's matches
-    # until the next day; polling 8x/day bounds that staleness to a few hours and
-    # survives GitHub's best-effort scheduler delaying or dropping any one run.
-    - cron: "20 */3 * * *"
+    # Hourly. football-data.org's free tier posts some results late and out of
+    # order, so a single daily fetch can miss the prior evening's matches until
+    # the next day; polling every hour bounds that staleness and survives
+    # GitHub's best-effort scheduler delaying or dropping any one run. Well
+    # within all free tiers: the repo is public (unlimited Actions minutes),
+    # the fetch is 1 API call/run (limit is 10/min), and 24 Pages deploys/day
+    # is far under the ~10/hour soft cap.
+    - cron: "20 * * * *"
   workflow_dispatch:
     inputs:
       skip_fetch:
