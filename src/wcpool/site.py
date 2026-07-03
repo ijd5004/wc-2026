@@ -17,6 +17,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from wcpool.scoring import _bracket_leaves
+
 # Distinguishable on a dark background; cycles if there are more players than colors.
 PALETTE = [
     "#4fc3f7",
@@ -464,21 +466,59 @@ def _bracket_team_row(code: str | None, match: dict, teams: dict,
     )
 
 
+def _bracket_order(fixtures: list[dict], stage_index: int,
+                   leaves: dict[str, int]) -> list[dict]:
+    """Order a round's fixtures by bracket slot so feeders line up with their
+    parent match in the next column.
+
+    A team on leaf ``L`` occupies slot ``L >> stage_index`` at this round, and
+    both teams of a match share that slot, so a populated fixture maps to its
+    slot via either team. Undecided (TBD) fixtures can't be placed from data, so
+    they fill whatever slots the populated ones leave open — visually identical,
+    so their order among themselves doesn't matter.
+    """
+    total = len(fixtures)  # a knockout round has exactly one fixture per slot
+    placed: dict[int, dict] = {}
+    tbd: list[dict] = []
+    for m in fixtures:
+        code = m.get("home") or m.get("away")
+        if code and code in leaves:
+            placed[leaves[code] >> stage_index] = m
+        else:
+            tbd.append(m)
+    ordered = []
+    for slot in range(total):
+        if slot in placed:
+            ordered.append(placed[slot])
+        elif tbd:
+            ordered.append(tbd.pop(0))
+    ordered.extend(tbd)  # safety net if counts ever disagree
+    return ordered
+
+
 def _render_bracket(standings: dict, pool: dict, teams: dict, matches: dict | None) -> str:
     if matches is None:
         return ""
     all_matches = matches.get("matches", [])
     colors = _player_colors(standings)
     owners = _team_owners(pool, colors)
+    scoring = pool.get("scoring", {})
+    leaves = _bracket_leaves(all_matches, scoring, pool.get("bracket"))
+    ko_stages = list(scoring.get("stage_win_points", {}))  # knockout order, no 3rd place
 
     columns = []
     for stage, label in BRACKET_ROUNDS:
-        fixtures = sorted(
-            (m for m in all_matches if m.get("stage") == stage),
-            key=lambda m: (m.get("utc_date") or "", m.get("id") or 0),
-        )
+        fixtures = [m for m in all_matches if m.get("stage") == stage]
         if not fixtures:
             continue
+        if leaves is not None and stage in ko_stages:
+            fixtures = _bracket_order(fixtures, ko_stages.index(stage), leaves)
+        else:
+            # No bracket (2022 replay / pre-draw) or the off-tree 3rd-place match:
+            # fall back to chronological order.
+            fixtures = sorted(
+                fixtures, key=lambda m: (m.get("utc_date") or "", m.get("id") or 0)
+            )
         cards = "\n".join(
             '<div class="bk-match">'
             f'{_bracket_team_row(m.get("home"), m, teams, owners)}'

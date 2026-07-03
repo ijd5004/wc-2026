@@ -12,7 +12,7 @@ import json
 import re
 from pathlib import Path
 
-from wcpool.site import build_site, main
+from wcpool.site import _bracket_order, build_site, main
 
 FIXTURES = Path(__file__).parent / "fixtures"
 FILES = ("standings", "pool", "teams", "matches")
@@ -142,6 +142,34 @@ def _add_knockouts(matches):
          "status": "SCHEDULED", "home": None, "away": None,
          "score": {"home": None, "away": None}, "winner": None, "decided_by": "REGULAR"},
     ]
+
+
+def test_bracket_order_places_feeders_adjacently():
+    # Two R16 pods: leaves 0/1 -> pod 0, leaves 2/3 -> pod 1 (both teams of an
+    # R32 match share a leaf). Fixtures supplied deliberately out of order.
+    leaves = {"Aa": 0, "Ab": 0, "Ba": 1, "Bb": 1, "Ca": 2, "Cb": 2, "Da": 3, "Db": 3}
+    r32 = [
+        {"home": "Ca", "away": "Cb"},  # slot 2
+        {"home": "Aa", "away": "Ab"},  # slot 0
+        {"home": "Db", "away": "Da"},  # slot 3
+        {"home": "Ba", "away": "Bb"},  # slot 1
+    ]
+    ordered = _bracket_order(r32, 0, leaves)
+    # Slots 0..3 in order, so pod-mates (0,1) and (2,3) end up adjacent.
+    assert [m["home"] for m in ordered] == ["Aa", "Ba", "Ca", "Db"]
+
+
+def test_bracket_order_slots_populated_fixtures_and_fills_tbd():
+    leaves = {"Aa": 0, "Ab": 0, "Ba": 1, "Bb": 1, "Ca": 2, "Cb": 2, "Da": 3, "Db": 3}
+    # R16 (stage_index 1): slot = leaf >> 1, so pod0 teams -> slot 0, pod1 -> slot 1.
+    r16 = [
+        {"home": None, "away": None},   # TBD
+        {"home": "Ca", "away": "Da"},   # pod1 winners (leaves 2,3) -> slot 1
+    ]
+    ordered = _bracket_order(r16, 1, leaves)
+    # The decided match lands in slot 1; the TBD box fills the open slot 0.
+    assert ordered[0]["home"] is None
+    assert ordered[1]["home"] == "Ca"
 
 
 def test_bracket_placeholder_before_knockouts(tmp_path):
