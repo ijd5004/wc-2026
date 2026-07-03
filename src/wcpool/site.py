@@ -420,6 +420,11 @@ BRACKET_ROUNDS = [
 ]
 
 
+def _soft(color: str) -> str:
+    """A soft, translucent wash of a player colour for highlighting their teams."""
+    return f"color-mix(in srgb, {color} 26%, transparent)"
+
+
 def _team_owners(pool: dict, colors: dict[str, str]) -> dict[str, list[tuple[str, str]]]:
     """Map each picked team code to the (player, color) pairs that picked it."""
     owners: dict[str, list[tuple[str, str]]] = {}
@@ -440,16 +445,22 @@ def _bracket_team_row(code: str | None, match: dict, teams: dict,
     state = ""
     if match.get("status") == "FINISHED" and match.get("winner"):
         state = "win" if match["winner"] == code else "lose"
-    dots = "".join(
-        f'<span class="bk-dot" style="background:{color}" title="{_esc(who)}"></span>'
-        for who, color in owners.get(code, [])
-    )
-    css = f"bk-team {state}".strip()
+    # A picked team's whole row is tinted with a soft wash of its owner's colour
+    # (no shared picks in practice, so the first owner drives the fill); the
+    # owner name rides along in the tooltip. Colours match the race chart legend.
+    picked = owners.get(code, [])
+    style = ""
+    title = name
+    if picked:
+        who = ", ".join(name for name, _ in picked)
+        style = f' style="background:{_soft(picked[0][1])}"'
+        title = f"{name} ({who})"
+    css = f"bk-team picked {state}".strip() if picked else f"bk-team {state}".strip()
     return (
-        f'<div class="{css}" title="{_esc(name)}">'
+        f'<div class="{css}"{style} title="{_esc(title)}">'
         f'<span class="flag">{flag}</span>'
         f'<span class="bk-code">{_esc(code)}</span>'
-        f"{dots}</div>"
+        "</div>"
     )
 
 
