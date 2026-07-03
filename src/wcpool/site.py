@@ -161,6 +161,26 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 footer { color: var(--muted); font-size: 0.85rem; padding: 0.5rem 0.25rem 1.5rem; }
 footer ul li { padding: 0.1rem 0; }
+.bk-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 0.9rem; margin: 0 0 0.6rem; font-size: 0.8rem; }
+.bk-legend .who { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--muted); }
+.bk-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+.bracket-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.bracket { display: flex; gap: 0.7rem; min-width: min-content; padding-bottom: 0.4rem; }
+.bk-round { display: flex; flex-direction: column; justify-content: space-around;
+            gap: 0.5rem; min-width: 8.5rem; }
+.bk-round h3 { font-size: 0.72rem; color: var(--muted); text-transform: uppercase;
+               letter-spacing: 0.05em; margin: 0 0 0.1rem; text-align: center; font-weight: 700; }
+.bk-match { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.bk-team { display: flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.4rem; font-size: 0.82rem; }
+.bk-team + .bk-team { border-top: 1px solid var(--line); }
+.bk-team .flag { flex-shrink: 0; }
+.bk-code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+           font-variant-numeric: tabular-nums; }
+.bk-team.win .bk-code { font-weight: 700; }
+.bk-team.win::after { content: "✓"; color: #81c784; font-size: 0.8em; }
+.bk-team.lose .bk-code { color: var(--muted); text-decoration: line-through; }
+.bk-team.lose .flag { filter: grayscale(1); opacity: 0.6; }
+.bk-tbd { color: var(--muted); font-style: italic; }
 """
 
 
@@ -389,6 +409,95 @@ def _render_best_possible(standings: dict) -> str:
     return f"<section>\n<h2>Best possible</h2>\n<ul>\n{body}\n</ul>\n</section>"
 
 
+# Knockout rounds shown in the bracket, left to right, with column headers.
+BRACKET_ROUNDS = [
+    ("R32", "R32"),
+    ("R16", "R16"),
+    ("QF", "QF"),
+    ("SF", "SF"),
+    ("FINAL", "Final"),
+    ("THIRD_PLACE", "3rd place"),
+]
+
+
+def _team_owners(pool: dict, colors: dict[str, str]) -> dict[str, list[tuple[str, str]]]:
+    """Map each picked team code to the (player, color) pairs that picked it."""
+    owners: dict[str, list[tuple[str, str]]] = {}
+    for player in pool.get("players", []):
+        color = colors.get(player["name"], "var(--muted)")
+        for code in player.get("teams", []):
+            owners.setdefault(code, []).append((player["name"], color))
+    return owners
+
+
+def _bracket_team_row(code: str | None, match: dict, teams: dict,
+                      owners: dict[str, list[tuple[str, str]]]) -> str:
+    if not code:
+        return '<div class="bk-team"><span class="bk-code bk-tbd">TBD</span></div>'
+    info = teams.get(code) or {}
+    flag = info.get("flag", "\U0001f3f3️")
+    name = info.get("name", code)
+    state = ""
+    if match.get("status") == "FINISHED" and match.get("winner"):
+        state = "win" if match["winner"] == code else "lose"
+    dots = "".join(
+        f'<span class="bk-dot" style="background:{color}" title="{_esc(who)}"></span>'
+        for who, color in owners.get(code, [])
+    )
+    css = f"bk-team {state}".strip()
+    return (
+        f'<div class="{css}" title="{_esc(name)}">'
+        f'<span class="flag">{flag}</span>'
+        f'<span class="bk-code">{_esc(code)}</span>'
+        f"{dots}</div>"
+    )
+
+
+def _render_bracket(standings: dict, pool: dict, teams: dict, matches: dict | None) -> str:
+    if matches is None:
+        return ""
+    all_matches = matches.get("matches", [])
+    colors = _player_colors(standings)
+    owners = _team_owners(pool, colors)
+
+    columns = []
+    for stage, label in BRACKET_ROUNDS:
+        fixtures = sorted(
+            (m for m in all_matches if m.get("stage") == stage),
+            key=lambda m: (m.get("utc_date") or "", m.get("id") or 0),
+        )
+        if not fixtures:
+            continue
+        cards = "\n".join(
+            '<div class="bk-match">'
+            f'{_bracket_team_row(m.get("home"), m, teams, owners)}'
+            f'{_bracket_team_row(m.get("away"), m, teams, owners)}'
+            "</div>"
+            for m in fixtures
+        )
+        columns.append(f'<div class="bk-round"><h3>{_esc(label)}</h3>\n{cards}</div>')
+
+    if not columns:
+        return (
+            "<section>\n<h2>Bracket</h2>\n"
+            '<p class="no-matches">The knockout bracket appears once the group '
+            "stage is complete.</p>\n</section>"
+        )
+
+    legend = "".join(
+        f'<span class="who"><span class="bk-dot" style="background:{colors[p["name"]]}">'
+        f"</span>{_esc(p['name'])}</span>"
+        for p in standings.get("players", [])
+    )
+    return (
+        "<section>\n<h2>Bracket</h2>\n"
+        f'<div class="bk-legend">{legend}</div>\n'
+        f'<div class="bracket-wrap"><div class="bracket">\n'
+        + "\n".join(columns)
+        + "\n</div></div>\n</section>"
+    )
+
+
 def _render_footer(standings: dict, pool: dict, matches: dict | None) -> str:
     scoring = pool.get("scoring", {})
     lines = []
@@ -451,6 +560,7 @@ def render_page(standings: dict, pool: dict, teams: dict, matches: dict | None) 
         f"{_render_chart(standings)}\n"
         f"{_render_squads(standings, teams)}\n"
         f"{_render_best_possible(standings)}\n"
+        f"{_render_bracket(standings, pool, teams, matches)}\n"
         f"{_render_footer(standings, pool, matches)}\n"
         "</body>\n</html>\n"
     )

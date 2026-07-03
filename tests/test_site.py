@@ -129,6 +129,50 @@ def test_no_badge_when_best_possible_ties_leader(tmp_path):
     assert "mathematically eliminated" not in html
 
 
+def _add_knockouts(matches):
+    matches["matches"] += [
+        {"id": 900, "stage": "R16", "group": None, "utc_date": "2026-07-04T18:00:00Z",
+         "status": "FINISHED", "home": "FRA", "away": "BRA",
+         "score": {"home": 2, "away": 1}, "winner": "FRA", "decided_by": "REGULAR"},
+        {"id": 901, "stage": "QF", "group": None, "utc_date": "2026-07-09T18:00:00Z",
+         "status": "SCHEDULED", "home": None, "away": None,
+         "score": {"home": None, "away": None}, "winner": None, "decided_by": "REGULAR"},
+    ]
+
+
+def test_bracket_placeholder_before_knockouts(tmp_path):
+    # The default fixtures have only group matches: the bracket is not drawn yet.
+    html = _build(tmp_path)
+    assert "<h2>Bracket</h2>" in html
+    assert "knockout bracket appears once" in html
+
+
+def test_bracket_marks_picked_teams(tmp_path):
+    html = _build(tmp_path, matches=_add_knockouts)
+    assert "<h2>Bracket</h2>" in html
+    # Legend maps a color dot to every player.
+    for name in ("Ann", "Bob", "Cal"):
+        assert f"</span>{name}</span>" in html
+    # FRA (Ann's, winner) is bold with Ann's owner dot; BRA (Cal's) struck through.
+    fra = _line_with(html, '<span class="bk-code">FRA</span>')
+    assert "bk-team win" in fra and 'title="Ann"' in fra
+    bra = _line_with(html, '<span class="bk-code">BRA</span>')
+    assert "bk-team lose" in bra and 'title="Cal"' in bra
+    # The undetermined QF renders TBD slots, not a bogus matchup.
+    assert 'bk-tbd">TBD' in html
+
+
+def test_bracket_owner_dot_uses_player_color(tmp_path):
+    html = _build(tmp_path, matches=_add_knockouts)
+    # Ann's race-line color and her bracket owner dot are the same palette entry,
+    # so the shared color scheme ties the two views together.
+    color = re.search(
+        r'stroke="(#[0-9a-f]{6})"[^>]*/>\s*<circle[^>]*/>\s*<text[^>]*>Ann</text>', html
+    ).group(1)
+    fra = _line_with(html, '<span class="bk-code">FRA</span>')
+    assert f'background:{color}" title="Ann"' in fra
+
+
 def test_placeholder_banner_toggles(tmp_path):
     html = _build(tmp_path)
     assert "draft pending" not in html
