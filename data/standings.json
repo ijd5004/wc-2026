@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T04:12:31Z",
+  "generated_at": "2026-07-03T09:37:47Z",
   "players": [
     {
       "name": "Harry",
@@ -95,7 +95,7 @@
     },
     {
       "name": "Greg",
-      "points": 61,
+      "points": 65,
       "best_possible": 141,
       "rank": 2,
       "teams": [
@@ -144,7 +144,7 @@
         },
         {
           "code": "SUI",
-          "points": 10,
+          "points": 14,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -153,7 +153,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "TUR",
@@ -671,6 +673,16 @@
         "Ryan": 55,
         "Bob": 48,
         "Greg": 61,
+        "Ian": 50,
+        "Harry": 66
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "totals": {
+        "Ryan": 55,
+        "Bob": 48,
+        "Greg": 65,
         "Ian": 50,
         "Harry": 66
       }
