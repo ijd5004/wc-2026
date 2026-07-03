@@ -5671,7 +5671,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T19:53:00Z",
+      "lastUpdated": "2026-07-03T20:18:48Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -5688,7 +5688,7 @@
       },
       "score": {
         "winner": "DRAW",
-        "duration": "REGULAR",
+        "duration": "EXTRA_TIME",
         "fullTime": {
           "home": 1,
           "away": 1
@@ -5696,6 +5696,14 @@
         "halfTime": {
           "home": 0,
           "away": 1
+        },
+        "regularTime": {
+          "home": null,
+          "away": null
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -5767,7 +5775,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 77052,
+          "name": "Drew Fischer",
+          "type": "REFEREE",
+          "nationality": "Canada"
+        }
+      ]
     },
     {
       "area": {

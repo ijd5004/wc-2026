@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-03T19:53:09Z",
+  "fetched_at": "2026-07-03T20:19:05Z",
   "competition": "WC",
   "matches": [
     {
@@ -1290,7 +1290,7 @@
         "away": 1
       },
       "winner": null,
-      "decided_by": "REGULAR"
+      "decided_by": "ET"
     },
     {
       "id": 537427,
