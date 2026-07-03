@@ -5671,7 +5671,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T18:32:07Z",
+      "lastUpdated": "2026-07-03T19:34:24Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -5687,15 +5687,15 @@
         "crest": "https://crests.football-data.org/825.svg"
       },
       "score": {
-        "winner": "AWAY_TEAM",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {

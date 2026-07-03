@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-03T18:32:40Z",
+  "fetched_at": "2026-07-03T19:34:45Z",
   "competition": "WC",
   "matches": [
     {
@@ -1286,10 +1286,10 @@
       "home": "AUS",
       "away": "EGY",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1
       },
-      "winner": "EGY",
+      "winner": null,
       "decided_by": "REGULAR"
     },
     {
