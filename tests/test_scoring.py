@@ -11,6 +11,7 @@ from pathlib import Path
 import pytest
 
 from wcpool.scoring import (
+    _bracket_leaves,
     achievements_from_matches,
     compute_standings,
     main,
@@ -350,6 +351,116 @@ def test_best_possible_excludes_pending_third_place_match():
     # best_possible and the team is out of the title bracket.
     assert ian["teams"][0]["alive"] is True
     assert ian["best_possible"] == ian["points"]
+
+
+# --------------------------------------------- bracket-aware best_possible
+
+
+def _full_bracket():
+    """Eight tree-ordered R16 pods of four teams, plus each pod's two R32 pairs.
+
+    Team ``P{pod}{a|b|c|d}``: (a,b) is one R32 match, (c,d) the other, and the
+    two winners would meet in that pod's R16 — so a,b,c,d all collide at R16.
+    """
+    pods, pairings = [], []
+    for p in range(8):
+        a, b, c, d = (f"P{p}{x}" for x in "abcd")
+        pods.append([a, b, c, d])
+        pairings += [(a, b), (c, d)]
+    return pods, pairings
+
+
+def _bracket_pool(players):
+    cfg = pool(players)
+    pods, _ = _full_bracket()
+    cfg["bracket"] = {"r16_pods": pods}
+    return cfg
+
+
+def _r32_fixtures(winners):
+    """All 16 R32 fixtures; a home code in ``winners`` is a FINISHED win."""
+    _, pairings = _full_bracket()
+    return [
+        match("R32", "2026-06-28", home, away, home)
+        if home in winners
+        else match("R32", "2026-06-28", home, away, status="SCHEDULED")
+        for home, away in pairings
+    ]
+
+
+def test_best_possible_bracket_aware_collapses_teams_that_would_meet():
+    # P0a and P0c win their R32 games and reach the R16 alive — but they sit in
+    # the same R16 pod, so they would MEET there. Only one can bank R16/QF/SF/
+    # FINAL; the other's overlapping path must not be double-counted.
+    matches = _r32_fixtures({"P0a", "P0c"})
+    out = compute_standings(matches, _bracket_pool([{"name": "Ian", "teams": ["P0a", "P0c"]}]))
+    ian = out["players"][0]
+    sp = SCORING_2026["stage_win_points"]
+    assert ian["points"] == 2 * (sp["R32"] + SCORING_2026["advance"])
+    collapsed = sp["R16"] + sp["QF"] + sp["SF"] + sp["FINAL"]  # one shared path
+    assert ian["best_possible"] == ian["points"] + collapsed
+
+
+def test_best_possible_bracket_aware_is_tighter_than_global_cap():
+    matches = _r32_fixtures({"P0a", "P0c"})
+    players = [{"name": "Ian", "teams": ["P0a", "P0c"]}]
+    aware = compute_standings(matches, _bracket_pool(players))["players"][0]
+    naive = compute_standings(matches, pool(players))["players"][0]
+    assert aware["points"] == naive["points"]
+    assert aware["best_possible"] < naive["best_possible"]
+
+
+def test_best_possible_bracket_aware_independent_across_halves():
+    # P0a (top half) and P4a (bottom half) can only meet in the FINAL, so every
+    # earlier round is genuinely winnable by both — the bracket bound matches
+    # the global one, which already caps the FINAL at one champion.
+    matches = _r32_fixtures({"P0a", "P4a"})
+    players = [{"name": "Ian", "teams": ["P0a", "P4a"]}]
+    aware = compute_standings(matches, _bracket_pool(players))["players"][0]
+    naive = compute_standings(matches, pool(players))["players"][0]
+    assert aware["best_possible"] == naive["best_possible"]
+    sp = SCORING_2026["stage_win_points"]
+    indep = 2 * (sp["R16"] + sp["QF"] + sp["SF"]) + sp["FINAL"]
+    assert aware["best_possible"] == aware["points"] + indep
+
+
+def test_best_possible_bracket_aware_same_r32_match():
+    # P0a and P0b are drawn AGAINST each other in the R32: at most one win
+    # between them at every stage, starting with R32 itself.
+    matches = _r32_fixtures(set())  # nothing decided yet; both alive
+    players = [{"name": "Ian", "teams": ["P0a", "P0b"]}]
+    aware = compute_standings(matches, _bracket_pool(players))["players"][0]
+    sp = SCORING_2026["stage_win_points"]
+    one_path = sp["R32"] + sp["R16"] + sp["QF"] + sp["SF"] + sp["FINAL"]
+    # advance bonus is still per team (both are already in the bracket).
+    assert aware["best_possible"] == aware["points"] + one_path
+
+
+def test_bracket_ignored_when_it_does_not_match_fixtures():
+    matches = _r32_fixtures({"P0a"})
+    players = [{"name": "Ian", "teams": ["P0a", "P0c"]}]
+    bad = pool(players)
+    bad["bracket"] = {"r16_pods": [["X", "Y", "Z", "W"]]}  # wrong teams and size
+    assert _bracket_leaves(matches, SCORING_2026, bad["bracket"]) is None
+    # A bracket that fails validation is discarded, not trusted: identical to
+    # having supplied no bracket at all.
+    assert (
+        compute_standings(matches, bad)["players"]
+        == compute_standings(matches, pool(players))["players"]
+    )
+
+
+def test_bracket_ignored_before_first_round_is_fully_drawn():
+    # Half the R32 slots still TBD -> the bracket is not yet decisive.
+    _, pairings = _full_bracket()
+    partial = []
+    for i, (home, away) in enumerate(pairings):
+        if i < 8:
+            partial.append(match("R32", "2026-06-28", home, away, status="SCHEDULED"))
+        else:
+            partial.append(match("R32", "2026-06-28", None, None, status="SCHEDULED"))
+    pods, _ = _full_bracket()
+    assert _bracket_leaves(partial, SCORING_2026, {"r16_pods": pods}) is None
 
 
 # -------------------------------------------------------------------- timeline
