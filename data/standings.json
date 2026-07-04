@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T04:05:36Z",
+  "generated_at": "2026-07-04T07:17:58Z",
   "players": [
     {
       "name": "Harry",
-      "points": 66,
+      "points": 70,
       "best_possible": 152,
       "rank": 1,
       "teams": [
@@ -80,7 +80,7 @@
         },
         {
           "code": "EGY",
-          "points": 8,
+          "points": 12,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -89,7 +89,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         }
       ]
     },
@@ -372,7 +374,7 @@
     {
       "name": "Bob",
       "points": 48,
-      "best_possible": 120,
+      "best_possible": 92,
       "rank": 5,
       "teams": [
         {
@@ -447,8 +449,8 @@
         {
           "code": "AUS",
           "points": 7,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R32",
           "group_record": {
             "w": 1,
             "d": 1,
@@ -688,7 +690,7 @@
         "Bob": 48,
         "Greg": 65,
         "Ian": 54,
-        "Harry": 66
+        "Harry": 70
       }
     },
     {
@@ -698,7 +700,7 @@
         "Bob": 48,
         "Greg": 65,
         "Ian": 54,
-        "Harry": 66
+        "Harry": 70
       }
     }
   ]

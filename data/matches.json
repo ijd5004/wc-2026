@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-04T04:05:35Z",
+  "fetched_at": "2026-07-04T07:17:57Z",
   "competition": "WC",
   "matches": [
     {
@@ -1289,7 +1289,7 @@
         "home": 3,
         "away": 5
       },
-      "winner": null,
+      "winner": "EGY",
       "decided_by": "PENALTIES"
     },
     {
@@ -1388,8 +1388,8 @@
       "group": null,
       "utc_date": "2026-07-06T19:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "POR",
+      "away": "ESP",
       "score": {
         "home": null,
         "away": null
@@ -1418,8 +1418,8 @@
       "group": null,
       "utc_date": "2026-07-07T16:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "ARG",
+      "away": "EGY",
       "score": {
         "home": null,
         "away": null
@@ -1433,8 +1433,8 @@
       "group": null,
       "utc_date": "2026-07-07T20:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "SUI",
+      "away": "COL",
       "score": {
         "home": null,
         "away": null
