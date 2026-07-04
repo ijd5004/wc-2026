@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-04T15:33:51Z",
+  "fetched_at": "2026-07-04T17:30:15Z",
   "competition": "WC",
   "matches": [
     {
@@ -1327,12 +1327,12 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-04T17:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "CAN",
       "away": "MAR",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
