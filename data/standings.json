@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T17:30:16Z",
+  "generated_at": "2026-07-04T19:40:14Z",
   "players": [
     {
       "name": "Harry",
@@ -189,9 +189,9 @@
     },
     {
       "name": "Ryan",
-      "points": 59,
+      "points": 65,
       "best_possible": 135,
-      "rank": 3,
+      "rank": 2,
       "teams": [
         {
           "code": "ENG",
@@ -210,7 +210,7 @@
         },
         {
           "code": "MAR",
-          "points": 14,
+          "points": 20,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -220,7 +220,8 @@
           },
           "advanced": true,
           "ko_wins": [
-            "R32"
+            "R32",
+            "R16"
           ]
         },
         {
@@ -254,8 +255,8 @@
         {
           "code": "CAN",
           "points": 11,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R16",
           "group_record": {
             "w": 1,
             "d": 1,
@@ -696,7 +697,7 @@
     {
       "date": "2026-07-04",
       "totals": {
-        "Ryan": 59,
+        "Ryan": 65,
         "Bob": 48,
         "Greg": 65,
         "Ian": 54,
