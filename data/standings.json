@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T23:29:42Z",
+  "generated_at": "2026-07-04T04:05:36Z",
   "players": [
     {
       "name": "Harry",
@@ -187,7 +187,7 @@
     },
     {
       "name": "Ryan",
-      "points": 55,
+      "points": 59,
       "best_possible": 135,
       "rank": 3,
       "teams": [
@@ -223,7 +223,7 @@
         },
         {
           "code": "COL",
-          "points": 10,
+          "points": 14,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -232,7 +232,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "KOR",
@@ -279,13 +281,13 @@
     },
     {
       "name": "Ian",
-      "points": 50,
+      "points": 54,
       "best_possible": 106,
       "rank": 4,
       "teams": [
         {
           "code": "ARG",
-          "points": 12,
+          "points": 16,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -294,7 +296,9 @@
             "l": 0
           },
           "advanced": true,
-          "ko_wins": []
+          "ko_wins": [
+            "R32"
+          ]
         },
         {
           "code": "GER",
@@ -683,7 +687,17 @@
         "Ryan": 55,
         "Bob": 48,
         "Greg": 65,
-        "Ian": 50,
+        "Ian": 54,
+        "Harry": 66
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "totals": {
+        "Ryan": 59,
+        "Bob": 48,
+        "Greg": 65,
+        "Ian": 54,
         "Harry": 66
       }
     }
