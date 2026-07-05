@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-05T21:29:48Z",
+  "fetched_at": "2026-07-05T23:30:37Z",
   "competition": "WC",
   "matches": [
     {
@@ -1357,21 +1357,21 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-05T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "FINISHED",
       "home": "BRA",
       "away": "NOR",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 2
       },
-      "winner": null,
+      "winner": "NOR",
       "decided_by": "REGULAR"
     },
     {
       "id": 537378,
       "stage": "R16",
       "group": null,
-      "utc_date": "2026-07-06T00:00:00Z",
+      "utc_date": "2026-07-06T01:00:00Z",
       "status": "SCHEDULED",
       "home": "MEX",
       "away": "ENG",

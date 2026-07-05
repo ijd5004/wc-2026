@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T21:29:48Z",
+  "generated_at": "2026-07-05T23:30:38Z",
   "players": [
     {
       "name": "Greg",
@@ -97,7 +97,7 @@
     {
       "name": "Harry",
       "points": 70,
-      "best_possible": 152,
+      "best_possible": 146,
       "rank": 2,
       "teams": [
         {
@@ -118,8 +118,8 @@
         {
           "code": "BRA",
           "points": 14,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R16",
           "group_record": {
             "w": 2,
             "d": 1,
@@ -285,7 +285,7 @@
     },
     {
       "name": "Ian",
-      "points": 54,
+      "points": 60,
       "best_possible": 106,
       "rank": 4,
       "teams": [
@@ -319,7 +319,7 @@
         },
         {
           "code": "NOR",
-          "points": 13,
+          "points": 19,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -329,7 +329,8 @@
           },
           "advanced": true,
           "ko_wins": [
-            "R32"
+            "R32",
+            "R16"
           ]
         },
         {
@@ -702,6 +703,16 @@
         "Bob": 48,
         "Greg": 71,
         "Ian": 54,
+        "Harry": 70
+      }
+    },
+    {
+      "date": "2026-07-05",
+      "totals": {
+        "Ryan": 65,
+        "Bob": 48,
+        "Greg": 71,
+        "Ian": 60,
         "Harry": 70
       }
     }
