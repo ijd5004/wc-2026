@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-06T21:03:27Z",
+  "fetched_at": "2026-07-06T22:40:33Z",
   "competition": "WC",
   "matches": [
     {
@@ -1387,7 +1387,7 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-06T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "POR",
       "away": "ESP",
       "score": {

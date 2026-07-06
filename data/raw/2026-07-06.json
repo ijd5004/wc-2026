@@ -6,7 +6,7 @@
     "count": 104,
     "first": "2026-06-11",
     "last": "2026-07-19",
-    "played": 92
+    "played": 93
   },
   "competition": {
     "id": 2000,
@@ -6149,11 +6149,11 @@
       },
       "id": 537379,
       "utcDate": "2026-07-06T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T21:02:57Z",
+      "lastUpdated": "2026-07-06T21:06:44Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6249,7 +6249,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 129250,
+          "name": "Adham Makhadmeh",
+          "type": "REFEREE",
+          "nationality": "Jordan"
+        }
+      ]
     },
     {
       "area": {
