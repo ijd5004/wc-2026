@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T23:30:38Z",
+  "generated_at": "2026-07-06T04:44:38Z",
   "players": [
     {
       "name": "Greg",
@@ -95,108 +95,14 @@
       ]
     },
     {
-      "name": "Harry",
-      "points": 70,
-      "best_possible": 146,
-      "rank": 2,
-      "teams": [
-        {
-          "code": "POR",
-          "points": 12,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 1,
-            "d": 2,
-            "l": 0
-          },
-          "advanced": true,
-          "ko_wins": [
-            "R32"
-          ]
-        },
-        {
-          "code": "BRA",
-          "points": 14,
-          "alive": false,
-          "eliminated_at": "R16",
-          "group_record": {
-            "w": 2,
-            "d": 1,
-            "l": 0
-          },
-          "advanced": true,
-          "ko_wins": [
-            "R32"
-          ]
-        },
-        {
-          "code": "MEX",
-          "points": 16,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 3,
-            "d": 0,
-            "l": 0
-          },
-          "advanced": true,
-          "ko_wins": [
-            "R32"
-          ]
-        },
-        {
-          "code": "CRO",
-          "points": 9,
-          "alive": false,
-          "eliminated_at": "R32",
-          "group_record": {
-            "w": 2,
-            "d": 0,
-            "l": 1
-          },
-          "advanced": true,
-          "ko_wins": []
-        },
-        {
-          "code": "AUT",
-          "points": 7,
-          "alive": false,
-          "eliminated_at": "R32",
-          "group_record": {
-            "w": 1,
-            "d": 1,
-            "l": 1
-          },
-          "advanced": true,
-          "ko_wins": []
-        },
-        {
-          "code": "EGY",
-          "points": 12,
-          "alive": true,
-          "eliminated_at": null,
-          "group_record": {
-            "w": 1,
-            "d": 2,
-            "l": 0
-          },
-          "advanced": true,
-          "ko_wins": [
-            "R32"
-          ]
-        }
-      ]
-    },
-    {
       "name": "Ryan",
-      "points": 65,
+      "points": 71,
       "best_possible": 135,
-      "rank": 3,
+      "rank": 1,
       "teams": [
         {
           "code": "ENG",
-          "points": 14,
+          "points": 20,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -206,7 +112,8 @@
           },
           "advanced": true,
           "ko_wins": [
-            "R32"
+            "R32",
+            "R16"
           ]
         },
         {
@@ -280,6 +187,100 @@
           },
           "advanced": false,
           "ko_wins": []
+        }
+      ]
+    },
+    {
+      "name": "Harry",
+      "points": 70,
+      "best_possible": 132,
+      "rank": 3,
+      "teams": [
+        {
+          "code": "POR",
+          "points": 12,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 2,
+            "l": 0
+          },
+          "advanced": true,
+          "ko_wins": [
+            "R32"
+          ]
+        },
+        {
+          "code": "BRA",
+          "points": 14,
+          "alive": false,
+          "eliminated_at": "R16",
+          "group_record": {
+            "w": 2,
+            "d": 1,
+            "l": 0
+          },
+          "advanced": true,
+          "ko_wins": [
+            "R32"
+          ]
+        },
+        {
+          "code": "MEX",
+          "points": 16,
+          "alive": false,
+          "eliminated_at": "R16",
+          "group_record": {
+            "w": 3,
+            "d": 0,
+            "l": 0
+          },
+          "advanced": true,
+          "ko_wins": [
+            "R32"
+          ]
+        },
+        {
+          "code": "CRO",
+          "points": 9,
+          "alive": false,
+          "eliminated_at": "R32",
+          "group_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "advanced": true,
+          "ko_wins": []
+        },
+        {
+          "code": "AUT",
+          "points": 7,
+          "alive": false,
+          "eliminated_at": "R32",
+          "group_record": {
+            "w": 1,
+            "d": 1,
+            "l": 1
+          },
+          "advanced": true,
+          "ko_wins": []
+        },
+        {
+          "code": "EGY",
+          "points": 12,
+          "alive": true,
+          "eliminated_at": null,
+          "group_record": {
+            "w": 1,
+            "d": 2,
+            "l": 0
+          },
+          "advanced": true,
+          "ko_wins": [
+            "R32"
+          ]
         }
       ]
     },
@@ -710,6 +711,16 @@
       "date": "2026-07-05",
       "totals": {
         "Ryan": 65,
+        "Bob": 48,
+        "Greg": 71,
+        "Ian": 60,
+        "Harry": 70
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "totals": {
+        "Ryan": 71,
         "Bob": 48,
         "Greg": 71,
         "Ian": 60,
