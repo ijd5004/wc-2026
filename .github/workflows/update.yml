@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy_retry.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -70,6 +70,15 @@ jobs:
         with:
           path: site/
 
+      # actions/deploy-pages intermittently returns "Deployment failed, try
+      # again later" from the Pages API. Swallow one such failure and retry so
+      # a transient hiccup doesn't turn the whole hourly run red.
       - name: Deploy to GitHub Pages
         id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Deploy to GitHub Pages (retry)
+        if: steps.deploy.outcome == 'failure'
+        id: deploy_retry
         uses: actions/deploy-pages@v5
