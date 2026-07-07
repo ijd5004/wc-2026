@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07T17:29:26Z",
+  "fetched_at": "2026-07-07T20:18:10Z",
   "competition": "WC",
   "matches": [
     {
@@ -1417,14 +1417,14 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-07T16:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "ARG",
       "away": "EGY",
       "score": {
-        "home": 0,
+        "home": 3,
         "away": 2
       },
-      "winner": "EGY",
+      "winner": "ARG",
       "decided_by": "REGULAR"
     },
     {
@@ -1432,12 +1432,12 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-07T20:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "SUI",
       "away": "COL",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "winner": null,
       "decided_by": "REGULAR"
