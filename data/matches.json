@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07T15:19:17Z",
+  "fetched_at": "2026-07-07T17:29:26Z",
   "competition": "WC",
   "matches": [
     {
@@ -1417,14 +1417,14 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-07T16:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "ARG",
       "away": "EGY",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 2
       },
-      "winner": null,
+      "winner": "EGY",
       "decided_by": "REGULAR"
     },
     {
