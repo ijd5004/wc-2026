@@ -6,7 +6,7 @@
     "count": 104,
     "first": "2026-06-11",
     "last": "2026-07-19",
-    "played": 93
+    "played": 94
   },
   "competition": {
     "id": 2000,
@@ -6153,7 +6153,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T21:06:44Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6215,11 +6215,11 @@
       },
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T00:58:54Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -6239,7 +6239,7 @@
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 2
+          "away": 4
         },
         "halfTime": {
           "home": 1,
