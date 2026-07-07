@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07T05:10:16Z",
+  "fetched_at": "2026-07-07T08:46:07Z",
   "competition": "WC",
   "matches": [
     {
@@ -1463,8 +1463,8 @@
       "group": null,
       "utc_date": "2026-07-10T19:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "ESP",
+      "away": "BEL",
       "score": {
         "home": null,
         "away": null
