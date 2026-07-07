@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07T21:46:34Z",
+  "fetched_at": "2026-07-07T23:16:30Z",
   "competition": "WC",
   "matches": [
     {
@@ -1432,15 +1432,15 @@
       "stage": "R16",
       "group": null,
       "utc_date": "2026-07-07T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "SUI",
       "away": "COL",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 4,
+        "away": 3
       },
       "winner": null,
-      "decided_by": "REGULAR"
+      "decided_by": "PENALTIES"
     },
     {
       "id": 537383,
