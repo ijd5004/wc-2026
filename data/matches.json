@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-08T03:49:01Z",
+  "fetched_at": "2026-07-08T06:40:36Z",
   "competition": "WC",
   "matches": [
     {
@@ -1439,7 +1439,7 @@
         "home": 4,
         "away": 3
       },
-      "winner": null,
+      "winner": "SUI",
       "decided_by": "PENALTIES"
     },
     {
@@ -1493,8 +1493,8 @@
       "group": null,
       "utc_date": "2026-07-12T01:00:00Z",
       "status": "SCHEDULED",
-      "home": null,
-      "away": null,
+      "home": "ARG",
+      "away": "SUI",
       "score": {
         "home": null,
         "away": null

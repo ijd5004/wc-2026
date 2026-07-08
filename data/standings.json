@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T03:49:02Z",
+  "generated_at": "2026-07-08T06:40:36Z",
   "players": [
     {
       "name": "Greg",
-      "points": 71,
+      "points": 77,
       "best_possible": 127,
       "rank": 1,
       "teams": [
@@ -53,7 +53,7 @@
         },
         {
           "code": "SUI",
-          "points": 14,
+          "points": 20,
           "alive": true,
           "eliminated_at": null,
           "group_record": {
@@ -63,7 +63,8 @@
           },
           "advanced": true,
           "ko_wins": [
-            "R32"
+            "R32",
+            "R16"
           ]
         },
         {
@@ -97,8 +98,8 @@
     {
       "name": "Ryan",
       "points": 71,
-      "best_possible": 135,
-      "rank": 1,
+      "best_possible": 121,
+      "rank": 2,
       "teams": [
         {
           "code": "ENG",
@@ -135,8 +136,8 @@
         {
           "code": "COL",
           "points": 14,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "R16",
           "group_record": {
             "w": 2,
             "d": 1,
@@ -735,7 +736,7 @@
       "totals": {
         "Ryan": 71,
         "Bob": 60,
-        "Greg": 71,
+        "Greg": 77,
         "Ian": 66,
         "Harry": 70
       }
