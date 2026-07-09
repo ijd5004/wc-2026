@@ -6,7 +6,7 @@
     "count": 104,
     "first": "2026-06-11",
     "last": "2026-07-19",
-    "played": 96
+    "played": 97
   },
   "competition": {
     "id": 2000,
@@ -6425,11 +6425,11 @@
       },
       "id": 537383,
       "utcDate": "2026-07-09T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T21:48:40Z",
+      "lastUpdated": "2026-07-09T22:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
