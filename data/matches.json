@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-09T20:08:05Z",
+  "fetched_at": "2026-07-09T21:49:14Z",
   "competition": "WC",
   "matches": [
     {
@@ -1451,10 +1451,10 @@
       "home": "FRA",
       "away": "MAR",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0
       },
-      "winner": null,
+      "winner": "FRA",
       "decided_by": "REGULAR"
     },
     {
