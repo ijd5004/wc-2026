@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-10T18:49:15Z",
+  "fetched_at": "2026-07-10T20:45:05Z",
   "competition": "WC",
   "matches": [
     {
@@ -1462,12 +1462,12 @@
       "stage": "QF",
       "group": null,
       "utc_date": "2026-07-10T19:00:00Z",
-      "status": "SCHEDULED",
+      "status": "IN_PLAY",
       "home": "ESP",
       "away": "BEL",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "winner": null,
       "decided_by": "REGULAR"
