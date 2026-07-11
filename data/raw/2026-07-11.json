@@ -6561,7 +6561,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-11T21:58:07Z",
+      "lastUpdated": "2026-07-11T23:07:31Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -6657,7 +6657,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 38806,
+          "name": "João Pinheiro",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ]
     },
     {
       "area": {
