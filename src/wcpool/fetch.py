@@ -46,6 +46,7 @@ STAGE_MAP = {
 # Statuses collapse to SCHEDULED | IN_PLAY | FINISHED.
 _FINISHED_STATUSES = {"FINISHED", "AWARDED"}
 _IN_PLAY_STATUSES = {"IN_PLAY", "PAUSED"}
+_SCHEDULED_STATUSES = {"SCHEDULED", "TIMED", "POSTPONED", "SUSPENDED", "CANCELLED"}
 
 DURATION_MAP = {
     "REGULAR": "REGULAR",
@@ -136,12 +137,29 @@ def map_stage(stage: str) -> str:
         raise NormalizationError(f"unknown stage from API: {stage!r}") from None
 
 
-def map_status(status: str) -> str:
+def map_status(status: str, previous: str | None = None) -> str:
+    """Collapse the API status to ``SCHEDULED | IN_PLAY | FINISHED``.
+
+    The API has been observed emitting garbage in this field (a timestamp
+    string on an already-finished match, 2026-07-11). Coercing unknown values
+    to ``SCHEDULED`` regresses finished matches — un-eliminating teams and
+    revoking knockout wins — and aborting the fetch would freeze the whole
+    dashboard during live play over one corrupt field. So an unrecognized
+    status keeps ``previous`` (the last status we stored for this match) and
+    warns; ``SCHEDULED`` is only assumed for matches we have no record of.
+    """
     if status in _FINISHED_STATUSES:
         return "FINISHED"
     if status in _IN_PLAY_STATUSES:
         return "IN_PLAY"
-    return "SCHEDULED"
+    if status in _SCHEDULED_STATUSES:
+        return "SCHEDULED"
+    fallback = previous or "SCHEDULED"
+    print(
+        f"warning: unknown match status {status!r}; keeping {fallback}",
+        file=sys.stderr,
+    )
+    return fallback
 
 
 def map_decided_by(duration: str | None) -> str:
@@ -176,7 +194,7 @@ def resolve_winner(winner: str | None, home: str | None, away: str | None) -> st
     return None  # DRAW or null
 
 
-def normalize_match(match: dict[str, Any]) -> dict[str, Any]:
+def normalize_match(match: dict[str, Any], previous_status: str | None = None) -> dict[str, Any]:
     home = canonical_code(match["homeTeam"].get("tla"))
     away = canonical_code(match["awayTeam"].get("tla"))
     score = match.get("score") or {}
@@ -186,7 +204,7 @@ def normalize_match(match: dict[str, Any]) -> dict[str, Any]:
         "stage": map_stage(match["stage"]),
         "group": extract_group(match.get("group")),
         "utc_date": match["utcDate"],
-        "status": map_status(match["status"]),
+        "status": map_status(match["status"], previous_status),
         "home": home,
         "away": away,
         "score": {"home": full_time.get("home"), "away": full_time.get("away")},
@@ -195,12 +213,29 @@ def normalize_match(match: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def normalize(raw: dict[str, Any], fetched_at: datetime) -> dict[str, Any]:
-    """Convert a raw v4 response to the CONTRACTS.md matches.json document."""
+def normalize(
+    raw: dict[str, Any],
+    fetched_at: datetime,
+    existing: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Convert a raw v4 response to the CONTRACTS.md matches.json document.
+
+    ``existing`` is the previously written matches.json document (if any); it
+    supplies per-match fallback statuses when the API sends corrupt ones.
+    """
+    existing_matches = existing.get("matches", []) if isinstance(existing, dict) else []
+    previous_statuses: dict[Any, str] = {
+        m["id"]: m["status"]
+        for m in existing_matches
+        if isinstance(m, dict) and "id" in m and "status" in m
+    }
     return {
         "fetched_at": fetched_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "competition": "WC",
-        "matches": [normalize_match(m) for m in raw.get("matches", [])],
+        "matches": [
+            normalize_match(m, previous_statuses.get(m.get("id")))
+            for m in raw.get("matches", [])
+        ],
     }
 
 
@@ -264,11 +299,17 @@ def main(argv: list[str] | None = None, *, fetch_fn: Callable[[str], dict] | Non
         print(f"error: {ENV_KEY} is not set (get a token at football-data.org)", file=sys.stderr)
         return 2
 
+    matches_path = data_dir / "matches.json"
+    try:
+        existing_matches = _read_json(matches_path) if matches_path.exists() else None
+    except ValueError:
+        existing_matches = None  # unreadable previous doc: proceed without fallbacks
+
     fetch = fetch_fn or http_fetch
     now = _utc_now()
     try:
         raw = fetch(api_key)
-        normalized = normalize(raw, now)
+        normalized = normalize(raw, now, existing_matches)
     except (FetchError, NormalizationError) as exc:
         print(f"error: {exc}; leaving existing matches.json untouched", file=sys.stderr)
         return 1
@@ -281,7 +322,7 @@ def main(argv: list[str] | None = None, *, fetch_fn: Callable[[str], dict] | Non
     teams = build_teams(raw, existing_teams)
     _write_json(teams_path, dict(sorted(teams.items())))
 
-    _write_json(data_dir / "matches.json", normalized)
+    _write_json(matches_path, normalized)
     print(
         f"wrote {len(normalized['matches'])} matches, {len(teams)} teams to {data_dir}/",
         file=sys.stderr,

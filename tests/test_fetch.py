@@ -163,6 +163,43 @@ def test_status_mapping(api_status, expected):
     assert map_status(api_status) == expected
 
 
+def test_unknown_status_keeps_previous(capsys):
+    """Observed live 2026-07-11: the API emitted a timestamp string as the
+    status of an already-finished match. Coercing that to SCHEDULED regressed
+    the match (un-eliminating a team); the previous stored status must win."""
+    assert map_status("2026-07-06 01:00:00Z", "FINISHED") == "FINISHED"
+    assert "unknown match status" in capsys.readouterr().err
+
+
+def test_unknown_status_without_history_degrades_to_scheduled(capsys):
+    assert map_status("GARBAGE") == "SCHEDULED"
+    assert "unknown match status" in capsys.readouterr().err
+
+
+def test_normalize_carries_forward_status_on_corrupt_api_value(raw):
+    """End-to-end through normalize(): a corrupt status on a previously
+    FINISHED match keeps FINISHED; matches without history stay SCHEDULED."""
+    good = normalize(raw, NOW)
+    assert by_id(good, 101)["status"] == "FINISHED"
+
+    corrupted = json.loads(FIXTURE.read_text(encoding="utf-8"))
+    bad_match = next(m for m in corrupted["matches"] if m["id"] == 101)
+    bad_match["status"] = "2026-07-06 01:00:00Z"
+
+    renormalized = normalize(corrupted, NOW, existing=good)
+    assert by_id(renormalized, 101)["status"] == "FINISHED"
+    # everything else is untouched by the fallback machinery
+    others = [m for m in renormalized["matches"] if m["id"] != 101]
+    assert others == [m for m in good["matches"] if m["id"] != 101]
+
+
+def test_normalize_without_existing_doc_coerces_unknown_to_scheduled(raw):
+    corrupted = json.loads(FIXTURE.read_text(encoding="utf-8"))
+    bad_match = next(m for m in corrupted["matches"] if m["id"] == 101)
+    bad_match["status"] = "2026-07-06 01:00:00Z"
+    assert by_id(normalize(corrupted, NOW), 101)["status"] == "SCHEDULED"
+
+
 @pytest.mark.parametrize(
     ("duration", "expected"),
     [
@@ -339,6 +376,25 @@ def test_main_merges_existing_teams_json(tmp_path, monkeypatch, raw):
     teams = json.loads((tmp_path / "teams.json").read_text(encoding="utf-8"))
     assert teams["JPN"] == {"name": "Japan", "flag": "🇯🇵"}
     assert "MEX" in teams
+
+
+def test_main_carries_forward_status_from_existing_matches_json(tmp_path, monkeypatch, raw, capsys):
+    """The on-disk matches.json from the previous run supplies the fallback
+    status when the API sends a corrupt one (the 2026-07-11 incident)."""
+    monkeypatch.setenv("FOOTBALL_DATA_API_KEY", "test-token")
+    monkeypatch.setattr(fetch, "_utc_now", lambda: NOW)
+    (tmp_path / "matches.json").write_text(
+        json.dumps(normalize(raw, NOW)), encoding="utf-8"
+    )
+
+    corrupted = json.loads(FIXTURE.read_text(encoding="utf-8"))
+    next(m for m in corrupted["matches"] if m["id"] == 101)["status"] = "2026-07-06 01:00:00Z"
+
+    rc = fetch.main(["--data-dir", str(tmp_path)], fetch_fn=lambda _key: corrupted)
+    assert rc == 0
+    assert "unknown match status" in capsys.readouterr().err
+    written = json.loads((tmp_path / "matches.json").read_text(encoding="utf-8"))
+    assert by_id(written, 101)["status"] == "FINISHED"
 
 
 def test_main_unknown_stage_exits_1_and_preserves_matches(tmp_path, monkeypatch, raw, capsys):
