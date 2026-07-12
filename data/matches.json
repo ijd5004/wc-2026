@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11T23:13:12Z",
+  "fetched_at": "2026-07-12T00:01:34Z",
   "competition": "WC",
   "matches": [
     {
@@ -1477,15 +1477,15 @@
       "stage": "QF",
       "group": null,
       "utc_date": "2026-07-11T21:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "NOR",
       "away": "ENG",
       "score": {
         "home": 1,
-        "away": 1
+        "away": 2
       },
-      "winner": null,
-      "decided_by": "REGULAR"
+      "winner": "ENG",
+      "decided_by": "ET"
     },
     {
       "id": 537386,
