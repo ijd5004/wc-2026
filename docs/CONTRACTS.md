@@ -49,6 +49,9 @@ Keys are FIFA three-letter codes. All other files refer to teams **by code only*
 ```
 
 - `status`: `SCHEDULED` | `IN_PLAY` | `FINISHED` (collapse the API's finer states to these).
+  An unrecognized API status (observed live: a timestamp string in the field) keeps the
+  match's previously stored status instead of being coerced to `SCHEDULED` — a finished
+  match must never silently regress.
 - `group` is `null` for knockout matches.
 - `winner` is a team code, or `null` for a draw / unfinished match.
 - `decided_by`: `REGULAR` | `ET` | `PENALTIES`. A knockout match decided on penalties has a
