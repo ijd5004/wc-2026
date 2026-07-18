@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18T22:09:35Z",
+  "fetched_at": "2026-07-18T23:13:28Z",
   "competition": "WC",
   "matches": [
     {
@@ -1537,12 +1537,12 @@
       "stage": "THIRD_PLACE",
       "group": null,
       "utc_date": "2026-07-18T21:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "FRA",
       "away": "ENG",
       "score": {
-        "home": 0,
-        "away": 4
+        "home": 4,
+        "away": 6
       },
       "winner": "ENG",
       "decided_by": "REGULAR"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T22:09:36Z",
+  "generated_at": "2026-07-18T23:13:28Z",
   "players": [
     {
       "name": "Greg",
@@ -10,8 +10,8 @@
         {
           "code": "FRA",
           "points": 30,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "THIRD_PLACE",
           "group_record": {
             "w": 3,
             "d": 0,
@@ -199,8 +199,8 @@
         {
           "code": "ENG",
           "points": 28,
-          "alive": true,
-          "eliminated_at": null,
+          "alive": false,
+          "eliminated_at": "SF",
           "group_record": {
             "w": 2,
             "d": 1,
@@ -210,7 +210,8 @@
           "ko_wins": [
             "R32",
             "R16",
-            "QF"
+            "QF",
+            "THIRD_PLACE"
           ]
         },
         {
@@ -799,6 +800,16 @@
     },
     {
       "date": "2026-07-15",
+      "totals": {
+        "Ryan": 79,
+        "Bob": 78,
+        "Greg": 85,
+        "Ian": 84,
+        "Harry": 70
+      }
+    },
+    {
+      "date": "2026-07-18",
       "totals": {
         "Ryan": 79,
         "Bob": 78,
