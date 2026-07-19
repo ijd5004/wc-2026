@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-19T21:09:57Z",
+  "fetched_at": "2026-07-19T22:11:31Z",
   "competition": "WC",
   "matches": [
     {
@@ -1552,15 +1552,15 @@
       "stage": "FINAL",
       "group": null,
       "utc_date": "2026-07-19T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "home": "ESP",
       "away": "ARG",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0
       },
-      "winner": null,
-      "decided_by": "REGULAR"
+      "winner": "ESP",
+      "decided_by": "ET"
     }
   ]
 }
