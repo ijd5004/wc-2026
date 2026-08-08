@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>D Dogs &mdash; World Cup 2026</title>
+<style>
+:root {
+  --bg: #14161a;
+  --card: #1e2128;
+  --text: #e8eaed;
+  --muted: #8a919e;
+  --accent: #4fc3f7;
+  --line: #2c303a;
+  --bad: #e57373;
+  --warn: #ffb74d;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1b1e24;
+    --muted: #5c6470;
+    --accent: #0277bd;
+    --line: #d9dde4;
+    --bad: #c62828;
+    --warn: #b26a00;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  padding: 0.75rem;
+  max-width: 42rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+h1 { font-size: 1.35rem; margin: 0.25rem 0 0.15rem; }
+.updated { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.75rem; }
+h2 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; color: var(--muted);
+     text-transform: uppercase; letter-spacing: 0.06em; }
+section { background: var(--card); border-radius: 12px; padding: 0.75rem; margin: 0.75rem 0; }
+ol, ul { list-style: none; margin: 0; padding: 0; }
+.banner {
+  background: var(--warn);
+  color: #14161a;
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+  margin: 0.75rem 0;
+}
+.standing {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.standing:last-child { border-bottom: none; }
+.standing .rank { color: var(--muted); min-width: 1.5rem; }
+.standing .player { font-weight: 600; flex: 1; }
+.standing .pts { font-variant-numeric: tabular-nums; font-weight: 700; }
+.movement { min-width: 2.5rem; text-align: right; font-variant-numeric: tabular-nums; }
+.movement.up { color: #81c784; }
+.movement.down { color: var(--bad); }
+.movement.same { color: var(--muted); }
+.race-chart { width: 100%; height: auto; display: block; }
+.no-matches { color: var(--muted); margin: 0.25rem; }
+.squad { margin-bottom: 0.9rem; }
+.squad:last-child { margin-bottom: 0; }
+.squad-head {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
+}
+.squad-head .player { font-weight: 700; flex: 1; }
+.squad-head .pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+.team { display: flex; gap: 0.5rem; align-items: baseline; padding: 0.22rem 0 0.22rem 0.5rem; }
+.team .tname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.team .trec { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.85em; }
+.team .tpts { font-variant-numeric: tabular-nums; color: var(--muted); min-width: 3.4rem; text-align: right; }
+.team.out .tname { text-decoration: line-through; color: var(--muted); }
+.team.out .flag { filter: grayscale(1); opacity: 0.6; }
+.chip {
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--line);
+  color: var(--muted);
+}
+.chip.live { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); }
+.chip.champ { background: var(--warn); color: #14161a; }
+.bp { display: flex; gap: 0.5rem; align-items: baseline; padding: 0.3rem 0.25rem; }
+.bp .player { font-weight: 600; }
+.bp .bp-pts { color: var(--muted); }
+.badge {
+  background: var(--bad);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+footer { color: var(--muted); font-size: 0.85rem; padding: 0.5rem 0.25rem 1.5rem; }
+footer ul li { padding: 0.1rem 0; }
+.bk-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 0.9rem; margin: 0 0 0.6rem; font-size: 0.8rem; }
+.bk-legend .who { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--muted); }
+.bk-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+.bracket-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.bracket { display: flex; gap: 0.7rem; min-width: min-content; padding-bottom: 0.4rem; }
+.bk-round { display: flex; flex-direction: column; justify-content: space-around;
+            gap: 0.5rem; min-width: 8.5rem; }
+.bk-round h3 { font-size: 0.72rem; color: var(--muted); text-transform: uppercase;
+               letter-spacing: 0.05em; margin: 0 0 0.1rem; text-align: center; font-weight: 700; }
+.bk-match { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.bk-team { display: flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.4rem; font-size: 0.82rem; }
+.bk-team + .bk-team { border-top: 1px solid var(--line); }
+.bk-team .flag { flex-shrink: 0; }
+.bk-code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+           font-variant-numeric: tabular-nums; }
+.bk-team.win .bk-code { font-weight: 700; }
+.bk-team.win::after { content: "✓"; color: #81c784; font-size: 0.8em; }
+.bk-team.lose .bk-code { color: var(--muted); text-decoration: line-through; }
+.bk-team.lose .flag { filter: grayscale(1); opacity: 0.6; }
+.bk-tbd { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<h1>D Dogs</h1>
+<p class="updated">Updated 7 Aug 2026 · 15:11 UTC</p>
+<section>
+<h2>Standings</h2>
+<ol>
+<li class="standing" data-player="Bob"><span class="rank">1</span><span class="player">Bob</span><span class="movement up">▲3</span><span class="pts">92 pts</span></li>
+<li class="standing" data-player="Greg"><span class="rank">2</span><span class="player">Greg</span><span class="movement down">▼1</span><span class="pts">85 pts</span></li>
+<li class="standing" data-player="Ian"><span class="rank">3</span><span class="player">Ian</span><span class="movement down">▼1</span><span class="pts">84 pts</span></li>
+<li class="standing" data-player="Ryan"><span class="rank">4</span><span class="player">Ryan</span><span class="movement down">▼1</span><span class="pts">79 pts</span></li>
+<li class="standing" data-player="Harry"><span class="rank">5</span><span class="player">Harry</span><span class="movement same">–</span><span class="pts">70 pts</span></li>
+</ol>
+</section>
+<section>
+<h2>Race</h2>
+<svg class="race-chart" viewBox="0 0 360 210" role="img" aria-label="Cumulative points per player per day">
+<line x1="30" y1="12" x2="30" y2="184" stroke="var(--muted)" stroke-width="1"/>
+<line x1="30" y1="184" x2="296" y2="184" stroke="var(--muted)" stroke-width="1"/>
+<text x="26" y="16" fill="var(--muted)" font-size="9" text-anchor="end">92</text>
+<text x="26" y="188" fill="var(--muted)" font-size="9" text-anchor="end">0</text>
+<text x="30" y="204" fill="var(--muted)" font-size="9">2026-06-11</text>
+<text x="296" y="204" fill="var(--muted)" font-size="9" text-anchor="end">2026-07-19</text>
+<polyline class="race-line" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round" points="30.0,184.0 37.8,184.0 45.6,184.0 53.5,178.4 61.3,167.2 69.1,167.2 76.9,167.2 84.8,167.2 92.6,167.2 100.4,167.2 108.2,157.8 116.1,157.8 123.9,157.8 131.7,157.8 139.5,150.3 147.4,131.7 155.2,109.2 163.0,109.2 170.8,109.2 178.6,109.2 186.5,101.7 194.3,94.3 202.1,94.3 209.9,94.3 217.8,94.3 225.6,83.0 233.4,71.8 241.2,71.8 249.1,56.9 256.9,56.9 264.7,56.9 272.5,38.2 280.4,38.2 288.2,38.2 296.0,12.0"/>
+<circle cx="296.0" cy="12.0" r="2.5" fill="#4fc3f7"/>
+<text x="301.0" y="15.0" fill="#4fc3f7" font-size="10">Bob</text>
+<polyline class="race-line" fill="none" stroke="#ffb74d" stroke-width="2" stroke-linejoin="round" points="30.0,184.0 37.8,184.0 45.6,176.5 53.5,169.0 61.3,169.0 69.1,163.4 76.9,163.4 84.8,157.8 92.6,152.2 100.4,146.6 108.2,146.6 116.1,141.0 123.9,141.0 131.7,129.8 139.5,107.3 147.4,84.9 155.2,84.9 163.0,84.9 170.8,84.9 178.6,77.4 186.5,77.4 194.3,70.0 202.1,62.5 209.9,51.3 217.8,51.3 225.6,51.3 233.4,40.0 241.2,25.1 249.1,25.1 256.9,25.1 264.7,25.1 272.5,25.1 280.4,25.1 288.2,25.1 296.0,25.1"/>
+<circle cx="296.0" cy="25.1" r="2.5" fill="#ffb74d"/>
+<text x="301.0" y="28.1" fill="#ffb74d" font-size="10">Greg</text>
+<polyline class="race-line" fill="none" stroke="#81c784" stroke-width="2" stroke-linejoin="round" points="30.0,184.0 37.8,184.0 45.6,184.0 53.5,176.5 61.3,176.5 69.1,170.9 76.9,165.3 84.8,163.4 92.6,163.4 100.4,157.8 108.2,150.3 116.1,144.7 123.9,139.1 131.7,139.1 139.5,114.8 147.4,109.2 155.2,109.2 163.0,98.0 170.8,98.0 178.6,90.5 186.5,90.5 194.3,90.5 202.1,83.0 209.9,83.0 217.8,71.8 225.6,71.8 233.4,60.6 241.2,60.6 249.1,60.6 256.9,60.6 264.7,45.7 272.5,45.7 280.4,27.0 288.2,27.0 296.0,27.0"/>
+<circle cx="296.0" cy="27.0" r="2.5" fill="#81c784"/>
+<text x="301.0" y="30.0" fill="#81c784" font-size="10">Ian</text>
+<polyline class="race-line" fill="none" stroke="#e57373" stroke-width="2" stroke-linejoin="round" points="30.0,184.0 37.8,176.5 45.6,174.7 53.5,169.0 61.3,169.0 69.1,169.0 76.9,163.4 84.8,152.2 92.6,146.6 100.4,146.6 108.2,146.6 116.1,146.6 123.9,144.7 131.7,122.3 139.5,122.3 147.4,122.3 155.2,103.6 163.0,96.1 170.8,96.1 178.6,88.7 186.5,81.2 194.3,81.2 202.1,81.2 209.9,62.5 217.8,62.5 225.6,51.3 233.4,51.3 241.2,51.3 249.1,51.3 256.9,36.3 264.7,36.3 272.5,36.3 280.4,36.3 288.2,36.3 296.0,36.3"/>
+<circle cx="296.0" cy="36.3" r="2.5" fill="#e57373"/>
+<text x="301.0" y="39.3" fill="#e57373" font-size="10">Ryan</text>
+<polyline class="race-line" fill="none" stroke="#ba68c8" stroke-width="2" stroke-linejoin="round" points="30.0,178.4 37.8,178.4 45.6,176.5 53.5,176.5 61.3,174.7 69.1,174.7 76.9,167.2 84.8,167.2 92.6,161.6 100.4,156.0 108.2,156.0 116.1,150.3 123.9,139.1 131.7,127.9 139.5,116.7 147.4,116.7 155.2,90.5 163.0,83.0 170.8,75.6 178.6,75.6 186.5,68.1 194.3,60.6 202.1,53.1 209.9,53.1 217.8,53.1 225.6,53.1 233.4,53.1 241.2,53.1 249.1,53.1 256.9,53.1 264.7,53.1 272.5,53.1 280.4,53.1 288.2,53.1 296.0,53.1"/>
+<circle cx="296.0" cy="53.1" r="2.5" fill="#ba68c8"/>
+<text x="301.0" y="56.1" fill="#ba68c8" font-size="10">Harry</text>
+</svg>
+</section>
+<section>
+<h2>Teams</h2>
+<ul>
+<li class="squad" data-player="Bob"><div class="squad-head"><span class="player">Bob</span><span class="pts">92 pts</span></div><ul>
+<li class="team" data-team="ESP"><span class="flag">🇪🇸</span><span class="tname">Spain</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip champ">🏆 Champion</span><span class="tpts">52 pts</span></li>
+<li class="team out" data-team="BEL"><span class="flag">🇧🇪</span><span class="tname">Belgium</span><span class="trec" title="group W-D-L">1-2-0</span><span class="chip">QF</span><span class="tpts">18 pts</span></li>
+<li class="team out" data-team="URU"><span class="flag">🇺🇾</span><span class="tname">Uruguay</span><span class="trec" title="group W-D-L">0-2-1</span><span class="chip">Groups</span><span class="tpts">2 pts</span></li>
+<li class="team out" data-team="SEN"><span class="flag">🇸🇳</span><span class="tname">Senegal</span><span class="trec" title="group W-D-L">1-0-2</span><span class="chip">R32</span><span class="tpts">6 pts</span></li>
+<li class="team out" data-team="SWE"><span class="flag">🇸🇪</span><span class="tname">Sweden</span><span class="trec" title="group W-D-L">1-1-1</span><span class="chip">R32</span><span class="tpts">7 pts</span></li>
+<li class="team out" data-team="AUS"><span class="flag">🇦🇺</span><span class="tname">Australia</span><span class="trec" title="group W-D-L">1-1-1</span><span class="chip">R32</span><span class="tpts">7 pts</span></li>
+</ul></li>
+<li class="squad" data-player="Greg"><div class="squad-head"><span class="player">Greg</span><span class="pts">85 pts</span></div><ul>
+<li class="team out" data-team="FRA"><span class="flag">🇫🇷</span><span class="tname">France</span><span class="trec" title="group W-D-L">3-0-0</span><span class="chip">3rd</span><span class="tpts">30 pts</span></li>
+<li class="team out" data-team="NED"><span class="flag">🇳🇱</span><span class="tname">Netherlands</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">R32</span><span class="tpts">10 pts</span></li>
+<li class="team out" data-team="USA"><span class="flag">🇺🇸</span><span class="tname">United States</span><span class="trec" title="group W-D-L">2-0-1</span><span class="chip">R16</span><span class="tpts">13 pts</span></li>
+<li class="team out" data-team="SUI"><span class="flag">🇨🇭</span><span class="tname">Switzerland</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">QF</span><span class="tpts">20 pts</span></li>
+<li class="team out" data-team="TUR"><span class="flag">🇹🇷</span><span class="tname">Turkey</span><span class="trec" title="group W-D-L">1-0-2</span><span class="chip">Groups</span><span class="tpts">3 pts</span></li>
+<li class="team out" data-team="CIV"><span class="flag">🇨🇮</span><span class="tname">Ivory Coast</span><span class="trec" title="group W-D-L">2-0-1</span><span class="chip">R32</span><span class="tpts">9 pts</span></li>
+</ul></li>
+<li class="squad" data-player="Ian"><div class="squad-head"><span class="player">Ian</span><span class="pts">84 pts</span></div><ul>
+<li class="team out" data-team="ARG"><span class="flag">🇦🇷</span><span class="tname">Argentina</span><span class="trec" title="group W-D-L">3-0-0</span><span class="chip">Final</span><span class="tpts">40 pts</span></li>
+<li class="team out" data-team="GER"><span class="flag">🇩🇪</span><span class="tname">Germany</span><span class="trec" title="group W-D-L">2-0-1</span><span class="chip">R32</span><span class="tpts">9 pts</span></li>
+<li class="team out" data-team="NOR"><span class="flag">🇳🇴</span><span class="tname">Norway</span><span class="trec" title="group W-D-L">2-0-1</span><span class="chip">QF</span><span class="tpts">19 pts</span></li>
+<li class="team out" data-team="JPN"><span class="flag">🇯🇵</span><span class="tname">Japan</span><span class="trec" title="group W-D-L">1-2-0</span><span class="chip">R32</span><span class="tpts">8 pts</span></li>
+<li class="team out" data-team="ECU"><span class="flag">🇪🇨</span><span class="tname">Ecuador</span><span class="trec" title="group W-D-L">1-1-1</span><span class="chip">R32</span><span class="tpts">7 pts</span></li>
+<li class="team out" data-team="CZE"><span class="flag">🇨🇿</span><span class="tname">Czechia</span><span class="trec" title="group W-D-L">0-1-2</span><span class="chip">Groups</span><span class="tpts">1 pts</span></li>
+</ul></li>
+<li class="squad" data-player="Ryan"><div class="squad-head"><span class="player">Ryan</span><span class="pts">79 pts</span></div><ul>
+<li class="team out" data-team="ENG"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="tname">England</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">SF</span><span class="tpts">28 pts</span></li>
+<li class="team out" data-team="MAR"><span class="flag">🇲🇦</span><span class="tname">Morocco</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">QF</span><span class="tpts">20 pts</span></li>
+<li class="team out" data-team="COL"><span class="flag">🇨🇴</span><span class="tname">Colombia</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">R16</span><span class="tpts">14 pts</span></li>
+<li class="team out" data-team="KOR"><span class="flag">🇰🇷</span><span class="tname">South Korea</span><span class="trec" title="group W-D-L">1-0-2</span><span class="chip">Groups</span><span class="tpts">3 pts</span></li>
+<li class="team out" data-team="CAN"><span class="flag">🇨🇦</span><span class="tname">Canada</span><span class="trec" title="group W-D-L">1-1-1</span><span class="chip">R16</span><span class="tpts">11 pts</span></li>
+<li class="team out" data-team="SCO"><span class="flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="tname">Scotland</span><span class="trec" title="group W-D-L">1-0-2</span><span class="chip">Groups</span><span class="tpts">3 pts</span></li>
+</ul></li>
+<li class="squad" data-player="Harry"><div class="squad-head"><span class="player">Harry</span><span class="pts">70 pts</span></div><ul>
+<li class="team out" data-team="POR"><span class="flag">🇵🇹</span><span class="tname">Portugal</span><span class="trec" title="group W-D-L">1-2-0</span><span class="chip">R16</span><span class="tpts">12 pts</span></li>
+<li class="team out" data-team="BRA"><span class="flag">🇧🇷</span><span class="tname">Brazil</span><span class="trec" title="group W-D-L">2-1-0</span><span class="chip">R16</span><span class="tpts">14 pts</span></li>
+<li class="team out" data-team="MEX"><span class="flag">🇲🇽</span><span class="tname">Mexico</span><span class="trec" title="group W-D-L">3-0-0</span><span class="chip">R16</span><span class="tpts">16 pts</span></li>
+<li class="team out" data-team="CRO"><span class="flag">🇭🇷</span><span class="tname">Croatia</span><span class="trec" title="group W-D-L">2-0-1</span><span class="chip">R32</span><span class="tpts">9 pts</span></li>
+<li class="team out" data-team="AUT"><span class="flag">🇦🇹</span><span class="tname">Austria</span><span class="trec" title="group W-D-L">1-1-1</span><span class="chip">R32</span><span class="tpts">7 pts</span></li>
+<li class="team out" data-team="EGY"><span class="flag">🇪🇬</span><span class="tname">Egypt</span><span class="trec" title="group W-D-L">1-2-0</span><span class="chip">R16</span><span class="tpts">12 pts</span></li>
+</ul></li>
+</ul>
+</section>
+<section>
+<h2>Best possible</h2>
+<ul>
+<li class="bp" data-player="Bob"><span class="player">Bob</span><span class="bp-pts">best possible 92 pts</span></li>
+<li class="bp" data-player="Greg"><span class="player">Greg</span><span class="bp-pts">best possible 85 pts</span> <span class="badge">mathematically eliminated</span></li>
+<li class="bp" data-player="Ian"><span class="player">Ian</span><span class="bp-pts">best possible 84 pts</span> <span class="badge">mathematically eliminated</span></li>
+<li class="bp" data-player="Ryan"><span class="player">Ryan</span><span class="bp-pts">best possible 79 pts</span> <span class="badge">mathematically eliminated</span></li>
+<li class="bp" data-player="Harry"><span class="player">Harry</span><span class="bp-pts">best possible 70 pts</span> <span class="badge">mathematically eliminated</span></li>
+</ul>
+</section>
+<section>
+<h2>Bracket</h2>
+<div class="bk-legend"><span class="who"><span class="bk-dot" style="background:#4fc3f7"></span>Bob</span><span class="who"><span class="bk-dot" style="background:#ffb74d"></span>Greg</span><span class="who"><span class="bk-dot" style="background:#81c784"></span>Ian</span><span class="who"><span class="bk-dot" style="background:#e57373"></span>Ryan</span><span class="who"><span class="bk-dot" style="background:#ba68c8"></span>Harry</span></div>
+<div class="bracket-wrap"><div class="bracket">
+<div class="bk-round"><h3>R32</h3>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="France (Greg)"><span class="flag">🇫🇷</span><span class="bk-code">FRA</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Sweden (Bob)"><span class="flag">🇸🇪</span><span class="bk-code">SWE</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Germany (Ian)"><span class="flag">🇩🇪</span><span class="bk-code">GER</span></div><div class="bk-team win" title="Paraguay"><span class="flag">🇵🇾</span><span class="bk-code">PAR</span></div></div>
+<div class="bk-match"><div class="bk-team lose" title="South Africa"><span class="flag">🇿🇦</span><span class="bk-code">RSA</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Canada (Ryan)"><span class="flag">🇨🇦</span><span class="bk-code">CAN</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="Netherlands (Greg)"><span class="flag">🇳🇱</span><span class="bk-code">NED</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Morocco (Ryan)"><span class="flag">🇲🇦</span><span class="bk-code">MAR</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Spain (Bob)"><span class="flag">🇪🇸</span><span class="bk-code">ESP</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Austria (Harry)"><span class="flag">🇦🇹</span><span class="bk-code">AUT</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Portugal (Harry)"><span class="flag">🇵🇹</span><span class="bk-code">POR</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Croatia (Harry)"><span class="flag">🇭🇷</span><span class="bk-code">CRO</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Belgium (Bob)"><span class="flag">🇧🇪</span><span class="bk-code">BEL</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Senegal (Bob)"><span class="flag">🇸🇳</span><span class="bk-code">SEN</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="United States (Greg)"><span class="flag">🇺🇸</span><span class="bk-code">USA</span></div><div class="bk-team lose" title="Bosnia-Herzegovina"><span class="flag">🇧🇦</span><span class="bk-code">BIH</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Brazil (Harry)"><span class="flag">🇧🇷</span><span class="bk-code">BRA</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Japan (Ian)"><span class="flag">🇯🇵</span><span class="bk-code">JPN</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="Ivory Coast (Greg)"><span class="flag">🇨🇮</span><span class="bk-code">CIV</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Norway (Ian)"><span class="flag">🇳🇴</span><span class="bk-code">NOR</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="England (Ryan)"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="bk-code">ENG</span></div><div class="bk-team lose" title="Congo DR"><span class="flag">🇨🇩</span><span class="bk-code">COD</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Mexico (Harry)"><span class="flag">🇲🇽</span><span class="bk-code">MEX</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Ecuador (Ian)"><span class="flag">🇪🇨</span><span class="bk-code">ECU</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Argentina (Ian)"><span class="flag">🇦🇷</span><span class="bk-code">ARG</span></div><div class="bk-team lose" title="Cape Verde Islands"><span class="flag">🇨🇻</span><span class="bk-code">CPV</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Australia (Bob)"><span class="flag">🇦🇺</span><span class="bk-code">AUS</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Egypt (Harry)"><span class="flag">🇪🇬</span><span class="bk-code">EGY</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="Switzerland (Greg)"><span class="flag">🇨🇭</span><span class="bk-code">SUI</span></div><div class="bk-team lose" title="Algeria"><span class="flag">🇩🇿</span><span class="bk-code">ALG</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Colombia (Ryan)"><span class="flag">🇨🇴</span><span class="bk-code">COL</span></div><div class="bk-team lose" title="Ghana"><span class="flag">🇬🇭</span><span class="bk-code">GHA</span></div></div></div>
+<div class="bk-round"><h3>R16</h3>
+<div class="bk-match"><div class="bk-team lose" title="Paraguay"><span class="flag">🇵🇾</span><span class="bk-code">PAR</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="France (Greg)"><span class="flag">🇫🇷</span><span class="bk-code">FRA</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Canada (Ryan)"><span class="flag">🇨🇦</span><span class="bk-code">CAN</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Morocco (Ryan)"><span class="flag">🇲🇦</span><span class="bk-code">MAR</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Portugal (Harry)"><span class="flag">🇵🇹</span><span class="bk-code">POR</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Spain (Bob)"><span class="flag">🇪🇸</span><span class="bk-code">ESP</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="United States (Greg)"><span class="flag">🇺🇸</span><span class="bk-code">USA</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Belgium (Bob)"><span class="flag">🇧🇪</span><span class="bk-code">BEL</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Brazil (Harry)"><span class="flag">🇧🇷</span><span class="bk-code">BRA</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Norway (Ian)"><span class="flag">🇳🇴</span><span class="bk-code">NOR</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Mexico (Harry)"><span class="flag">🇲🇽</span><span class="bk-code">MEX</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="England (Ryan)"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="bk-code">ENG</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Argentina (Ian)"><span class="flag">🇦🇷</span><span class="bk-code">ARG</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #ba68c8 26%, transparent)" title="Egypt (Harry)"><span class="flag">🇪🇬</span><span class="bk-code">EGY</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="Switzerland (Greg)"><span class="flag">🇨🇭</span><span class="bk-code">SUI</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Colombia (Ryan)"><span class="flag">🇨🇴</span><span class="bk-code">COL</span></div></div></div>
+<div class="bk-round"><h3>QF</h3>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="France (Greg)"><span class="flag">🇫🇷</span><span class="bk-code">FRA</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="Morocco (Ryan)"><span class="flag">🇲🇦</span><span class="bk-code">MAR</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Spain (Bob)"><span class="flag">🇪🇸</span><span class="bk-code">ESP</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Belgium (Bob)"><span class="flag">🇧🇪</span><span class="bk-code">BEL</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Norway (Ian)"><span class="flag">🇳🇴</span><span class="bk-code">NOR</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="England (Ryan)"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="bk-code">ENG</span></div></div>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Argentina (Ian)"><span class="flag">🇦🇷</span><span class="bk-code">ARG</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="Switzerland (Greg)"><span class="flag">🇨🇭</span><span class="bk-code">SUI</span></div></div></div>
+<div class="bk-round"><h3>SF</h3>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="France (Greg)"><span class="flag">🇫🇷</span><span class="bk-code">FRA</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Spain (Bob)"><span class="flag">🇪🇸</span><span class="bk-code">ESP</span></div></div>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="England (Ryan)"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="bk-code">ENG</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Argentina (Ian)"><span class="flag">🇦🇷</span><span class="bk-code">ARG</span></div></div></div>
+<div class="bk-round"><h3>Final</h3>
+<div class="bk-match"><div class="bk-team picked win" style="background:color-mix(in srgb, #4fc3f7 26%, transparent)" title="Spain (Bob)"><span class="flag">🇪🇸</span><span class="bk-code">ESP</span></div><div class="bk-team picked lose" style="background:color-mix(in srgb, #81c784 26%, transparent)" title="Argentina (Ian)"><span class="flag">🇦🇷</span><span class="bk-code">ARG</span></div></div></div>
+<div class="bk-round"><h3>3rd place</h3>
+<div class="bk-match"><div class="bk-team picked lose" style="background:color-mix(in srgb, #ffb74d 26%, transparent)" title="France (Greg)"><span class="flag">🇫🇷</span><span class="bk-code">FRA</span></div><div class="bk-team picked win" style="background:color-mix(in srgb, #e57373 26%, transparent)" title="England (Ryan)"><span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="bk-code">ENG</span></div></div></div>
+</div></div>
+</section>
+<footer>
+<p>Scoring &mdash; <ul>
+<li>Group stage: win 3 pts, draw 1 pt</li>
+<li>Advance to knockouts: 3 pts</li>
+<li>Knockout win: R32 4 &middot; R16 6 &middot; QF 8 &middot; SF 10 &middot; Final 14</li>
+</ul></p>
+<p>104 of 104 matches played.</p>
+<p>Generated at 2026-08-07T15:11:35Z.</p>
+</footer>
+</body>
+</html>

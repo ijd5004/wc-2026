@@ -1,15 +1,11 @@
 name: Update pool
 
 on:
-  schedule:
-    # Hourly. football-data.org's free tier posts some results late and out of
-    # order, so a single daily fetch can miss the prior evening's matches until
-    # the next day; polling every hour bounds that staleness and survives
-    # GitHub's best-effort scheduler delaying or dropping any one run. Well
-    # within all free tiers: the repo is public (unlimited Actions minutes),
-    # the fetch is 1 API call/run (limit is 10/min), and 24 Pages deploys/day
-    # is far under the ~10/hour soft cap.
-    - cron: "20 * * * *"
+  # The tournament is over and the pool is settled, so the hourly schedule that
+  # polled football-data.org has been removed — every run since the final only
+  # rewrote the `generated_at` timestamp. The job is kept dispatch-only so the
+  # site can still be rebuilt by hand from the committed data if needed; run it
+  # with skip_fetch to rebuild without touching the API.
   workflow_dispatch:
     inputs:
       skip_fetch:
